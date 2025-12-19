@@ -3,58 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigiTech-io | Professional Enterprise Portal 2026</title>
+    <title>DigiTech-io | Professional Digital Hub 2026</title>
     <style>
         :root { --primary: #004a99; --accent: #ff4500; --success: #28a745; --light: #f4f7f6; --gold: #ffd700; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: var(--light); color: #333; transition: 0.3s; }
-        .dark-mode { background: #1a1a1b; color: #eee; }
-        .dark-mode .container, .dark-mode header { background: #26262b; color: white; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: var(--light); color: #333; overflow-x: hidden; }
 
         header { background: #fff; padding: 20px; text-align: center; border-bottom: 5px solid var(--primary); }
         .logo { font-size: 38px; font-weight: 900; color: var(--primary); letter-spacing: 2px; margin: 0; }
         #live-clock { font-size: 14px; color: #666; margin-top: 5px; font-weight: bold; }
 
-        .search-area { background: #eef2f3; padding: 15px; text-align: center; }
-        .search-box { width: 60%; padding: 12px; border: 2px solid #ccc; border-radius: 25px 0 0 25px; outline: none; }
+        /* News Flasher Ticker */
+        .ticker-wrap { background: #333; color: var(--gold); padding: 10px 0; overflow: hidden; white-space: nowrap; }
+        .ticker { display: inline-block; animation: tickerMove 20s linear infinite; font-weight: bold; }
+        @keyframes tickerMove { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        /* Google Search Area */
+        .search-area { background: #eef2f3; padding: 15px; text-align: center; border-bottom: 1px solid #ddd; }
+        .search-box { width: 60%; padding: 12px; border: 2px solid #ccc; border-radius: 25px 0 0 25px; outline: none; font-size: 16px; }
         .search-btn { padding: 12px 25px; background: var(--primary); color: white; border: none; border-radius: 0 25px 25px 0; cursor: pointer; font-weight: bold; }
 
+        /* Navbar */
         .navbar { background: var(--primary); position: sticky; top: 0; z-index: 1000; display: flex; flex-wrap: wrap; justify-content: center; }
         .navbar a, .dropbtn { color: white; padding: 15px 18px; text-decoration: none; font-weight: bold; font-size: 13px; cursor: pointer; border: none; background: none; }
         .navbar a:hover, .dropdown:hover .dropbtn { background: #003366; }
         .dropdown { position: relative; }
-        .dropdown-content { display: none; position: absolute; background: white; min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1001; top: 100%; }
+        .dropdown-content { display: none; position: absolute; background: white; min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1001; top: 100%; border-radius: 0 0 8px 8px; }
         .dropdown-content a { color: #333; padding: 12px 16px; display: block; border-bottom: 1px solid #eee; text-align: left; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* Hi-Tech Flash Animation */
-        @keyframes floatPulse { 0% { transform: translateY(0) scale(1); filter: brightness(1); } 50% { transform: translateY(-10px) scale(1.02); filter: brightness(1.1); } 100% { transform: translateY(0) scale(1); filter: brightness(1); } }
-        .product-img { width: 100%; height: 200px; object-fit: contain; animation: floatPulse 4s infinite ease-in-out; border-radius: 12px; }
+        /* Flashing Image Animation */
+        @keyframes flashPulse { 0% { transform: translateY(0) scale(1); filter: brightness(1); } 50% { transform: translateY(-10px) scale(1.03); filter: brightness(1.15); } 100% { transform: translateY(0) scale(1); filter: brightness(1); } }
+        .product-img { width: 100%; height: 200px; object-fit: contain; animation: flashPulse 4s infinite ease-in-out; border-radius: 12px; background: #fff; }
+
+        /* Auto-Sliding Banner */
+        .slider { width: 100%; height: 320px; overflow: hidden; position: relative; background: #000; }
+        .slides { display: flex; width: 400%; height: 100%; animation: slideAnim 15s infinite; }
+        .slide { width: 100%; height: 100%; position: relative; }
+        .slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; }
+        .slide-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; text-align: center; font-size: 28px; font-weight: bold; width: 85%; text-shadow: 2px 2px 4px #000; }
+        @keyframes slideAnim { 0%, 20% { transform: translateX(0); } 25%, 45% { transform: translateX(-25%); } 50%, 70% { transform: translateX(-50%); } 75%, 95% { transform: translateX(-75%); } 100% { transform: translateX(0); } }
 
         .container { max-width: 1200px; margin: 30px auto; padding: 25px; background: white; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
         .card { border: 1px solid #ddd; padding: 20px; text-align: center; border-radius: 12px; transition: 0.3s; }
+        .card:hover { transform: scale(1.05); }
         .buy-btn { background: #f0c14b; color: #111; padding: 12px; display: block; text-decoration: none; font-weight: bold; border-radius: 8px; border: 1px solid #a88734; margin-top: 15px; }
 
         .fab-group { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 2000; }
-        .fab { width: 190px; padding: 14px; border-radius: 50px; text-decoration: none; color: white; font-weight: bold; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); font-size: 14px; transition: 0.3s; }
+        .fab { width: 190px; padding: 14px; border-radius: 50px; text-decoration: none; color: white; font-weight: bold; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.3); font-size: 14px; }
         .wa-fab { background-color: #25D366; } .call-fab { background-color: #007bff; }
-        
-        .theme-toggle { position: fixed; top: 120px; right: 20px; background: #333; color: white; padding: 10px; border-radius: 50%; cursor: pointer; z-index: 2001; border: none; }
+
         footer { text-align: center; padding: 40px; background: #222; color: #fff; margin-top: 50px; }
     </style>
 </head>
 <body>
-
-<button class="theme-toggle" onclick="toggleTheme()">🌓</button>
 
 <header>
     <div class="logo">DIGITECH-IO</div>
     <div id="live-clock">Loading Time...</div>
 </header>
 
+<div class="ticker-wrap">
+    <div class="ticker">🚀 Welcome to DigiTech-io Sitamarhi! | Apply for Bihar Ration Card, BOCW Labour Card & Voter ID Now! | 🎙️ Professional Voice Over available! | 💳 Free CIBIL Check Live! 🚀</div>
+</div>
+
 <div class="search-area">
     <form action="https://www.google.com/search" method="GET" target="_blank">
-        <input type="text" name="q" class="search-box" placeholder="Search Google for any info..." required>
+        <input type="text" name="q" class="search-box" placeholder="Search Google for any information..." required>
         <button type="submit" class="search-btn">Search</button>
     </form>
 </div>
@@ -64,12 +79,14 @@
     <div class="dropdown">
         <button class="dropbtn">Govt Schemes ▼</button>
         <div class="dropdown-content">
-            <a href="https://myaadhaar.uidai.gov.in/">Aadhaar Card</a>
-            <a href="https://www.pan.utiitsl.com/">PAN Card</a>
+            <a href="https://myaadhaar.uidai.gov.in/">Aadhaar Services</a>
+            <a href="https://www.pan.utiitsl.com/">PAN Card App</a>
+            <a href="https://voters.eci.gov.in/">Apply Voter ID</a>
             <a href="https://rconline.bihar.gov.in/">Bihar Ration Card</a>
             <a href="https://bocwscheme.bihar.gov.in/">Bihar BOCW Card</a>
-            <a href="https://pmkisan.gov.in/">PM Kisan</a>
-            <a href="https://scholarships.gov.in/">National Scholarship (NSP)</a>
+            <a href="https://www.sspmis.bihar.gov.in/">Bihar Pension</a>
+            <a href="https://pmkisan.gov.in/">PM Kisan Status</a>
+            <a href="https://sarathi.parivahan.gov.in/">Apply Driving Licence</a>
         </div>
     </div>
     <div class="dropdown">
@@ -80,40 +97,38 @@
         </div>
     </div>
     <a href="#deals">Amazon Deals</a>
-    <a href="https://www.imdb.com" target="_blank">Entertainment</a>
+    <a href="#entertainment">Entertainment</a>
+</div>
+
+<div class="slider">
+    <div class="slides">
+        <div class="slide"><img src="https://m.media-amazon.com/images/I/71ZDYRSmsWL._SL1500_.jpg"><div class="slide-text">Latest 5G Smartphones & Gadgets</div></div>
+        <div class="slide"><img src="https://m.media-amazon.com/images/I/61SSZ-F57bL._SL1500_.jpg"><div class="slide-text">Professional High-Speed Laptops</div></div>
+        <div class="slide"><img src="https://m.media-amazon.com/images/I/61S9aVn9d6L._SL1500_.jpg"><div class="slide-text">Best Deals on Smartwatches</div></div>
+        <div class="slide"><img src="https://m.media-amazon.com/images/I/71S8qtW4-9L._SL1500_.jpg"><div class="slide-text">Home Appliances & Accessories</div></div>
+    </div>
 </div>
 
 <div class="container" id="home">
     <section id="deals">
-        <h2>🔥 Hot Amazon Deals (My Store ID: 8210073056-21)</h2>
+        <h2 style="color: var(--accent);">🔥 Hot Amazon Deals (Store ID: 8210073056-21)</h2>
         <div class="grid">
-            <div class="card">
-                <img class="product-img" src="https://m.media-amazon.com/images/I/81Os1rn7pXL._AC_SL1500_.jpg" alt="Mobile">
-                <p>New Gen 5G Mobiles</p>
-                <a href="https://www.amazon.in/s?k=smartphone&tag=8210073056-21" class="buy-btn" target="_blank">View on Store</a>
-            </div>
-            <div class="card">
-                <img class="product-img" src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg" alt="Laptop">
-                <p>Professional Laptops</p>
-                <a href="https://www.amazon.in/s?k=laptop&tag=8210073056-21" class="buy-btn" target="_blank">View on Store</a>
-            </div>
-            <div class="card">
-                <img class="product-img" src="https://m.media-amazon.com/images/I/61ZjlBOp+rL._AC_SL1500_.jpg" alt="Gadget">
-                <p>Smart Gadgets</p>
-                <a href="https://www.amazon.in/s?k=smartwatch&tag=8210073056-21" class="buy-btn" target="_blank">View on Store</a>
-            </div>
+            <div class="card"><img class="product-img" src="https://m.media-amazon.com/images/I/81Os1rn7pXL._AC_SL1500_.jpg"><p>New Gen 5G Mobiles</p><a href="https://www.amazon.in/s?k=smartphone&tag=8210073056-21" class="buy-btn" target="_blank">View on Store</a></div>
+            <div class="card"><img class="product-img" src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg"><p>Performance Laptops</p><a href="https://www.amazon.in/s?k=laptop&tag=8210073056-21" class="buy-btn" target="_blank">View on Store</a></div>
+            <div class="card"><img class="product-img" src="https://m.media-amazon.com/images/I/61ZjlBOp+rL._AC_SL1500_.jpg"><p>Smartwatches</p><a href="https://www.amazon.in/s?k=smartwatch&tag=8210073056-21" class="buy-btn" target="_blank">View on Store</a></div>
+            <div class="card"><img class="product-img" src="https://m.media-amazon.com/images/I/71S8qtW4-9L._AC_SL1500_.jpg"><p>Smart TVs</p><a href="https://www.amazon.in/s?k=smart+tv&tag=8210073056-21" class="buy-btn" target="_blank">View on Store</a></div>
+            <div class="card"><img class="product-img" src="https://m.media-amazon.com/images/I/61S9aVn9d6L._SL1500_.jpg"><p>Audio & Headphones</p><a href="https://www.amazon.in/s?k=headphones&tag=8210073056-21" class="buy-btn" target="_blank">View on Store</a></div>
         </div>
     </section>
 </div>
 
 <footer>
-    <p>© DigiTech-io All Rights Reserved 2026 | Sitamarhi, Bihar</p>
-    <p>Visitors Today: 5,492</p>
+    <p>© DigiTech-io All Rights Reserved 2026 | Visitors Today: 6,482</p>
 </footer>
 
 <div class="fab-group">
-    <a href="tel:+918210073056" class="fab call-fab">📞 Call Support</a>
-    <a href="https://wa.me/918210073056?text=Hi, Help me with Services" class="fab wa-fab">💬 WhatsApp Enquiry</a>
+    <a href="tel:+918210073056" class="fab call-fab">📞 Call Now Support</a>
+    <a href="https://wa.me/918210073056?text=Hi, Help me with DigiTech Services" class="fab wa-fab">💬 WhatsApp Enquiry</a>
 </div>
 
 <script>
@@ -122,7 +137,6 @@
         document.getElementById('live-clock').innerHTML = now.toDateString() + " | " + now.toLocaleTimeString();
     }
     setInterval(updateClock, 1000);
-    function toggleTheme() { document.body.classList.toggle('dark-mode'); }
 </script>
 
 </body>
