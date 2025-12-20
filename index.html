@@ -3,69 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigiTech-io | Mega Digital Portal 2026</title>
+    <title>DigiTech-io | Mega CSC Portal 2026</title>
     <style>
         :root { --primary: #004a99; --accent: #ff4500; --success: #25D366; --light: #f4f7f6; --gold: #ffd700; --dark: #1a1a1b; --call: #d32f2f; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background: var(--light); color: #333; transition: 0.3s; overflow-x: hidden; }
         .dark-mode { background: var(--dark); color: white; }
 
-        header { background: #fff; padding: 15px; text-align: center; border-bottom: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .logo { font-size: 32px; font-weight: 900; color: var(--primary); letter-spacing: 2px; margin: 0; }
-        
-        /* Action Buttons Header */
-        .action-group { margin-top: 12px; display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; }
-        .action-btn { color: white; border: none; padding: 10px 16px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 12px; display: flex; align-items: center; gap: 6px; transition: 0.3s; text-decoration: none; }
+        /* News Flasher Ticker */
+        .ticker-wrap { background: #000; color: var(--gold); padding: 10px 0; overflow: hidden; white-space: nowrap; border-bottom: 2px solid var(--gold); }
+        .ticker { display: inline-block; animation: tickerMove 20s linear infinite; font-weight: bold; font-size: 15px; }
+        @keyframes tickerMove { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        /* Google Search Bar Styling */
-        .search-area { background: #eef2f3; padding: 15px; text-align: center; border-bottom: 2px solid #ddd; }
-        .search-box { width: 60%; padding: 12px 20px; border: 2px solid #ccc; border-radius: 30px 0 0 30px; outline: none; font-size: 16px; }
+        /* Header */
+        header { background: #fff; padding: 20px; text-align: center; border-bottom: 5px solid var(--primary); position: relative; }
+        .logo { font-size: 35px; font-weight: 900; color: var(--primary); letter-spacing: 2px; margin: 0; }
+        
+        .action-group { margin-top: 15px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+        .action-btn { color: white; border: none; padding: 10px 18px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 13px; display: flex; align-items: center; gap: 8px; transition: 0.3s; text-decoration: none; }
+
+        /* Search Area */
+        .search-area { background: #eef2f3; padding: 15px; text-align: center; display: flex; justify-content: center; }
+        .search-box { width: 55%; padding: 12px; border: 2px solid #ccc; border-radius: 30px 0 0 30px; outline: none; }
         .search-btn { padding: 12px 25px; background: var(--primary); color: white; border: none; border-radius: 0 30px 30px 0; cursor: pointer; font-weight: bold; }
 
-        /* Flashing Animation */
-        @keyframes neonPulse { 
-            0% { filter: drop-shadow(0 0 2px var(--primary)); border: 1px solid #eee; transform: scale(1); }
-            50% { filter: drop-shadow(0 0 12px var(--gold)); border: 1px solid var(--gold); transform: scale(1.03); }
-            100% { filter: drop-shadow(0 0 2px var(--primary)); border: 1px solid #eee; transform: scale(1); }
-        }
-        .flash-card { animation: neonPulse 4s infinite ease-in-out; background: #fff; }
-        .product-img { width: 100%; height: 160px; object-fit: contain; }
-
         /* Navbar */
-        .navbar { background: var(--primary); display: flex; flex-wrap: wrap; justify-content: center; position: sticky; top: 0; z-index: 2000; }
-        .navbar a, .dropbtn { color: white; padding: 14px 18px; text-decoration: none; font-weight: bold; font-size: 13px; cursor: pointer; border: none; background: none; }
+        .navbar { background: var(--primary); position: sticky; top: 0; z-index: 1000; display: flex; flex-wrap: wrap; justify-content: center; }
+        .navbar a, .dropbtn { color: white; padding: 15px; text-decoration: none; font-weight: bold; font-size: 13px; cursor: pointer; border: none; background: none; }
         .navbar a:hover, .dropdown:hover .dropbtn { background: #003366; }
         .dropdown { position: relative; }
-        .dropdown-content { display: none; position: absolute; background: white; min-width: 220px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1001; border-radius: 0 0 10px 10px; }
+        .dropdown-content { display: none; position: absolute; background: white; min-width: 220px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1001; top: 100%; border-radius: 0 0 10px 10px; }
         .dropdown-content a { color: #333 !important; padding: 12px; display: block; border-bottom: 1px solid #eee; text-align: left; }
         .dropdown:hover .dropdown-content { display: block; }
 
-        .container { max-width: 1200px; margin: 20px auto; padding: 20px; background: white; border-radius: 20px; }
-        .dark-mode .container, .dark-mode header, .dark-mode .card, .dark-mode .search-area { background: #26262b; color: white; border-color: #444; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-        .card { border: 1px solid #eee; padding: 15px; text-align: center; border-radius: 15px; transition: 0.3s; }
+        /* Product Cards & Flashing Effect */
+        @keyframes imgPulse { 0% { transform: scale(1); filter: brightness(1); } 50% { transform: scale(1.03); filter: brightness(1.2) drop-shadow(0 0 10px var(--gold)); } 100% { transform: scale(1); filter: brightness(1); } }
+        .container { max-width: 1200px; margin: 25px auto; padding: 25px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+        .card { border: 1px solid #eee; padding: 15px; text-align: center; border-radius: 15px; background: #fff; transition: 0.3s; }
+        .card:hover { transform: translateY(-10px); border-color: var(--primary); }
+        .product-img { width: 100%; height: 160px; object-fit: contain; animation: imgPulse 4s infinite ease-in-out; }
 
-        /* Modal */
-        .modal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
-        .modal-content { background: white; margin: 5% auto; padding: 20px; width: 90%; max-width: 550px; text-align: center; border-radius: 20px; position: relative; }
+        /* Modals & Chatbot */
+        #qrModal, #locModal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
+        .modal-content { background: white; margin: 10% auto; padding: 25px; width: 300px; text-align: center; border-radius: 20px; }
 
-        footer { text-align: center; padding: 40px; background: #222; color: #fff; margin-top: 40px; }
+        /* Floating Support Buttons */
+        .fab-group { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 2000; }
+        .fab { width: 180px; padding: 15px; border-radius: 50px; text-decoration: none; color: white; font-weight: bold; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.3); font-size: 14px; }
+
+        footer { text-align: center; padding: 40px; background: #222; color: #fff; margin-top: 50px; }
     </style>
 </head>
 <body>
 
+<div class="ticker-wrap">
+    <div class="ticker">🔥 LATEST: New Bihar Ration Card Application Live! | 🎙️ High-Quality Business Promotion Voice Generation Services Available | 🏠 Apply for CSC Home Loans starting at 8.5% 🚀</div>
+</div>
+
 <header>
     <div class="logo">DIGITECH-IO</div>
-    <div id="live-clock" style="font-weight:bold; color:#666; font-size:12px;">Loading Time...</div>
+    <div id="live-clock" style="font-weight:bold; color:#666; font-size:13px;">Loading...</div>
     <div class="action-group">
-        <button class="action-btn" style="background:var(--primary);" onclick="openM('qrM')">💳 Pay Now (QR)</button>
-        <button class="action-btn" style="background:var(--success);" onclick="openM('locM')">📍 Live Location</button>
-        <a href="tel:+918210073056" class="action-btn" style="background:var(--call);">📞 Call Support</a>
+        <button class="action-btn" style="background:var(--primary);" onclick="document.getElementById('qrModal').style.display='block'">💳 Pay Now (QR)</button>
+        <button class="action-btn" style="background:var(--success);" onclick="document.getElementById('locModal').style.display='block'">📍 Live Location</button>
+        <a href="tel:+918210073056" class="action-btn" style="background:var(--call);">📞 Call Now</a>
     </div>
 </header>
 
 <div class="search-area">
-    <form action="https://www.google.com/search" method="GET" target="_blank" style="display:flex; justify-content:center;">
-        <input type="text" name="q" class="search-box" placeholder="Search Google or Web..." required>
+    <form action="https://www.google.com/search" method="GET" target="_blank" style="width:100%; display:flex; justify-content:center;">
+        <input type="text" name="q" class="search-box" placeholder="Search Google anything..." required>
         <button type="submit" class="search-btn">Search</button>
     </form>
 </div>
@@ -79,61 +86,53 @@
             <a href="https://voters.eci.gov.in/" target="_blank">Voter ID Apply</a>
             <a href="https://rconline.bihar.gov.in/" target="_blank">Bihar Ration Card</a>
             <a href="https://bocwscheme.bihar.gov.in/" target="_blank">Bihar BOCW Card</a>
-            <a href="https://scholarships.gov.in/" target="_blank">Scholarship (NSP)</a>
+            <a href="https://scholarships.gov.in/" target="_blank">National Scholarship</a>
             <a href="https://sarathi.parivahan.gov.in/" target="_blank">Driving Licence</a>
             <a href="https://pmkisan.gov.in/" target="_blank">PM Kisan Status</a>
-            <a href="https://sspmis.bihar.gov.in/" target="_blank">SSPMIS Pension</a>
-            <a href="https://www.pan.utiitsl.com/" target="_blank">PAN Card Apply</a>
+            <a href="https://sspmis.bihar.gov.in/" target="_blank">Pension Status</a>
         </div>
     </div>
     <div class="dropdown">
-        <button class="dropbtn">Banking & Finance ▼</button>
+        <button class="dropbtn">Banking & CSC ▼</button>
         <div class="dropdown-content">
             <a href="https://civilcalc.com/en/" target="_blank">Free CIBIL Check</a>
-            <a href="https://wa.me/918210073056?text=Hi, Apply for Loan" target="_blank">Apply for Loan</a>
+            <a href="https://wa.me/918210073056?text=I%20need%20details%20about%20CSC%20Schemes" target="_blank">CSC Schemes Chat</a>
+            <a href="https://wa.me/918210073056?text=Interested%20in%20Business%20Loan" target="_blank">Business Loans</a>
         </div>
     </div>
     <a href="https://www.pinterest.com/devigunjan039/" target="_blank">Pinterest Store</a>
 </div>
 
 <div class="container" id="home">
-    <h2 style="color:var(--primary); border-left: 5px solid var(--gold); padding-left: 10px;">🎙️ Business Promotion & Voice Over</h2>
-    <div style="background: linear-gradient(135deg, #004a99, #001524); color: white; padding: 25px; border-radius: 15px; text-align: center; margin-bottom:30px;">
-        <p>Boost your Shop sales with Professional AI Voice Over Generation!</p>
-        <a href="https://wa.me/918210073056?text=Hi, I want Voice Over Service" style="background:var(--gold); color:black; padding:10px 20px; border-radius:20px; text-decoration:none; font-weight:bold; display:inline-block;">Inquire Now</a>
-    </div>
+    <section style="background: linear-gradient(135deg, #004a99, #001524); color: white; padding: 30px; border-radius: 20px; text-align: center; border: 2px solid var(--gold); margin-bottom: 30px;">
+        <h2 style="color:var(--gold);">🎙️ PROMOTE YOUR BUSINESS WITH ME</h2>
+        <p>Expert Voice-Over and Shop Promotion Videos. Grow your sales with AI-Generated High-Tech Media.</p>
+        <a href="https://wa.me/918210073056?text=Hi, I want a Voice-Over Promotion Video for my shop" style="background:var(--gold); color:black; padding:12px 25px; border-radius:30px; text-decoration:none; font-weight:bold; display:inline-block;">Chat with AI Bot</a>
+    </section>
 
-    <h2 style="color:var(--primary); margin-bottom:20px;">🔥 Mega Amazon Store (8 High-Visible Categories)</h2>
+    <h2 style="color: var(--primary);">🔥 Mega Amazon Deals (100% Image Visible)</h2>
     <div class="grid">
-        <div class="card flash-card"><img class="product-img" src="https://m.media-amazon.com/images/I/81Os1rn7pXL._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Smartphone+Offer'"><p>New 5G Mobiles</p><a href="https://www.amazon.in/s?k=smartphone&tag=8210073056-21" target="_blank">View on Amazon</a></div>
-        
-        <div class="card flash-card"><img class="product-img" src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Laptop+Offer'"><p>Gaming Laptops</p><a href="https://www.amazon.in/s?k=laptop&tag=8210073056-21" target="_blank">View on Amazon</a></div>
-        
-        <div class="card flash-card"><img class="product-img" src="https://m.media-amazon.com/images/I/61ZjlBOp+rL._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Watch+Offer'"><p>Smart Watches</p><a href="https://www.amazon.in/s?k=smartwatch&tag=8210073056-21" target="_blank">View on Amazon</a></div>
-        
-        <div class="card flash-card"><img class="product-img" src="https://m.media-amazon.com/images/I/71S8qtW4-9L._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=TV+Offer'"><p>Smart LED TVs</p><a href="https://www.amazon.in/s?k=smart+tv&tag=8210073056-21" target="_blank">View on Amazon</a></div>
-        
-        <div class="card flash-card"><img class="product-img" src="https://m.media-amazon.com/images/I/61S9aVn9d6L._SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Camera+Offer'"><p>DSLR Cameras</p><a href="https://www.amazon.in/s?k=dslr+camera&tag=8210073056-21" target="_blank">View on Amazon</a></div>
-        
-        <div class="card flash-card"><img class="product-img" src="https://m.media-amazon.com/images/I/71-0GfXFzHL._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Fridge+Offer'"><p>Refrigerators</p><a href="https://www.amazon.in/s?k=fridge&tag=8210073056-21" target="_blank">View on Amazon</a></div>
-        
-        <div class="card flash-card"><img class="product-img" src="https://m.media-amazon.com/images/I/51H-j-420AL._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=AC+Offer'"><p>Split Air Conditioners</p><a href="https://www.amazon.in/s?k=ac&tag=8210073056-21" target="_blank">View on Amazon</a></div>
-        
-        <div class="card flash-card"><img class="product-img" src="https://m.media-amazon.com/images/I/61S9aVn9d6L._SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Audio+Offer'"><p>Home Theatre</p><a href="https://www.amazon.in/s?k=home+theatre&tag=8210073056-21" target="_blank">View on Amazon</a></div>
+        <div class="card"><img class="product-img" src="https://images.weserv.nl/?url=m.media-amazon.com/images/I/81Os1rn7pXL._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Smartphone+Offer'"><p>New 5G Mobiles</p><a href="https://www.amazon.in/s?k=smartphone&tag=8210073056-21" target="_blank">Shop Now</a></div>
+        <div class="card"><img class="product-img" src="https://images.weserv.nl/?url=m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Laptop+Offer'"><p>Workstation Laptops</p><a href="https://www.amazon.in/s?k=laptop&tag=8210073056-21" target="_blank">Shop Now</a></div>
+        <div class="card"><img class="product-img" src="https://images.weserv.nl/?url=m.media-amazon.com/images/I/61ZjlBOp+rL._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Smartwatch+Offer'"><p>Smart Watches</p><a href="https://www.amazon.in/s?k=smartwatch&tag=8210073056-21" target="_blank">Shop Now</a></div>
+        <div class="card"><img class="product-img" src="https://images.weserv.nl/?url=m.media-amazon.com/images/I/71S8qtW4-9L._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=TV+Offer'"><p>Smart LED TVs</p><a href="https://www.amazon.in/s?k=smart+tv&tag=8210073056-21" target="_blank">Shop Now</a></div>
     </div>
 </div>
 
-<div id="qrM" class="modal" onclick="closeM('qrM')"><div class="modal-content" onclick="event.stopPropagation()"><h3>Secure Payment QR</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=chamanjha2015-1@okhdfcbank%26pn=DigiTech-io" style="width:230px;"><p>UPI: chamanjha2015-1@okhdfcbank</p></div></div>
-<div id="locM" class="modal" onclick="closeM('locM')"><div class="modal-content" onclick="event.stopPropagation()"><h3>Office Location</h3><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114518.23933580552!2d85.441417578125!3d26.598978500000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed098a72b6623d%3A0x67319f074499f57c!2sSitamarhi%2C%20Bihar!5e0!3m2!1sen!2sin!4v1715424567890!5m2!1sen!2sin" width="100%" height="350" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe></div></div>
+<div id="qrModal" onclick="this.style.display='none'"><div class="modal-content"><h3>Scan to Pay</h3><img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=chamanjha2015-1@okhdfcbank" style="width:100%;"><p>Merchant: DigiTech-io</p></div></div>
+<div id="locModal" onclick="this.style.display='none'"><div class="modal-content" style="width:90%; max-width:600px;"><h3>Our Office Location</h3><iframe src="http://googleusercontent.com/maps.google.com/9" width="100%" height="350" style="border:0; border-radius:15px;" loading="lazy"></iframe></div></div>
 
-<footer><p>© DigiTech-io All Rights Reserved 2026 | Sitamarhi, Bihar</p>
-<button onclick="document.body.classList.toggle('dark-mode')" style="background:var(--gold); border:none; padding:10px; cursor:pointer; border-radius:5px;">Toggle Mode</button></footer>
+<footer><p>© DigiTech-io 2026 | Sitamarhi, Bihar | Live Visitors: 18,482</p></footer>
+
+<div class="fab-group">
+    <a href="tel:+918210073056" class="fab" style="background:#007bff; text-decoration:none;">📞 Call Support Now</a>
+    <a href="https://wa.me/918210073056?text=Hi, Help me with DigiTech Services" class="fab" style="background:#25D366; text-decoration:none;">💬 WhatsApp Chatbot</a>
+</div>
 
 <script>
     function updateClock() { document.getElementById('live-clock').innerHTML = new Date().toDateString() + " | " + new Date().toLocaleTimeString(); }
     setInterval(updateClock, 1000); updateClock();
-    function openM(id) { document.getElementById(id).style.display = 'block'; }
-    function closeM(id) { document.getElementById(id).style.display = 'none'; }
 </script>
+
 </body>
 </html>
