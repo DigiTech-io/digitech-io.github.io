@@ -1,127 +1,194 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DigiTech - Govt Schemes Portal</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>DigiTech-io | Professional CSC & Digital Portal 2026</title>
     <style>
-        /* 1. Global Website Update: UI/UX Sudhar */
-        :root {
-            --primary-color: #004a99;
-            --secondary-color: #ff9933;
-            --bg-color: #f4f7f6;
-        }
+        :root { --primary: #004a99; --accent: #ff4500; --success: #25D366; --light: #f4f7f6; --gold: #ffd700; --dark: #1a1a1b; --call: #d32f2f; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background: var(--light); color: #333; transition: 0.3s; overflow-x: hidden; }
+        .dark-mode { background: var(--dark); color: #eee; }
+        .dark-mode .container, .dark-mode header, .dark-mode .card, .dark-mode .about-box { background: #26262b; color: white; border-color: #444; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: var(--bg-color);
-        }
+        header { background: #fff; padding: 20px; text-align: center; border-bottom: 5px solid var(--primary); }
+        .logo { font-size: 35px; font-weight: 900; color: var(--primary); letter-spacing: 2px; margin: 0; }
+        
+        /* Action Buttons in Header */
+        .action-group { margin-top: 15px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+        .action-btn { color: white; border: none; padding: 10px 18px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 13px; display: flex; align-items: center; gap: 8px; transition: 0.3s; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .action-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-        /* 2. Desktop Navigation Update */
-        nav {
-            background: var(--primary-color);
-            color: white;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+        /* Ticker */
+        .ticker-wrap { background: #222; color: var(--gold); padding: 8px 0; overflow: hidden; white-space: nowrap; border-bottom: 2px solid var(--gold); }
+        .ticker { display: inline-block; animation: tickerMove 25s linear infinite; font-weight: bold; }
+        @keyframes tickerMove { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        .logo { font-size: 24px; font-weight: bold; color: white; text-decoration: none; }
+        /* Modern Search Area */
+        .search-area { background: #eef2f3; padding: 15px; text-align: center; display: flex; justify-content: center; }
+        .search-box { width: 55%; padding: 12px; border: 2px solid #ccc; border-radius: 30px 0 0 30px; outline: none; }
+        .search-btn { padding: 12px 25px; background: var(--primary); color: white; border: none; border-radius: 0 30px 30px 0; cursor: pointer; font-weight: bold; }
 
-        /* 3. Govt Scheme Menu Grid (Total 22+ Updates) */
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+        /* Navbar Sticky */
+        .navbar { background: var(--primary); position: sticky; top: 0; z-index: 1000; display: flex; flex-wrap: wrap; justify-content: center; }
+        .navbar a, .dropbtn { color: white; padding: 15px; text-decoration: none; font-weight: bold; font-size: 13px; cursor: pointer; border: none; background: none; }
+        .navbar a:hover { background: #003366; }
+        .dropdown { position: relative; }
+        .dropdown-content { display: none; position: absolute; background: white; min-width: 220px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1001; }
+        .dropdown-content a { color: #333 !important; padding: 12px; display: block; border-bottom: 1px solid #eee; text-align: left; }
+        .dropdown:hover .dropdown-content { display: block; }
 
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
+        /* Service Cards Animation */
+        .container { max-width: 1200px; margin: 25px auto; padding: 25px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .card { border: 1px solid #eee; padding: 15px; text-align: center; border-radius: 15px; background: #fff; transition: 0.3s; position: relative; }
+        .card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        
+        /* High-Tech Flashing Image */
+        @keyframes hiTechPulse { 0% { opacity: 1; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.05); } 100% { opacity: 1; transform: scale(1); } }
+        .product-img { width: 100%; height: 160px; object-fit: contain; animation: hiTechPulse 5s infinite; border-radius: 10px; }
 
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-bottom: 4px solid var(--secondary-color);
-            text-decoration: none;
-            color: #333;
-            display: block;
-        }
+        /* Business Promotion Section */
+        .promo-banner { background: linear-gradient(135deg, #004a99, #001524); color: white; padding: 30px; border-radius: 20px; text-align: center; border: 2px solid var(--gold); margin: 30px 0; }
+        .about-box { padding: 30px; border: 2px solid #ddd; border-radius: 20px; background: #fff; }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
+        /* Modal QR */
+        #qrModal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
+        .modal-content { background: white; margin: 10% auto; padding: 25px; width: 300px; text-align: center; border-radius: 20px; }
 
-        .card i {
-            font-size: 40px;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
+        /* FAB Support */
+        .fab-group { position: fixed; bottom: 25px; right: 25px; display: flex; flex-direction: column; gap: 12px; z-index: 2000; }
+        .fab { width: 195px; padding: 15px; border-radius: 50px; text-decoration: none; color: white; font-weight: bold; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.3); font-size: 14px; }
 
-        /* Responsive Mobile Update */
-        @media (max-width: 768px) {
-            .service-grid { grid-template-columns: 1fr 1fr; }
-        }
+        footer { text-align: center; padding: 40px; background: #222; color: #fff; margin-top: 50px; border-radius: 30px 30px 0 0; }
+        @media (max-width: 800px) { .search-box { width: 65%; } }
     </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="logo">DIGITECH IO</a>
-        <div class="menu">Govt Schemes Portal</div>
-    </nav>
+<header>
+    <div class="logo">DIGITECH-IO</div>
+    <div id="live-clock" style="font-weight:bold; color:#666; font-size:13px;">Loading...</div>
+    
+    <div class="action-group">
+        <button class="action-btn" style="background:var(--primary);" onclick="document.getElementById('qrModal').style.display='block'">
+            💳 Pay Fees (QR)
+        </button>
+        <a href="#location" class="action-btn" style="background:var(--success);">
+            📍 Live Map
+        </a>
+        <a href="tel:+918210073056" class="action-btn" style="background:var(--call);">
+            📞 Call Help
+        </a>
+    </div>
+</header>
 
-    <div class="container">
-        <h2 style="text-align:center; color: #333;">Govt Services Dashboard</h2>
-        <div class="service-grid">
-            <a href="https://pmkisan.gov.in/" class="card">
-                <i class="fas fa-seedling"></i>
-                <h3>PM Kisan</h3>
-            </a>
-            <a href="https://uidai.gov.in/" class="card">
-                <i class="fas fa-id-card"></i>
-                <h3>Aadhar Card</h3>
-            </a>
-            <a href="https://www.pan.utiitsl.com/" class="card">
-                <i class="fas fa-address-card"></i>
-                <h3>PAN Services</h3>
-            </a>
-            <a href="https://edistrict.up.gov.in/" class="card">
-                <i class="fas fa-file-invoice"></i>
-                <h3>E-District</h3>
-            </a>
-            </div>
+<div id="qrModal" onclick="this.style.display='none'">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <h3>Scan for Secure Payment</h3>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=chamanjha2015-1@okhdfcbank%26pn=DigiTech-io" alt="QR Code" style="width:100%;">
+        <p style="color:#333; font-weight:bold;">Merchant: DigiTech-io</p>
+    </div>
+</div>
+
+<div class="ticker-wrap">
+    <div class="ticker">🚀 LIVE: Bihar New Ration Card Applied Here! | 🎙️ High-Quality Voice Generation for Shops available! | 💳 Free CIBIL Check Instantly! | 🏠 CSC Home Loans starting @ Low Interest! 🚀</div>
+</div>
+
+<div class="search-area">
+    <form action="https://www.google.com/search" method="GET" target="_blank" style="width:100%; display:flex; justify-content:center;">
+        <input type="text" name="q" class="search-box" placeholder="Search Google anything..." required>
+        <button type="submit" class="search-btn">Search</button>
+    </form>
+</div>
+
+<div class="navbar">
+    <a href="#home">Home</a>
+    <div class="dropdown">
+        <button class="dropbtn">Govt Schemes ▼</button>
+        <div class="dropdown-content">
+            <a href="https://myaadhaar.uidai.gov.in/" target="_blank">Aadhaar Services</a>
+            <a href="https://www.pan.utiitsl.com/" target="_blank">PAN Card App</a>
+            <a href="https://voters.eci.gov.in/" target="_blank">Voter ID Apply</a>
+            <a href="https://rconline.bihar.gov.in/" target="_blank">Bihar Ration Card</a>
+            <a href="https://bocwscheme.bihar.gov.in/" target="_blank">Bihar BOCW Card</a>
+            <a href="https://scholarships.gov.in/" target="_blank">National Scholarship</a>
+            <a href="https://sarathi.parivahan.gov.in/" target="_blank">Driving Licence</a>
+            <a href="https://pmkisan.gov.in/" target="_blank">PM Kisan Status</a>
+            <a href="https://sspmis.bihar.gov.in/" target="_blank">SSPMIS Pension</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Banking Hub ▼</button>
+        <div class="dropdown-content">
+            <a href="https://civilcalc.com/en/" target="_blank">Free CIBIL Check</a>
+            <a href="https://wa.me/918210073056?text=Hi, I want to apply for a Personal/Home Loan" target="_blank">Personal/Home Loan</a>
+            <a href="https://wa.me/918210073056?text=Interested in Business Loan for my Shop" target="_blank">Business Loans</a>
+        </div>
+    </div>
+    <a href="#deals">Amazon Deals</a>
+</div>
+
+<div class="container" id="home">
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 30px;">
+        <section class="about-box" style="flex: 1; min-width: 300px;">
+            <h2>About DigiTech-io</h2>
+            <p>DigiTech-io is Sitamarhi's most trusted Digital Service Hub. We simplify Government processes and offer advanced CSC solutions with top-tier professional consulting.</p>
+        </section>
+
+        <section class="promo-banner" style="flex: 1; min-width: 300px;">
+            <h2 style="color:var(--gold); border:none;">🎙️ PROMOTIONS</h2>
+            <p>Grow your business with Professional Voice-Over and Shop Promotion services!</p>
+            <a href="https://wa.me/918210073056?text=Hi, I want to Promote my Business with AI Voice Over" class="action-btn" style="background:var(--gold); color:black; margin: 10px auto; width: fit-content; text-decoration:none;">Inquire via WhatsApp</a>
+        </section>
     </div>
 
-    <script>
-        // Ye script check karega ki koi bhi click bahar ki site ka hai to usse Naye Tab me khole
-        document.addEventListener('click', function(e) {
-            let target = e.target.closest('a');
-            if (target && target.href) {
-                const url = new URL(target.href);
-                // Agar link aapki apni site ka nahi hai (External/Govt)
-                if (url.hostname !== window.location.hostname) {
-                    e.preventDefault(); // Default exit roko
-                    window.open(target.href, '_blank', 'noopener,noreferrer'); // Naye tab me kholo
-                }
-            }
-        });
+    <section id="deals">
+        <h2 style="color: var(--accent);">🔥 Hot Amazon Deals (Earning Enabled)</h2>
+        <div class="grid">
+            <div class="card">
+                <img class="product-img" src="https://m.media-amazon.com/images/I/81Os1rn7pXL._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Mobile+Offer';" alt="Mobile">
+                <p>New 5G Mobiles</p>
+                <a href="https://www.amazon.in/s?k=smartphone&tag=8210073056-21" class="search-btn" style="text-decoration:none; padding:10px; border-radius:5px; display:block;" target="_blank">Shop on Store</a>
+            </div>
+            <div class="card">
+                <img class="product-img" src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Laptop+Offer';" alt="Laptop">
+                <p>High-End Laptops</p>
+                <a href="https://www.amazon.in/s?k=laptop&tag=8210073056-21" class="search-btn" style="text-decoration:none; padding:10px; border-radius:5px; display:block;" target="_blank">Shop on Store</a>
+            </div>
+            <div class="card">
+                <img class="product-img" src="https://m.media-amazon.com/images/I/61ZjlBOp+rL._AC_SL1500_.jpg" onerror="this.src='https://placehold.co/400x400?text=Gadget+Offer';" alt="Watch">
+                <p>Smart Gadgets</p>
+                <a href="https://www.amazon.in/s?k=smartwatch&tag=8210073056-21" class="search-btn" style="text-decoration:none; padding:10px; border-radius:5px; display:block;" target="_blank">Shop on Store</a>
+            </div>
+        </div>
+    </section>
 
-        console.log("DigiTech System: Global New Tab Logic Applied Successfully.");
-    </script>
+    <section id="location" style="margin-top:40px;">
+        <h2>📍 Our Live Location (Sitamarhi)</h2>
+        <div style="border-radius:20px; overflow:hidden; border:3px solid var(--primary);">
+            <iframe src="http://googleusercontent.com/maps.google.com/9" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <p>© DigiTech-io All Rights Reserved 2026 | Sitamarhi, Bihar</p>
+    <p>Live Visitors Today: 18,342 | <button onclick="document.body.classList.toggle('dark-mode')" style="background:none; border:1px solid #fff; color:#fff; cursor:pointer; padding:5px 10px; border-radius:5px;">Switch Theme</button></p>
+</footer>
+
+<div class="fab-group">
+    <a href="tel:+918210073056" class="fab" style="background:#007bff; text-decoration:none;">📞 Call Support</a>
+    <a href="https://wa.me/918210073056?text=Hi, Help me with DigiTech Services" class="fab" style="background:#25D366; text-decoration:none;">💬 WhatsApp Enquiry</a>
+</div>
+
+<script>
+    function updateClock() {
+        var now = new Date();
+        document.getElementById('live-clock').innerHTML = now.toDateString() + " | " + now.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
 
 </body>
 </html>
