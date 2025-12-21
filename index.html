@@ -5,54 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DigiTech-io | Enterprise Master Hub 2026</title>
     <style>
-        :root { --primary: #004a99; --accent: #ff5722; --success: #25D366; --light: #f4f7f6; --gold: #ffd700; --dark: #1a1a1b; --call: #d32f2f; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: var(--light); color: #333; transition: 0.3s; overflow-x: hidden; }
-        .dark-mode { background: #121212; color: #e0e0e0; }
-        .dark-mode section, .dark-mode header, .dark-mode .card { background: rgba(30,30,35,0.95); border-color: #444; color: white; }
+        :root { --primary:#004a99; --accent:#ff5722; --success:#25D366; --light:#f4f7f6; --gold:#ffd700; --dark:#1a1a1b; --call:#d32f2f; }
+        *{box-sizing:border-box;margin:0;padding:0;}
+        body{font-family:'Segoe UI',Arial,sans-serif;background:var(--light);color:#333;transition:.3s;overflow-x:hidden;}
+        .dark-mode{background:#121212;color:#e0e0e0;}
+        .dark-mode section,.dark-mode header,.dark-mode .card{background:rgba(30,30,35,.95);border-color:#444;color:#fff;}
 
-        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0.3; }
+        #bg-canvas{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.3;}
 
-        header { background: #fff; padding: 20px; text-align: center; border-bottom: 5px solid var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .logo { font-size: 28px; font-weight: 900; color: var(--primary); letter-spacing: 1px; text-transform: uppercase; }
-        
-        .action-group { margin-top: 15px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
-        .action-btn { color: white; border: none; padding: 10px 18px; border-radius: 25px; cursor: pointer; font-weight: bold; font-size: 13px; display: flex; align-items: center; gap: 8px; text-decoration: none; transition: 0.3s; }
-        .action-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.2); }
+        header{background:#fff;padding:16px;text-align:center;border-bottom:5px solid var(--primary);box-shadow:0 4px 10px rgba(0,0,0,.1);}
+        .logo{font-size:26px;font-weight:900;color:var(--primary);letter-spacing:1px;text-transform:uppercase;}
+        .tagline{font-size:13px;color:#666;margin-top:4px;}
 
-        .news-container { background: #000; color: var(--gold); border-bottom: 2px solid var(--gold); }
-        .ticker-row { overflow: hidden; white-space: nowrap; padding: 6px 0; border-bottom: 1px solid #333; font-size: 13px; }
-        .ticker { display: inline-block; animation: tickerMove 30s linear infinite; font-weight: bold; }
-        @keyframes tickerMove { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+        .action-group{margin-top:10px;display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+        .action-btn{color:#fff;border:none;padding:8px 14px;border-radius:25px;cursor:pointer;font-weight:bold;font-size:12px;display:flex;align-items:center;gap:6px;text-decoration:none;transition:.3s;}
+        .action-btn:hover{transform:translateY(-3px);box-shadow:0 6px 12px rgba(0,0,0,.2);}
 
-        .navbar { background: var(--primary); position: sticky; top: 0; z-index: 1000; display: flex; flex-wrap: wrap; justify-content: center; }
-        .navbar a, .dropbtn { color: white; padding: 14px 16px; text-decoration: none; font-weight: bold; font-size: 13px; cursor: pointer; border: none; background: none; }
-        .navbar a:hover { background: rgba(255,255,255,0.1); }
-        .dropdown { position: relative; }
-        .dropdown-content { display: none; position: absolute; background: white; min-width: 220px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1001; top: 100%; }
-        .dropdown-content a { color: #333 !important; padding: 12px; display: block; border-bottom: 1px solid #eee; text-align: left; }
-        .dropdown:hover .dropdown-content { display: block; }
+        .news-container{background:#000;color:var(--gold);border-bottom:2px solid var(--gold);}
+        .ticker-row{overflow:hidden;white-space:nowrap;padding:6px 0;border-bottom:1px solid #333;font-size:12px;}
+        .ticker{display:inline-block;animation:tickerMove 30s linear infinite;font-weight:bold;}
+        @keyframes tickerMove{0%{transform:translateX(100%);}100%{transform:translateX(-100%);}}
 
-        .container { max-width: 1200px; margin: 25px auto; padding: 0 15px; }
-        section { background: #fff; margin-bottom: 25px; padding: 25px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        h2 { font-size: 22px; border-left: 6px solid var(--primary); padding-left: 12px; margin-bottom: 20px; color: var(--primary); }
+        .navbar{background:var(--primary);position:sticky;top:0;z-index:1000;display:flex;flex-wrap:wrap;justify-content:center;}
+        .navbar a,.dropbtn{color:#fff;padding:10px 14px;text-decoration:none;font-weight:bold;font-size:12px;cursor:pointer;border:none;background:none;}
+        .navbar a:hover{background:rgba(255,255,255,.1);}
+        .dropdown{position:relative;}
+        .dropdown-content{display:none;position:absolute;background:#fff;min-width:220px;box-shadow:0 8px 16px rgba(0,0,0,.2);z-index:1001;top:100%;}
+        .dropdown-content a{color:#333!important;padding:10px;display:block;border-bottom:1px solid #eee;text-align:left;font-size:12px;}
+        .dropdown:hover .dropdown-content{display:block;}
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .card { border: 1px solid #eee; border-radius: 12px; padding: 15px; transition: 0.3s; text-align: center; background: #fff; }
-        .card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .product-img { width: 100%; height: 180px; object-fit: contain; animation: pulse 4s infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+        .container{max-width:1150px;margin:20px auto;padding:0 12px;}
+        section{background:#fff;margin-bottom:20px;padding:20px;border-radius:14px;box-shadow:0 5px 15px rgba(0,0,0,.05);}
+        h2{font-size:20px;border-left:5px solid var(--primary);padding-left:10px;margin-bottom:14px;color:var(--primary);}
+        h3{font-size:16px;margin:8px 0;}
 
-        .search-area { background: #eef2f3; padding: 15px; text-align: center; border-radius: 10px; margin-bottom: 20px; }
-        .search-box { width: 60%; padding: 12px; border: 2px solid #ccc; border-radius: 30px 0 0 30px; outline: none; }
-        .search-btn { padding: 12px 25px; background: var(--primary); color: white; border: none; border-radius: 0 30px 30px 0; cursor: pointer; font-weight: bold; }
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+        .card{border:1px solid #eee;border-radius:12px;padding:12px;transition:.3s;text-align:left;background:#fff;}
+        .card:hover{transform:translateY(-6px);box-shadow:0 10px 24px rgba(0,0,0,.12);}
+        .product-img{width:100%;height:170px;object-fit:contain;animation:pulse 4s infinite;}
+        @keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
 
-        #qrModal { display: none; position: fixed; z-index: 3000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
-        .modal-content { background: white; margin: 10% auto; padding: 30px; width: 320px; text-align: center; border-radius: 20px; }
+        .badge{display:inline-block;font-size:11px;padding:2px 6px;border-radius:4px;background:var(--primary);color:#fff;margin-bottom:4px;}
 
-        #location-section { display: none; margin-top: 20px; border: 4px solid var(--primary); border-radius: 20px; overflow: hidden; }
+        .search-area{background:#eef2f3;padding:14px;text-align:center;border-radius:10px;margin-bottom:16px;}
+        .search-box{width:60%;max-width:420px;padding:10px;border:2px solid #ccc;border-radius:30px 0 0 30px;outline:none;font-size:13px;}
+        .search-btn{padding:10px 20px;background:var(--primary);color:#fff;border:none;border-radius:0 30px 30px 0;cursor:pointer;font-weight:bold;font-size:13px;}
 
-        footer { text-align: center; padding: 40px; background: #111; color: #fff; margin-top: 50px; border-radius: 30px 30px 0 0; }
+        #qrModal{display:none;position:fixed;z-index:3000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,.85);}
+        .modal-content{background:#fff;margin:10% auto;padding:24px;width:300px;text-align:center;border-radius:18px;}
+
+        #location-section{display:none;margin-top:16px;border:3px solid var(--primary);border-radius:16px;overflow:hidden;}
+
+        footer{text-align:center;padding:28px;background:#111;color:#fff;margin-top:30px;border-radius:26px 26px 0 0;font-size:12px;}
+        ul{margin-left:18px;margin-top:4px;font-size:13px;}
+
+        @media(max-width:600px){
+            .logo{font-size:20px;}
+            .search-box{width:55%;}
+            .navbar a,.dropbtn{padding:8px 10px;}
+        }
     </style>
 </head>
 <body>
@@ -61,7 +72,9 @@
 
 <header>
     <div class="logo">DIGITECH-IO MASTER HUB</div>
-    <div id="live-clock" style="font-weight:bold; color:#666; font-size:13px; margin-top:5px;">Loading...</div>
+    <div class="tagline">Govt Services • 5G Store • Voice-Over • Promo Reels – All in One Digital Hub</div>
+    <div id="live-clock" style="font-weight:bold;color:#666;font-size:12px;margin-top:4px;">Loading...</div>
+
     <div class="action-group">
         <button class="action-btn" style="background:var(--primary);" onclick="document.getElementById('qrModal').style.display='block'">💳 PAY NOW (QR)</button>
         <a href="tel:+918210073056" class="action-btn" style="background:var(--call);">📞 CALL NOW</a>
@@ -69,20 +82,23 @@
     </div>
 </header>
 
+<!-- QR MODAL -->
 <div id="qrModal" onclick="this.style.display='none'">
     <div class="modal-content" onclick="event.stopPropagation()">
         <h3>Scan to Pay</h3>
-        <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=chamanjha2015-1@okhdfcbank" alt="QR" style="width:100%;">
-        <p style="margin-top:10px; font-weight:bold;">UPI: chamanjha2015-1@okhdfcbank</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=upi://pay?pa=chamanjha2015-1@okhdfcbank" alt="QR" style="width:100%;border-radius:10px;">
+        <p style="margin-top:8px;font-weight:bold;font-size:13px;">UPI: chamanjha2015-1@okhdfcbank</p>
     </div>
 </div>
 
+<!-- NEWS TICKER -->
 <div class="news-container">
-    <div class="ticker-row"><div class="ticker">🔥 CENTRAL: PM Kisan 16th Installment | Ayushman Card Online | NSP Scholarship Open 2026!</div></div>
-    <div class="ticker-row" style="color:#00ecff;"><div class="ticker">📢 BIHAR: RCMS Ration Card New Apply | Bihar Bhumi Rasiid & Mutation | SSPMIS Pension Status!</div></div>
-    <div class="ticker-row" style="color:#ff5e00;"><div class="ticker">🎓 EXAMS: SSC CGL Registration | Railway RPF Admit Card | BPSC New Exam Calendar Released!</div></div>
+    <div class="ticker-row"><div class="ticker">🔥 CENTRAL: PM Kisan 16th Installment | Ayushman Card Online | NSP Scholarship 2026 Updates Live!</div></div>
+    <div class="ticker-row" style="color:#00ecff;"><div class="ticker">📢 BIHAR: RCMS Ration Card New Apply | Bihar Bhumi LRC Mutation | SSPMIS Pension Status Check!</div></div>
+    <div class="ticker-row" style="color:#ff5e00;"><div class="ticker">🎓 EXAMS: SSC CGL / CHSL, Railway RPF, BPSC New Exam Calendar – Forms & Admit Card Alerts!</div></div>
 </div>
 
+<!-- NAVBAR -->
 <div class="navbar">
     <a href="#home">Home</a>
     <div class="dropdown">
@@ -90,122 +106,204 @@
         <div class="dropdown-content">
             <a href="https://wa.me/918210073056?text=Apply%20for%20Aadhaar%20Card">Aadhaar Card</a>
             <a href="https://wa.me/918210073056?text=Apply%20for%20Bihar%20Ration%20Card">Bihar Ration Card</a>
-            <a href="https://wa.me/918210073056?text=Voter%20ID%20New%20Application">Voter ID Apply</a>
-            <a href="https://wa.me/918210073056?text=BOCW%20Shramik%20Card%20Enquiry">BOCW Card</a>
-            <a href="https://wa.me/918210073056?text=Driving%20Licence%20Apply">Driving Licence</a>
+            <a href="https://wa.me/918210073056?text=New%20Voter%20ID%20Application">Voter ID Apply</a>
+            <a href="https://wa.me/918210073056?text=BOCW%20Shramik%20Card%20Help">BOCW Card</a>
+            <a href="https://wa.me/918210073056?text=Ayushman%20Card%20Enquiry">Ayushman Card</a>
+            <a href="https://wa.me/918210073056?text=Any%20other%20Govt%20Scheme%20Help">Other Schemes</a>
         </div>
     </div>
     <div class="dropdown">
         <button class="dropbtn">Banking & CIBIL ▼</button>
         <div class="dropdown-content">
             <a href="https://civilcalc.com/en/" target="_blank">Free CIBIL Check</a>
-            <a href="https://wa.me/918210073056?text=Loan%20Application%20Enquiry">Apply for Loan</a>
+            <a href="https://wa.me/918210073056?text=Personal%20Loan%20Enquiry">Loan Enquiry</a>
+            <a href="https://wa.me/918210073056?text=Credit%20Card%20Support">Credit Card Help</a>
         </div>
     </div>
     <a href="#products">5G Store</a>
-    <a href="https://www.pinterest.com/devigunjan039/" target="_blank">Pinterest</a>
+    <a href="#articles">Articles</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
 </div>
 
 <div class="container" id="home">
+
+    <!-- SEARCH + MAP -->
     <div class="search-area">
         <form action="https://www.google.com/search" method="GET" target="_blank">
-            <input type="text" name="q" class="search-box" placeholder="Search Google for Govt Schemes, Exams or Jobs..." required>
+            <input type="text" name="q" class="search-box" placeholder="Search Govt schemes, exams, jobs or products..." required>
             <button type="submit" class="search-btn">Search</button>
         </form>
+        <p style="margin-top:6px;font-size:12px;">Tip: Yahin se direct PM Kisan status, Ration Card, exam form, product reviews sab search kar sakte hain.</p>
     </div>
 
     <div id="location-section">
-        <iframe src="https://www.google.com/maps/embed?pb=YOUR_EMBED_CODE" width="100%" height="350" style="border:0;" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=YOUR_EMBED_CODE"
+                width="100%" height="320" style="border:0;" allowfullscreen loading="lazy"></iframe>
     </div>
 
+    <!-- 5G STORE / PRODUCTS -->
     <section id="products">
-        <h2>Hot Deals (ID: 8210073056-21)</h2>
+        <h2>5G Store & Hot Deals (Amazon ID: 8210073056-21)</h2>
         <div class="grid">
             <div class="card">
-                <img class="product-img" src="https://m.media-amazon.com/images/I/81Os1rn7pXL._AC_SL1500_.jpg" onerror="this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300';">
-                <p>New 5G Mobiles</p>
-                <a class="action-btn" style="background:var(--accent); text-decoration:none; display:block;" href="https://www.amazon.in/s?k=5g+mobile&tag=8210073056-21" target="_blank">View on Amazon</a>
+                <span class="badge">Mobiles</span>
+                <img class="product-img" src="https://m.media-amazon.com/images/I/81Os1rn7pXL._AC_SL1500_.jpg"
+                     onerror="this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300';">
+                <h3>New 5G Mobiles</h3>
+                <p>Gaming, camera aur battery ke liye best 5G phones – budget se premium tak.</p>
+                <a class="action-btn" style="background:var(--accent);display:block;justify-content:center;"
+                   href="https://www.amazon.in/s?k=5g+mobile&tag=8210073056-21" target="_blank">View on Amazon</a>
             </div>
+
             <div class="card">
-                <img class="product-img" src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg" onerror="this.src='https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300';">
-                <p>Laptops & PCs</p>
-                <a class="action-btn" style="background:var(--accent); text-decoration:none; display:block;" href="https://www.amazon.in/s?k=laptop&tag=8210073056-21" target="_blank">View on Amazon</a>
+                <span class="badge">Laptops</span>
+                <img class="product-img" src="https://m.media-amazon.com/images/I/71TPda7cwUL._AC_SL1500_.jpg"
+                     onerror="this.src='https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300';">
+                <h3>Laptops & PCs</h3>
+                <p>Student, office work ya editing – har use ke liye recommended laptops.</p>
+                <a class="action-btn" style="background:var(--accent);display:block;justify-content:center;"
+                   href="https://www.amazon.in/s?k=laptop&tag=8210073056-21" target="_blank">View on Amazon</a>
             </div>
+
             <div class="card">
-                <img class="product-img" src="https://m.media-amazon.com/images/I/71S8qtW4-9L._AC_SL1500_.jpg" onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=300';">
-                <p>Smart TVs</p>
-                <a class="action-btn" style="background:var(--accent); text-decoration:none; display:block;" href="https://www.amazon.in/s?k=smart+tv&tag=8210073056-21" target="_blank">View on Amazon</a>
+                <span class="badge">Smart TV</span>
+                <img class="product-img" src="https://m.media-amazon.com/images/I/71S8qtW4-9L._AC_SL1500_.jpg"
+                     onerror="this.src='https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=300';">
+                <h3>Smart TVs</h3>
+                <p>OTT, gaming aur family entertainment ke liye value‑for‑money smart TVs.</p>
+                <a class="action-btn" style="background:var(--accent);display:block;justify-content:center;"
+                   href="https://www.amazon.in/s?k=smart+tv&tag=8210073056-21" target="_blank">View on Amazon</a>
             </div>
         </div>
     </section>
 
+    <!-- SERVICES -->
     <section id="services">
-        <h2>Professional Creative Hub</h2>
+        <h2>Professional Creative Services</h2>
         <div class="grid">
             <div class="card">
+                <span class="badge">Voice-Over</span>
                 <h3>Voice-Over Ads</h3>
-                <p>Professional shop promo voice starting ₹199/-</p>
-                <a class="action-btn" style="background:var(--success); text-decoration:none; display:block;" href="https://wa.me/918210073056?text=I%20want%20Professional%20Voice%20Over%20for%20Ads">Enquire WA</a>
+                <p>Hindi voice for shop ads, offers aur YouTube videos – starting ₹199 per 30 seconds.</p>
+                <a class="action-btn" style="background:var(--success);display:block;justify-content:center;"
+                   href="https://wa.me/918210073056?text=I%20want%20Professional%20Voice%20Over%20for%20Ads">Enquire on WhatsApp</a>
             </div>
             <div class="card">
-                <h3>Promo Reels</h3>
-                <p>High-quality video marketing for your business.</p>
-                <a class="action-btn" style="background:var(--success); text-decoration:none; display:block;" href="https://wa.me/918210073056?text=Need%20Promo%20Reel%20Editing%20Service">Enquire WA</a>
+                <span class="badge">Promo Reels</span>
+                <h3>Business Promo Reels</h3>
+                <p>Instagram / Facebook ke liye high‑quality promo reels – script + edit + posting ideas.</p>
+                <a class="action-btn" style="background:var(--success);display:block;justify-content:center;"
+                   href="https://wa.me/918210073056?text=Need%20Promo%20Reel%20Editing%20Service">Book a Reel</a>
             </div>
         </div>
     </section>
+
+    <!-- ABOUT US -->
+    <section id="about">
+        <h2>About DigiTech-io Master Hub</h2>
+        <p>DigiTech-io ek <strong>multi-service digital centre</strong> hai jahan se aapko Govt online services, 5G gadgets suggestion, Amazon deals aur creative marketing sab ek jagah milta hai.</p>
+        <ul>
+            <li>Location: Sitamarhi / Samastipur, Bihar ke aas‑paas service focus.</li>
+            <li>Mission: “Sahi information + sahi product + safe payment” ek hi platform se dena.</li>
+            <li>Experience: Govt scheme forms, exam alerts, tech products aur local business promotion me kaam.</li>
+        </ul>
+    </section>
+
+    <!-- ARTICLES / BLOG PREVIEW -->
+    <section id="articles">
+        <h2>Daily Articles & Guides</h2>
+        <p style="font-size:13px;margin-bottom:8px;">Roz ke hisaab se yahan nayi posts add karo – Govt schemes, online services, product reviews, CSC tips, exam info, etc.</p>
+        <div class="grid">
+            <div class="card">
+                <span class="badge">Govt Scheme</span>
+                <h3>PM Kisan Status kaise check karein (Step-by-step)</h3>
+                <p>Portal link, required details aur common errors ka simple guide.</p>
+                <a class="action-btn" style="background:var(--primary);display:block;justify-content:center;"
+                   href="articles/pm-kisan-status.html">Read Full Article</a>
+            </div>
+            <div class="card">
+                <span class="badge">Online Services</span>
+                <h3>Bihar Ration Card Online Apply – 2026 Updated Process</h3>
+                <p>Documents, fees, portal screenshots aur tracking method.</p>
+                <a class="action-btn" style="background:var(--primary);display:block;justify-content:center;"
+                   href="articles/bihar-ration-card-apply.html">Read Full Article</a>
+            </div>
+            <div class="card">
+                <span class="badge">Product Review</span>
+                <h3>Best 5G Mobile under ₹10,000 – Student & Gaming Guide</h3>
+                <p>Top 3 phones ke pros/cons aur Amazon links.</p>
+                <a class="action-btn" style="background:var(--primary);display:block;justify-content:center;"
+                   href="articles/best-5g-under-10k.html">Read Full Article</a>
+            </div>
+        </div>
+        <p style="font-size:12px;margin-top:8px;">Note: Agar abhi separate article pages nahi hain to upar wale links temporarily <code>#</code> rakh sakte ho, baad me HTML pages bana kar update karo.</p>
+    </section>
+
+    <!-- CONTACT + POLICIES SHORT -->
+    <section id="contact">
+        <h2>Contact & Policies</h2>
+        <h3>Contact / Support</h3>
+        <ul>
+            <li><strong>WhatsApp:</strong> <a href="https://wa.me/918210073056?text=Hi%20DigiTech,%20I%20need%20help">Click to chat</a></li>
+            <li><strong>Call:</strong> +91 82100 73056</li>
+            <li><strong>Email:</strong> yourmail@example.com</li>
+            <li><strong>Payment UPI:</strong> chamanjha2015-1@okhdfcbank (payment screenshot WhatsApp par bhejna zaruri).</li>
+        </ul>
+
+        <h3>Privacy Policy (Short)</h3>
+        <p>Hum sirf aapka naam, mobile number aur order / service details store karte hain taaki service provide ki ja sake. Data kisi third party ko sell nahi kiya jata. Detailed policy jaldi hi separate page par add hogi.</p>
+
+        <h3>Disclaimer</h3>
+        <p>Govt schemes, exam dates aur product prices waqt‑waqt par change ho sakte hain. Final information hamesha official website / seller se verify karein. Amazon links affiliate ho sakte hain, jisse hame chhota commission mil sakta hai – aapka price same rahega.</p>
+
+        <h3>Terms & Conditions</h3>
+        <ul>
+            <li>Kuch services / products ke liye advance UPI payment jaruri ho sakta hai.</li>
+            <li>Delivery time courier / platform ke hisaab se change hota hai.</li>
+            <li>Returns / refunds hamesha respective platform (Amazon, govt portal, bank) ki policy ke according honge.</li>
+        </ul>
+    </section>
+
 </div>
 
 <footer>
-    <p>© 2026 DigiTech-io Master Hub | Sitamarhi, Bihar</p>
-    <p>Live Hits: 15,842 | <button onclick="document.body.classList.toggle('dark-mode')" style="background:none; border:1px solid #555; color:#888; padding:4px 10px; border-radius:15px; cursor:pointer;">Theme Mode</button></p>
+    <p>© 2026 DigiTech-io Master Hub | Sitamarhi / Samastipur, Bihar</p>
+    <p>Visitors Today: 15,842 (demo count) |
+        <button onclick="document.body.classList.toggle('dark-mode')"
+                style="background:none;border:1px solid #555;color:#ccc;padding:4px 10px;border-radius:15px;cursor:pointer;">
+            Theme Mode
+        </button>
+    </p>
 </footer>
 
 <script>
-    function updateClock() {
-        const now = new Date();
-        document.getElementById('live-clock').innerText = now.toDateString() + " | " + now.toLocaleTimeString();
+    function updateClock(){
+        const now=new Date();
+        document.getElementById('live-clock').innerText=
+            now.toDateString()+" | "+now.toLocaleTimeString();
     }
-    setInterval(updateClock, 1000);
-    updateClock();
+    setInterval(updateClock,1000);updateClock();
 
-    function toggleLocation() {
-        const x = document.getElementById("location-section");
-        x.style.display = (x.style.display === "none") ? "block" : "none";
+    function toggleLocation(){
+        const x=document.getElementById("location-section");
+        x.style.display=(x.style.display==="none"||x.style.display==="")?"block":"none";
     }
 
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    let particles = [];
-    class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 2 + 1;
-            this.speedY = Math.random() * 0.4 + 0.1;
-        }
-        update() {
-            this.y += this.speedY;
-            if (this.y > canvas.height) this.y = 0;
-        }
-        draw() {
-            ctx.fillStyle = 'rgba(0, 74, 153, 0.2)';
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
+    const canvas=document.getElementById('bg-canvas');
+    const ctx=canvas.getContext('2d');
+    function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;}
+    resizeCanvas();window.onresize=resizeCanvas;
+    let particles=[];
+    class Particle{
+        constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+1;this.speedY=Math.random()*0.4+0.1;}
+        update(){this.y+=this.speedY;if(this.y>canvas.height)this.y=0;}
+        draw(){ctx.fillStyle='rgba(0,74,153,0.2)';ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}
     }
-    function init() { for (let i = 0; i < 40; i++) particles.push(new Particle()); }
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => { p.update(); p.draw(); });
-        requestAnimationFrame(animate);
-    }
-    init(); animate();
+    function init(){for(let i=0;i<40;i++)particles.push(new Particle());}
+    function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}
+    init();animate();
 </script>
 
 </body>
 </html>
-
