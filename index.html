@@ -14,20 +14,17 @@
         *{box-sizing:border-box; margin:0; padding:0;}
         body{font-family:'Poppins', sans-serif; background: #0a0a0b; color:var(--text); line-height:1.6; overflow-x:hidden;}
 
-        /* Navbar */
-        .navbar{ background: var(--primary); position:sticky; top:0; z-index:1000; display:flex; justify-content:center; flex-wrap:wrap; border-bottom: 3px solid var(--gold); backdrop-filter: blur(10px); }
+        .navbar{ background: var(--primary); position:sticky; top:0; z-index:1000; display:flex; justify-content:center; flex-wrap:wrap; border-bottom: 3px solid var(--gold); }
         .navbar a{color:#fff; padding:18px 25px; text-decoration:none; font-weight:600; font-size:14px; text-transform: uppercase;}
 
         header{ background: linear-gradient(135deg, var(--primary), #004a99); padding:60px 20px; text-align:center; border-bottom:5px solid var(--gold); }
         .logo{ font-size:38px; font-weight:900; background: linear-gradient(45deg, var(--gold), #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Grid */
         .ad-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; padding: 40px 20px; max-width: 1300px; margin: auto; }
         .ad-card { background: var(--glass-bg); border: 2px solid rgba(255,255,255,0.15); border-radius: 25px; padding: 35px; text-align: center; transition: 0.4s; }
         .ad-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 15px 30px rgba(255,215,0,0.2); }
         .price-tag { font-size: 34px; font-weight: 900; color: var(--success); margin: 15px 0; display: block; }
 
-        /* Powerful Search Box */
         #search-section { text-align: center; padding: 70px 20px; background: #111; border-top: 3px solid var(--gold); }
         .search-box { 
             width: 95%; max-width: 750px; padding: 25px 40px; border-radius: 60px; border: 4px solid var(--gold); 
@@ -35,33 +32,43 @@
             box-shadow: 0 0 25px rgba(255,215,0,0.2);
         }
 
-        /* Results List - NEW FEATURE */
-        #result-container { max-width: 1000px; margin: 40px auto; display: none; }
+        #result-container { max-width: 1200px; margin: 40px auto; display: none; padding: 20px; }
         .results-header { 
             background: linear-gradient(135deg, var(--gold), #ffed4a); 
-            color: var(--dark); padding: 20px; border-radius: 20px; margin-bottom: 20px; 
-            font-size: 24px; font-weight: 800; text-align: center;
+            color: var(--dark); padding: 20px; border-radius: 20px; margin-bottom: 25px; 
+            font-size: 28px; font-weight: 800; text-align: center;
         }
-        .leader-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
+        .leader-list { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
         .leader-card { 
-            background: linear-gradient(135deg, #1e3a5f, #0a192f); border: 2px solid var(--gold); border-radius: 20px; 
-            padding: 25px; text-align: center; animation: slideIn 0.4s ease; transition: 0.3s;
-            cursor: pointer;
+            background: linear-gradient(135deg, #1e3a5f, #0a192f); border: 3px solid var(--gold); 
+            border-radius: 25px; padding: 30px; text-align: center; min-width: 320px; max-width: 350px;
+            animation: slideIn 0.5s ease; box-shadow: 0 15px 35px rgba(0,0,0,0.4);
         }
-        .leader-card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255,215,0,0.4); }
-        .panchayat-name { font-size: 20px; color: var(--gold); font-weight: 700; margin-bottom: 8px; }
-        .mukhiya-name { font-size: 18px; color: #fff; margin-bottom: 15px; }
-        @keyframes slideIn { from{transform:translateX(-20px); opacity:0;} to{transform:translateX(0); opacity:1;} }
+        .leader-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(255,215,0,0.5); }
+        .panchayat-name { font-size: 24px; color: var(--gold); font-weight: 800; margin-bottom: 12px; }
+        .mukhiya-name { font-size: 22px; color: #fff; margin-bottom: 25px; font-weight: 700; }
+        .action-buttons { display: flex; gap: 15px; justify-content: center; }
+        .wa-btn, .call-btn { 
+            padding: 18px 30px; border-radius: 40px; text-decoration: none; font-weight: 800; 
+            font-size: 18px; display: inline-flex; align-items: center; gap: 12px; flex: 1;
+            transition: all 0.3s;
+        }
+        .wa-btn { background: var(--success); color: #fff; }
+        .call-btn { background: linear-gradient(135deg, #ff6b6b, #ee5a52); color: #fff; }
+        .wa-btn:hover, .call-btn:hover { transform: scale(1.08); opacity: 0.95; }
+
+        @keyframes slideIn { from{opacity:0; transform:scale(0.9);} to{opacity:1; transform:scale(1);} }
         
-        .wa-btn { background: var(--success); color: #fff; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
-
-        /* No Results */
         .no-results { 
-            background: rgba(255,69,0,0.1); border: 2px solid var(--accent); color: #fff; 
-            padding: 40px; border-radius: 20px; text-align: center; font-size: 18px;
+            background: rgba(255,69,0,0.15); border: 3px solid var(--accent); color: #fff; 
+            padding: 60px 30px; border-radius: 30px; text-align: center; font-size: 24px;
+            margin: 40px 20px;
         }
+        .search-suggestions { margin-top: 25px; font-size: 16px; }
+        .suggestion-item { display: inline-block; background: var(--gold); color: var(--dark); 
+                          padding: 8px 20px; border-radius: 25px; margin: 5px; cursor: pointer;
+                          font-weight: 600; }
 
-        /* Payment */
         #payment { text-align: center; padding: 60px 20px; background: rgba(255, 215, 0, 0.05); border: 2px dashed var(--gold); margin: 30px; border-radius: 25px; }
         .rzp-btn { background: #27ae60; color: white; padding: 20px 50px; border: none; border-radius: 60px; font-weight: 800; cursor: pointer; font-size: 20px; }
     </style>
@@ -70,127 +77,143 @@
 
 <div class="navbar">
     <a href="#home">Home</a>
-    <a href="#search-section">Find Leaders</a>
+    <a href="#search-section">Find Candidates</a>
     <a href="#packages">Packages</a>
     <a href="#payment">Pay & Start</a>
 </div>
 
 <header id="home">
     <div class="logo">PATNA AI STUDIO PRO</div>
-    <div class="tagline"><b>🚀 Runnisaidpur's #1 AI Election Agency 2026</b></div>
+    <div style="font-size: 20px; margin-top: 15px;"><b>🚀 Runnisaidpur's #1 AI Election Agency 2026</b></div>
 </header>
 
-<div class="ad-grid">
+<div class="ad-grid" id="packages">
     <div class="ad-card" style="border-top: 6px solid var(--gold);">
         <h2>👑 MUKHIYA</h2>
         <p>Bajjika AI Anthem + 4K Video Ad + Viral Kit</p>
-        <audio controls style="width: 100%; margin: 15px 0;"><source src="demo-mukhiya.mp3"></audio>
         <span class="price-tag">₹999</span>
         <button class="rzp-btn" onclick="payNow(999)">Book Now</button>
     </div>
     <div class="ad-card" style="border-top: 6px solid var(--accent);">
         <h2>⚖️ SARPANCH</h2>
         <p>Nyay AI Voice + 5 Posters + Automation</p>
-        <audio controls style="width: 100%; margin: 15px 0;"><source src="demo-sarpanch.mp3"></audio>
         <span class="price-tag">₹499</span>
         <button class="rzp-btn" onclick="payNow(499)">Book Now</button>
     </div>
     <div class="ad-card" style="border-top: 6px solid var(--success);">
         <h2>🏘️ WARD</h2>
         <p>Local AI Audio + 2 Posters + Viral Text</p>
-        <audio controls style="width: 100%; margin: 15px 0;"><source src="demo-ward.mp3"></audio>
         <span class="price-tag">₹299</span>
         <button class="rzp-btn" onclick="payNow(299)">Book Now</button>
     </div>
 </div>
 
-<div id="search-section">
-    <h2 style="color: var(--gold); margin-bottom: 30px; font-size: 32px;">🔍 SEARCH MUKHIYA / PANCHAYAT</h2>
-    <input type="text" id="dbSearch" class="search-box" placeholder="नेता या पंचायत का नाम टाइप करें... (रुन्नी, आलोक, अथरी)" onkeyup="searchLeader()">
+<section id="search-section">
+    <h2 style="color: var(--gold); margin-bottom: 30px; font-size: 36px;">🔍 CANDIDATE SEARCH</h2>
+    <p style="color: #ccc; font-size: 18px; margin-bottom: 20px;">रुन्नी, आलोक, अथरी, प्रमिला - बस 2 अक्षर टाइप करें!</p>
+    <input type="text" id="dbSearch" class="search-box" placeholder="रुन्नी, आलोक, अथरी, प्रमिला..." onkeyup="searchLeader()" autocomplete="off">
     
     <div id="result-container">
-        <div class="results-header" id="resultsHeader">📋 Matching Leaders Found</div>
+        <div class="results-header" id="resultsHeader">📋 Matching Candidates Found</div>
         <div class="leader-list" id="leaderList"></div>
         <div id="noResults" class="no-results" style="display:none;">
-            <i class="fas fa-search" style="font-size:48px; color:var(--accent); margin-bottom:15px;"></i>
-            <div>कोई परिणाम नहीं मिला</div>
-            <div style="font-size:14px; opacity:0.8; margin-top:10px;">अलग नाम या पंचायत ट्राई करें</div>
+            <i class="fas fa-search" style="font-size:60px; color:var(--accent); margin-bottom:20px;"></i>
+            <div style="font-size:28px; margin-bottom:15px;">कोई उम्मीदवार नहीं मिला</div>
+            <div class="search-suggestions">
+                <div>🔥 Try these:</div>
+                <div>
+                    <span class="suggestion-item" onclick="setSearch('रुन्नी')">रुन्नी</span>
+                    <span class="suggestion-item" onclick="setSearch('आलोक')">आलोक</span>
+                    <span class="suggestion-item" onclick="setSearch('अथरी')">अथरी</span>
+                    <span class="suggestion-item" onclick="setSearch('प्रमिला')">प्रमिला</span>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
 <div id="payment">
-    <h2 style="color: var(--gold);">💳 QUICK CHECKOUT</h2>
-    <p>Secure Election Marketing Launch</p>
-    <div style="margin-top: 20px;" id="package-status">Select a package from above</div>
+    <h2 style="color: var(--gold);">💳 INSTANT CHECKOUT</h2>
+    <p>Secure Razorpay Payment - AI Campaign Start Immediately</p>
 </div>
 
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
 const leaders = [
-    {p: "अथरी", n: "आलोक कुमार", ph: "9934279093"},
-    {p: "ओलीपुर सरहचिया", n: "प्रमोद आनन्द", ph: "9576359734"},
-    {p: "कौडिया लालपुर", n: "अबधेश साह", ph: "9801878799"},
-    {p: "गंगवारा बुजुर्ग", n: "सजी अहमद", ph: "9939115126"},
-    {p: "गुरुदह उर्फ गौसनगर", n: "आशा देवी", ph: "9939717998"},
-    {p: "गिधा फुलवरिया", n: "श्रवण साह", ph: "8210339904"},
-    {p: "टिकौली", n: "निलम देवी", ph: "8877455944"},
-    {p: "तिलकताजपुर", n: "मधुलिका देवी", ph: "7050302306"},
-    {p: "थुम्मा", n: "रीना देवी", ph: "9708838142"},
-    {p: "देवना बुजुर्ग", n: "माधुरी देवी", ph: "8789229959"},
-    {p: "धनुषी", n: "दिलीप कुमार पासवान", ph: "9576448601"},
-    {p: "प्रेमनगर", n: "धर्मेन्द्र कमती", ph: "834394724"},
-    {p: "बगाही रामनगर", n: "रेणु देवी", ph: "9973259063"},
-    {p: "बघाड़ी", n: "रानी देवी", ph: "8084852630"},
-    {p: "बरहेत्ता", n: "प्रमिला देवी", ph: "9631540736"},
-    {p: "बलुआ", n: "नवीन कुमार", ph: "8789109853"},
-    {p: "बुलन्दपुर", n: "रविशंकर यादव", ph: "9931669238"},
-    {p: "बेलाही नीलकंठ", n: "संजू देवी", ph: "7482832733"},
-    {p: "मधौल खानी", n: "अनिता देवी", ph: "9572551531"},
-    {p: "महेशा फरकपुर", n: "टीमा देवी", ph: "8969054602"},
-    {p: "महिन्दवारा", n: "पूनम देवी", ph: "8507636404"},
-    {p: "महिसार", n: "राम लखन राय", ph: "9708984611"},
-    {p: "मोरसंड", n: "कामनी सिंह", ph: "9771683366"},
-    {p: "मानिक चौक उत्तरी", n: "अनुराधा कुमारी", ph: "9708053007"},
-    {p: "मानिक चौक दक्षिणी", n: "राम नारायण साह", ph: "9576681301"},
-    {p: "मानिक चौक पश्चिमी", n: "एकनाथ झा", ph: "7903795502"},
-    {p: "रुन्नीसैदपुर उत्तरी", n: "सगेयान देवी", ph: "9525571234"},
-    {p: "रुन्नीसैदपुर मध्य", n: "प्रमिला देवी", ph: "7091942730"},
-    {p: "रुन्नीसैदपुर दक्षिणी", n: "राम प्रीत राय", ph: "9931089201"},
-    {p: "रुन्नीसैदपुर पश्चिमी", n: "विनय कुमार", ph: "9934279589"},
-    {p: "सिरखिरिया", n: "मुकेश बैठा", ph: "9631925281"},
-    {p: "टैन विशुनी", n: "किरण देवी", ph: "9934659459"},
-    {p: "बहेरा", n: "शशि भूषण सिंह", ph: "9934415250"}
+    {panchayat: "अथरी", name: "आलोक कुमार", phone: "9934279093"},
+    {panchayat: "ओलीपुर सरहचिया", name: "प्रमोद आनन्द", phone: "9576359734"},
+    {panchayat: "कौडिया लालपुर", name: "अबधेश साह", phone: "9801878799"},
+    {panchayat: "गंगवारा बुजुर्ग", name: "सजी अहमद", phone: "9939115126"},
+    {panchayat: "गुरुदह उर्फ गौसनगर", name: "आशा देवी", phone: "9939717998"},
+    {panchayat: "गिधा फुलवरिया", name: "श्रवण साह", phone: "8210339904"},
+    {panchayat: "टिकौली", name: "निलम देवी", phone: "8877455944"},
+    {panchayat: "तिलकताजपुर", name: "मधुलिका देवी", phone: "7050302306"},
+    {panchayat: "थुम्मा", name: "रीना देवी", phone: "9708838142"},
+    {panchayat: "देवना बुजुर्ग", name: "माधुरी देवी", phone: "8789229959"},
+    {panchayat: "धनुषी", name: "दिलीप कुमार पासवान", phone: "9576448601"},
+    {panchayat: "प्रेमनगर", name: "धर्मेन्द्र कमती", phone: "834394724"},
+    {panchayat: "बगाही रामनगर", name: "रेणु देवी", phone: "9973259063"},
+    {panchayat: "बघाड़ी", name: "रानी देवी", phone: "8084852630"},
+    {panchayat: "बरहेत्ता", name: "प्रमिला देवी", phone: "9631540736"},
+    {panchayat: "बलुआ", name: "नवीन कुमार", phone: "8789109853"},
+    {panchayat: "बुलन्दपुर", name: "रविशंकर यादव", phone: "9931669238"},
+    {panchayat: "बेलाही नीलकंठ", name: "संजू देवी", phone: "7482832733"},
+    {panchayat: "मधौल खानी", name: "अनिता देवी", phone: "9572551531"},
+    {panchayat: "महेशा फरकपुर", name: "टीमा देवी", phone: "8969054602"},
+    {panchayat: "महिन्दवारा", name: "पूनम देवी", phone: "8507636404"},
+    {panchayat: "महिसार", name: "राम लखन राय", phone: "9708984611"},
+    {panchayat: "मोरसंड", name: "कामनी सिंह", phone: "9771683366"},
+    {panchayat: "मानिक चौक उत्तरी", name: "अनुराधा कुमारी", phone: "9708053007"},
+    {panchayat: "मानिक चौक दक्षिणी", name: "राम नारायण साह", phone: "9576681301"},
+    {panchayat: "मानिक चौक पश्चिमी", name: "एकनाथ झा", phone: "7903795502"},
+    {panchayat: "रुन्नीसैदपुर उत्तरी", name: "सगेयान देवी", phone: "9525571234"},
+    {panchayat: "रुन्नीसैदपुर मध्य", name: "प्रमिला देवी", phone: "7091942730"},
+    {panchayat: "रुन्नीसैदपुर दक्षिणी", name: "राम प्रीत राय", phone: "9931089201"},
+    {panchayat: "रुन्नीसैदपुर पश्चिमी", name: "विनय कुमार", phone: "9934279589"},
+    {panchayat: "सिरखिरिया", name: "मुकेश बैठा", phone: "9631925281"},
+    {panchayat: "टैन विशुनी", name: "किरण देवी", phone: "9934659459"},
+    {panchayat: "बहेरा", name: "शशि भूषण सिंह", phone: "9934415250"}
 ];
 
+function setSearch(text) {
+    document.getElementById('dbSearch').value = text;
+    searchLeader();
+}
+
 function searchLeader() {
-    const input = document.getElementById('dbSearch').value.trim().toUpperCase();
+    const input = document.getElementById('dbSearch').value.trim();
     const container = document.getElementById('result-container');
     const leaderList = document.getElementById('leaderList');
     const resultsHeader = document.getElementById('resultsHeader');
     const noResults = document.getElementById('noResults');
 
-    if (input.length > 1) {
-        // Find ALL matching leaders
-        const matches = leaders.filter(l => 
-            l.p.toUpperCase().includes(input) || 
-            l.n.toUpperCase().includes(input)
+    console.log('🔍 Searching for:', input); // Debug log
+
+    if (input.length >= 2) {
+        const matches = leaders.filter(leader => 
+            leader.panchayat.includes(input) || 
+            leader.name.includes(input)
         );
         
+        console.log('✅ Found matches:', matches.length); // Debug log
+
         if (matches.length > 0) {
-            // Show results header with count
-            resultsHeader.textContent = `📋 ${matches.length} Leaders Found`;
+            resultsHeader.innerHTML = `📋 ${matches.length} CANDIDATES FOUND <span style="font-size:0.6em;">for "${input}"</span>`;
             resultsHeader.style.display = 'block';
             
-            // Generate leader cards
             leaderList.innerHTML = matches.map(leader => `
                 <div class="leader-card">
-                    <div class="panchayat-name">🏘️ ${leader.p}</div>
-                    <div class="mukhiya-name">👑 मुखिया: ${leader.n}</div>
-                    <a href="https://wa.me/91${leader.ph}?text=Pranaam%20Mukhiya%20Ji%20${leader.n}%2C%20Patna%20AI%20Studio%20Pro%20laya%20hai%20${leader.p}%20ke%20liye%20Special%20AI%20Promotion...%0A%0ABook%20Now%3A%20https%3A%2F%2Fyourdomain.com" 
-                       class="wa-btn" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Send AI Kit
-                    </a>
+                    <div class="panchayat-name">🏘️ ${leader.panchayat}</div>
+                    <div class="mukhiya-name">👑 मुखिया जी: ${leader.name}</div>
+                    <div class="action-buttons">
+                        <a href="https://wa.me/91${leader.phone}?text=प्रणाम%20${encodeURIComponent(leader.name)}%20जी%20👋%0A%0Aमैं%20Patna%20AI%20Studio%20से%20हूँ%20%F0%9F%9A%80%0Aआपके%20${encodeURIComponent(leader.panchayat)}%20के%20लिये%20Special%20AI%20Campaign%20Package%20तैयार%20है!%0A%0A💰 MUKHIYA Package: ₹999%0A🔥 अभी बुक करें!" 
+                           class="wa-btn" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp Chat
+                        </a>
+                        <a href="tel:+91${leader.phone}" class="call-btn">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                    </div>
                 </div>
             `).join('');
             
@@ -208,17 +231,18 @@ function searchLeader() {
 }
 
 function payNow(amt) {
-    var options = {
+    const options = {
         "key": "rzp_test_RzNCtwgr2LMD2q",
         "amount": amt * 100,
         "currency": "INR",
         "name": "Patna AI Studio Pro",
+        "description": "AI Election Campaign Package",
         "theme": {"color": "#001f3f"},
-        "handler": function(response){
-            alert("Payment Successful! Order ID: " + response.razorpay_order_id);
+        "handler": function(response) {
+            alert("✅ Payment Success! Order ID: " + response.razorpay_order_id);
         }
     };
-    var rzp1 = new Razorpay(options);
+    const rzp1 = new Razorpay(options);
     rzp1.open();
 }
 </script>
