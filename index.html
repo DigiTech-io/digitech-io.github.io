@@ -28,6 +28,10 @@
         th{background:var(--primary);color:white;}
         footer{text-align:center;padding:40px 20px;background:#fff;border-top:2px solid var(--primary);margin-top:30px;}
         .policy-links a{color:var(--primary);text-decoration:none;margin:0 10px;font-weight:bold;font-size:12px;}
+        /* Admin Database Styles */
+        #admin-db { background: #1a1a1b; color: #fff; padding: 25px; border-radius: 14px; margin-top: 30px; border: 2px solid var(--gold); }
+        .db-search { width: 100%; padding: 12px; margin-bottom: 15px; border-radius: 8px; border: none; font-size: 14px; }
+        .db-btn { background: var(--success); color: white; padding: 6px 12px; border-radius: 5px; text-decoration: none; font-size: 12px; font-weight: bold; display: inline-block; }
     </style>
 </head>
 <body>
@@ -46,7 +50,7 @@
     <a href="#languages">Local Dialects</a>
     <a href="#audio-demo">Audio Samples</a>
     <a href="#packages">Pricing Plans</a>
-    <a href="#payment">Secure Pay</a>
+    <a href="#admin-db">Leader Database</a>
 </div>
 
 <div class="container" id="home">
@@ -92,18 +96,36 @@
         </div>
     </section>
 
-    <section id="ai-power" style="background: linear-gradient(to right, #004a99, #0066cc); color: white; border: none;">
-        <h2 style="color: white; border-left-color: var(--gold);">🧠 Super AI Brain Production</h2>
-        <div class="grid">
-            <div style="padding: 10px;">
-                <p>✅ <b>Hyper-Local Accent:</b> Bhojpuri, Maithili, Bajjika aur Maghi ka asali swaad.</p>
-                <p>✅ <b>Deepfake Video Ads:</b> Candidate ki photo ko AI se bolte hue reels mein badlein.</p>
-                <p>✅ <b>Business Reels:</b> Shops aur products ke liye viral-style video promotion.</p>
-            </div>
-            <div style="padding: 10px; border-left: 1px dashed #fff;">
-                <p>🚀 <b>Instant Delivery:</b> 5-10 minute mein High-Quality content taiyaar.</p>
-                <p>📊 <b>Market Leader:</b> Bihar ka sabse sasta aur asardaar digital campaign hub.</p>
-            </div>
+    <section id="admin-db">
+        <h2 style="color: var(--gold); border-left-color: var(--gold);">📊 Leader Database (Admin Panel)</h2>
+        <p style="font-size: 13px; color: #ccc; margin-bottom: 15px;">Smart AI Scraping: Bihar Panchayat Election Data Management</p>
+        
+        <input type="text" class="db-search" placeholder="Search by Name, District or Panchayat...">
+        
+        <div style="overflow-x: auto;">
+            <table style="background: #fff; color: #000;">
+                <tr style="background: #333; color: var(--gold);">
+                    <th>Name</th>
+                    <th>Post</th>
+                    <th>District/Block</th>
+                    <th>Panchayat</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>Ramsevak Prasad</td>
+                    <td>Mukhiya</td>
+                    <td>Sitamarhi / Punaura</td>
+                    <td>Punaura West</td>
+                    <td><a href="https://wa.me/91XXXXXXXXXX?text=Pranaam Mukhiya Ji Ramsevak Prasad, Patna AI Studio Pro laya hai aapke liye digital prachar..." class="db-btn">Send Demo</a></td>
+                </tr>
+                <tr>
+                    <td>Sushila Devi</td>
+                    <td>Sarpanch</td>
+                    <td>Patna / Bakhtiyarpur</td>
+                    <td>Karanj</td>
+                    <td><a href="#" class="db-btn">Send Demo</a></td>
+                </tr>
+            </table>
         </div>
     </section>
 
