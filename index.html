@@ -3,275 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PATNA AI STUDIO PRO | Runnisaidpur Hub 2026 - Updated</title>
+    <title>PATNA AI STUDIO PRO | Runnisaidpur Hub 2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Devanagari:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root { 
             --primary:#001f3f; --accent:#ff4500; --gold:#ffd700; --success:#25D366; --dark:#0a0a0b; --text:#ffffff;
-            --glass-bg: rgba(255,255,255,0.08); --gradient: linear-gradient(135deg, var(--primary), #004a99);
-            --shadow: 0 20px 40px rgba(0,0,0,0.3);
+            --glass-bg: rgba(255,255,255,0.08);
         }
         *{box-sizing:border-box; margin:0; padding:0;}
-        body{font-family:'Poppins', sans-serif; background: linear-gradient(45deg, var(--dark), #1a1a2e); color:var(--text); line-height:1.6; overflow-x:hidden;}
-        .blur-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 20% 80%, rgba(120,119,198,0.3), transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,119,198,0.3), transparent 50%); z-index: -1; animation: float 20s ease-in-out infinite; }
-        @keyframes float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-20px);} }
+        body{font-family:'Poppins', sans-serif; background: #0a0a0b; color:var(--text); line-height:1.6; overflow-x:hidden;}
 
-        /* Enhanced Navigation */
-        .navbar{ background: var(--gradient); position:sticky; top:0; z-index:1000; display:flex; justify-content:center; flex-wrap:wrap; border-bottom: 3px solid var(--gold); backdrop-filter: blur(20px); }
-        .navbar a{color:#fff; padding:18px 25px; text-decoration:none; font-weight:600; font-size:15px; text-transform: uppercase; transition: all 0.3s; position:relative; }
-        .navbar a:hover {color: var(--gold); transform: translateY(-2px); }
-        .navbar a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%; background: var(--gold); transition: all 0.3s; }
-        .navbar a:hover::after { width: 100%; left: 0; }
+        /* Navbar */
+        .navbar{ background: var(--primary); position:sticky; top:0; z-index:1000; display:flex; justify-content:center; flex-wrap:wrap; border-bottom: 3px solid var(--gold); backdrop-filter: blur(10px); }
+        .navbar a{color:#fff; padding:18px 25px; text-decoration:none; font-weight:600; font-size:14px; text-transform: uppercase;}
 
-        /* Hero Header */
-        header{ background: var(--gradient); padding:70px 20px; text-align:center; border-bottom:5px solid var(--gold); position:relative; overflow:hidden; }
-        .logo{ font-size:42px; font-weight:900; background: linear-gradient(45deg, var(--gold), #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: glow 2s ease-in-out infinite alternate; margin-bottom: 15px; }
-        @keyframes glow { from{ text-shadow: 0 0 20px var(--gold); } to{ text-shadow: 0 0 30px var(--gold), 0 0 40px var(--gold); } }
-        .tagline{ font-size: 22px; font-weight: 700; color: var(--gold); text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        header{ background: linear-gradient(135deg, var(--primary), #004a99); padding:60px 20px; text-align:center; border-bottom:5px solid var(--gold); }
+        .logo{ font-size:38px; font-weight:900; background: linear-gradient(45deg, var(--gold), #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         
-        /* Enhanced Ad Grid */
-        .ad-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; padding: 60px 20px; max-width: 1400px; margin: auto; }
-        .ad-card { background: var(--glass-bg); border: 2px solid rgba(255,255,255,0.15); border-radius: 25px; padding: 40px; text-align: center; transition: all 0.5s; backdrop-filter: blur(15px); position:relative; overflow:hidden; }
-        .ad-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent); transition: 0.7s; }
-        .ad-card:hover::before { left: 100%; }
-        .ad-card:hover { transform: translateY(-15px) scale(1.02); border-color: var(--gold); box-shadow: var(--shadow); }
-        .price-tag { font-size: 38px; font-weight: 900; background: linear-gradient(45deg, var(--success), #00ff88); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin: 20px 0; display: block; animation: bounce 2s infinite; }
-        @keyframes bounce { 0%,20%,50%,80%,100%{transform:translateY(0);} 40%{transform:translateY(-10px);} 60%{transform:translateY(-5px);} }
+        /* Grid */
+        .ad-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; padding: 40px 20px; max-width: 1300px; margin: auto; }
+        .ad-card { background: var(--glass-bg); border: 2px solid rgba(255,255,255,0.15); border-radius: 25px; padding: 35px; text-align: center; transition: 0.4s; }
+        .ad-card:hover { transform: translateY(-10px); border-color: var(--gold); box-shadow: 0 15px 30px rgba(255,215,0,0.2); }
+        .price-tag { font-size: 34px; font-weight: 900; color: var(--success); margin: 15px 0; display: block; }
 
-        /* Search Section Enhanced */
-        #search-section { text-align: center; padding: 80px 20px; background: linear-gradient(135deg, #111, #1a1a2e); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); position: relative; }
-        #search-section::before { content: '🔍'; font-size: 60px; position: absolute; top: 20px; left: 50%; transform: translateX(-50%); opacity: 0.1; }
+        /* Powerful Search Box */
+        #search-section { text-align: center; padding: 70px 20px; background: #111; border-top: 3px solid var(--gold); }
         .search-box { 
             width: 95%; max-width: 750px; padding: 25px 40px; border-radius: 60px; border: 4px solid var(--gold); 
-            background: rgba(0,0,0,0.8); color: #fff; font-size: 22px; font-weight: 700; outline: none; text-align: center;
-            transition: all 0.4s; box-shadow: var(--shadow);
+            background: #000; color: #fff; font-size: 22px; font-weight: 700; outline: none; text-align: center;
+            box-shadow: 0 0 25px rgba(255,215,0,0.2);
         }
-        .search-box:focus { border-color: var(--accent); box-shadow: 0 0 30px rgba(255,69,0,0.5); transform: scale(1.02); }
 
-        /* Result Card Enhanced */
-        #result-container { max-width: 900px; margin: 50px auto; display: none; }
+        /* Results List - NEW FEATURE */
+        #result-container { max-width: 1000px; margin: 40px auto; display: none; }
+        .results-header { 
+            background: linear-gradient(135deg, var(--gold), #ffed4a); 
+            color: var(--dark); padding: 20px; border-radius: 20px; margin-bottom: 20px; 
+            font-size: 24px; font-weight: 800; text-align: center;
+        }
+        .leader-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; }
         .leader-card { 
-            background: linear-gradient(135deg, #1e3a5f, #0a192f, #1e40af); border: 4px solid var(--gold); border-radius: 35px; 
-            padding: 50px; text-align: center; animation: zoomIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            box-shadow: var(--shadow);
+            background: linear-gradient(135deg, #1e3a5f, #0a192f); border: 2px solid var(--gold); border-radius: 20px; 
+            padding: 25px; text-align: center; animation: slideIn 0.4s ease; transition: 0.3s;
+            cursor: pointer;
         }
-        @keyframes zoomIn { from{transform:scale(0.7) rotate(-5deg); opacity:0;} to{transform:scale(1) rotate(0); opacity:1;} }
+        .leader-card:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255,215,0,0.4); }
+        .panchayat-name { font-size: 20px; color: var(--gold); font-weight: 700; margin-bottom: 8px; }
+        .mukhiya-name { font-size: 18px; color: #fff; margin-bottom: 15px; }
+        @keyframes slideIn { from{transform:translateX(-20px); opacity:0;} to{transform:translateX(0); opacity:1;} }
         
-        .wa-btn { 
-            background: linear-gradient(45deg, var(--success), #00ff88); color: #fff; padding: 22px 45px; border-radius: 60px; 
-            text-decoration: none; font-weight: 800; font-size: 20px; display: inline-flex; align-items: center; gap: 15px;
-            transition: all 0.3s; box-shadow: 0 10px 25px rgba(37,211,102,0.4);
+        .wa-btn { background: var(--success); color: #fff; padding: 12px 25px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; }
+
+        /* No Results */
+        .no-results { 
+            background: rgba(255,69,0,0.1); border: 2px solid var(--accent); color: #fff; 
+            padding: 40px; border-radius: 20px; text-align: center; font-size: 18px;
         }
-        .wa-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37,211,102,0.6); }
 
-        /* Enhanced Pricing Table */
-        .pricing-table {width: 100%; border-collapse: collapse; margin: 30px 0; background: rgba(255,255,255,0.1); color: #fff; border-radius: 20px; overflow: hidden; backdrop-filter: blur(10px); }
-        .pricing-table th, .pricing-table td {padding: 20px; border: 1px solid rgba(255,255,255,0.2); text-align: left; }
-        .pricing-table th {background: var(--gradient); color: white; font-weight: 700;}
-        .pricing-table tr:hover { background: rgba(255,215,0,0.1); }
-
-        /* Razorpay Enhanced */
-        #payment{ text-align: center; padding: 70px 20px; background: linear-gradient(135deg, rgba(255,215,0,0.1), rgba(255,69,0,0.1)); border: 3px dashed var(--gold); margin: 40px 20px; border-radius: 25px; }
-
-        .rzp-btn { background: linear-gradient(45deg, #27ae60, #2ecc71); color: white; padding: 22px 55px; border: none; border-radius: 60px; font-weight: 800; cursor: pointer; font-size: 20px; transition: all 0.3s; box-shadow: 0 15px 30px rgba(39,174,96,0.4); }
-        .rzp-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(39,174,96,0.6); }
-
-        /* Floating Action Buttons */
-        .fab-group { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 1000; }
-        .fab { width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 26px; text-decoration: none; transition: all 0.3s; box-shadow: var(--shadow); }
-        .fab:hover { transform: translateY(-5px) scale(1.1); }
-
-        /* Responsive */
-        @media (max-width: 768px) { .logo{font-size: 32px;} .ad-grid{grid-template-columns: 1fr; gap:20px;} .navbar a{padding:12px 15px; font-size:13px;} }
+        /* Payment */
+        #payment { text-align: center; padding: 60px 20px; background: rgba(255, 215, 0, 0.05); border: 2px dashed var(--gold); margin: 30px; border-radius: 25px; }
+        .rzp-btn { background: #27ae60; color: white; padding: 20px 50px; border: none; border-radius: 60px; font-weight: 800; cursor: pointer; font-size: 20px; }
     </style>
 </head>
 <body>
-    <div class="blur-bg"></div>
 
-    <div class="navbar">
-        <a href="#home">🏠 Home</a>
-        <a href="#search-section">🔍 Find Leader</a>
-        <a href="#packages">💰 Pricing</a>
-        <a href="#payment">💳 Pay Now</a>
-        <a href="#contact">📞 Contact</a>
+<div class="navbar">
+    <a href="#home">Home</a>
+    <a href="#search-section">Find Leaders</a>
+    <a href="#packages">Packages</a>
+    <a href="#payment">Pay & Start</a>
+</div>
+
+<header id="home">
+    <div class="logo">PATNA AI STUDIO PRO</div>
+    <div class="tagline"><b>🚀 Runnisaidpur's #1 AI Election Agency 2026</b></div>
+</header>
+
+<div class="ad-grid">
+    <div class="ad-card" style="border-top: 6px solid var(--gold);">
+        <h2>👑 MUKHIYA</h2>
+        <p>Bajjika AI Anthem + 4K Video Ad + Viral Kit</p>
+        <audio controls style="width: 100%; margin: 15px 0;"><source src="demo-mukhiya.mp3"></audio>
+        <span class="price-tag">₹999</span>
+        <button class="rzp-btn" onclick="payNow(999)">Book Now</button>
     </div>
+    <div class="ad-card" style="border-top: 6px solid var(--accent);">
+        <h2>⚖️ SARPANCH</h2>
+        <p>Nyay AI Voice + 5 Posters + Automation</p>
+        <audio controls style="width: 100%; margin: 15px 0;"><source src="demo-sarpanch.mp3"></audio>
+        <span class="price-tag">₹499</span>
+        <button class="rzp-btn" onclick="payNow(499)">Book Now</button>
+    </div>
+    <div class="ad-card" style="border-top: 6px solid var(--success);">
+        <h2>🏘️ WARD</h2>
+        <p>Local AI Audio + 2 Posters + Viral Text</p>
+        <audio controls style="width: 100%; margin: 15px 0;"><source src="demo-ward.mp3"></audio>
+        <span class="price-tag">₹299</span>
+        <button class="rzp-btn" onclick="payNow(299)">Book Now</button>
+    </div>
+</div>
 
-    <header id="home">
-        <div class="logo"><i class="fas fa-brain"></i> PATNA AI STUDIO PRO</div>
-        <div class="tagline"><b>🚀 Runnisaidpur's #1 AI Election Marketing Agency 2026</b></div>
-        <p style="font-size: 18px; margin-top: 15px; opacity: 0.9;">AI-Powered Campaign Videos | Voiceovers | Digital Posters | WhatsApp Marketing</p>
-    </header>
-
-    <div class="ad-grid">
-        <div class="ad-card" style="border-top: 6px solid var(--gold);">
-            <h2><i class="fas fa-crown"></i> 👑 Mukhiya Package</h2>
-            <p><strong>Bajjika AI Anthem + Name Call + 4K Video Ad + Social Media Kit</strong></p>
-            <audio controls style="width: 100%; margin: 15px 0; border-radius: 10px;"><source src="demo-mukhiya.mp3" type="audio/mpeg"></audio>
-            <span class="price-tag">₹999 <sup style="font-size:18px;">/ Campaign</sup></span>
+<div id="search-section">
+    <h2 style="color: var(--gold); margin-bottom: 30px; font-size: 32px;">🔍 SEARCH MUKHIYA / PANCHAYAT</h2>
+    <input type="text" id="dbSearch" class="search-box" placeholder="नेता या पंचायत का नाम टाइप करें... (रुन्नी, आलोक, अथरी)" onkeyup="searchLeader()">
+    
+    <div id="result-container">
+        <div class="results-header" id="resultsHeader">📋 Matching Leaders Found</div>
+        <div class="leader-list" id="leaderList"></div>
+        <div id="noResults" class="no-results" style="display:none;">
+            <i class="fas fa-search" style="font-size:48px; color:var(--accent); margin-bottom:15px;"></i>
+            <div>कोई परिणाम नहीं मिला</div>
+            <div style="font-size:14px; opacity:0.8; margin-top:10px;">अलग नाम या पंचायत ट्राई करें</div>
         </div>
+    </div>
+</div>
+
+<div id="payment">
+    <h2 style="color: var(--gold);">💳 QUICK CHECKOUT</h2>
+    <p>Secure Election Marketing Launch</p>
+    <div style="margin-top: 20px;" id="package-status">Select a package from above</div>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+const leaders = [
+    {p: "अथरी", n: "आलोक कुमार", ph: "9934279093"},
+    {p: "ओलीपुर सरहचिया", n: "प्रमोद आनन्द", ph: "9576359734"},
+    {p: "कौडिया लालपुर", n: "अबधेश साह", ph: "9801878799"},
+    {p: "गंगवारा बुजुर्ग", n: "सजी अहमद", ph: "9939115126"},
+    {p: "गुरुदह उर्फ गौसनगर", n: "आशा देवी", ph: "9939717998"},
+    {p: "गिधा फुलवरिया", n: "श्रवण साह", ph: "8210339904"},
+    {p: "टिकौली", n: "निलम देवी", ph: "8877455944"},
+    {p: "तिलकताजपुर", n: "मधुलिका देवी", ph: "7050302306"},
+    {p: "थुम्मा", n: "रीना देवी", ph: "9708838142"},
+    {p: "देवना बुजुर्ग", n: "माधुरी देवी", ph: "8789229959"},
+    {p: "धनुषी", n: "दिलीप कुमार पासवान", ph: "9576448601"},
+    {p: "प्रेमनगर", n: "धर्मेन्द्र कमती", ph: "834394724"},
+    {p: "बगाही रामनगर", n: "रेणु देवी", ph: "9973259063"},
+    {p: "बघाड़ी", n: "रानी देवी", ph: "8084852630"},
+    {p: "बरहेत्ता", n: "प्रमिला देवी", ph: "9631540736"},
+    {p: "बलुआ", n: "नवीन कुमार", ph: "8789109853"},
+    {p: "बुलन्दपुर", n: "रविशंकर यादव", ph: "9931669238"},
+    {p: "बेलाही नीलकंठ", n: "संजू देवी", ph: "7482832733"},
+    {p: "मधौल खानी", n: "अनिता देवी", ph: "9572551531"},
+    {p: "महेशा फरकपुर", n: "टीमा देवी", ph: "8969054602"},
+    {p: "महिन्दवारा", n: "पूनम देवी", ph: "8507636404"},
+    {p: "महिसार", n: "राम लखन राय", ph: "9708984611"},
+    {p: "मोरसंड", n: "कामनी सिंह", ph: "9771683366"},
+    {p: "मानिक चौक उत्तरी", n: "अनुराधा कुमारी", ph: "9708053007"},
+    {p: "मानिक चौक दक्षिणी", n: "राम नारायण साह", ph: "9576681301"},
+    {p: "मानिक चौक पश्चिमी", n: "एकनाथ झा", ph: "7903795502"},
+    {p: "रुन्नीसैदपुर उत्तरी", n: "सगेयान देवी", ph: "9525571234"},
+    {p: "रुन्नीसैदपुर मध्य", n: "प्रमिला देवी", ph: "7091942730"},
+    {p: "रुन्नीसैदपुर दक्षिणी", n: "राम प्रीत राय", ph: "9931089201"},
+    {p: "रुन्नीसैदपुर पश्चिमी", n: "विनय कुमार", ph: "9934279589"},
+    {p: "सिरखिरिया", n: "मुकेश बैठा", ph: "9631925281"},
+    {p: "टैन विशुनी", n: "किरण देवी", ph: "9934659459"},
+    {p: "बहेरा", n: "शशि भूषण सिंह", ph: "9934415250"}
+];
+
+function searchLeader() {
+    const input = document.getElementById('dbSearch').value.trim().toUpperCase();
+    const container = document.getElementById('result-container');
+    const leaderList = document.getElementById('leaderList');
+    const resultsHeader = document.getElementById('resultsHeader');
+    const noResults = document.getElementById('noResults');
+
+    if (input.length > 1) {
+        // Find ALL matching leaders
+        const matches = leaders.filter(l => 
+            l.p.toUpperCase().includes(input) || 
+            l.n.toUpperCase().includes(input)
+        );
         
-        <div class="ad-card" style="border-top: 6px solid var(--accent);">
-            <h2><i class="fas fa-gavel"></i> ⚖️ Sarpanch Package</h2>
-            <p><strong>Nyay AI Voice + 5 AI Posters + WhatsApp Automation Kit + Stories</strong></p>
-            <audio controls style="width: 100%; margin: 15px 0; border-radius: 10px;"><source src="demo-sarpanch.mp3" type="audio/mpeg"></audio>
-            <span class="price-tag">₹499 <sup style="font-size:18px;">/ Campaign</sup></span>
-        </div>
-        
-        <div class="ad-card" style="border-top: 6px solid var(--success);">
-            <h2><i class="fas fa-users"></i> 🏘️ Ward Package</h2>
-            <p><strong>Local AI Audio + 2 Posters + Viral WhatsApp Text + Call-to-Action</strong></p>
-            <audio controls style="width: 100%; margin: 15px 0; border-radius: 10px;"><source src="demo-ward.mp3" type="audio/mpeg"></audio>
-            <span class="price-tag">₹299 <sup style="font-size:18px;">/ Campaign</sup></span>
-        </div>
-    </div>
-
-    <div id="search-section">
-        <h2 style="color: var(--gold); margin-bottom: 35px; font-size: 32px;">🔍 तुरंत खोजें - PANCHAYAT या LEADER का नाम</h2>
-        <input type="text" id="dbSearch" class="search-box" placeholder="मुखिया का नाम या पंचायत टाइप करें... (Enter करने पर तेज़ खोज)" onkeyup="searchLeader()" autocomplete="off">
-        
-        <div id="result-container">
-            <div class="leader-card">
-                <h3 id="pName" style="font-size: 32px; color: var(--gold); margin-bottom: 10px;">पंचायत नाम</h3>
-                <p id="mName" style="font-size: 26px; margin: 20px 0; color: #fff; font-weight: 700;">मुखिया: नेता का नाम</p>
-                <p id="phoneDisplay" style="font-size: 18px; color: var(--accent); margin-bottom: 25px;">📞 Phone: +91XXXXXXXXXX</p>
-                <a href="#" id="waLink" class="wa-btn"><i class="fab fa-whatsapp"></i> 🚀 SEND AI PROMOTION KIT</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="container" style="max-width: 1200px; margin: auto; padding: 40px 20px;" id="packages">
-        <h2 style="color: var(--gold); border-left: 6px solid var(--gold); padding-left: 20px; margin-bottom: 30px; font-size: 28px;">💰 Complete Campaign Packages 2026</h2>
-        <table class="pricing-table">
-            <thead>
-                <tr><th>पद</th><th>सर्विसेज</th><th>कीमत</th><th>डिलीवरी</th></tr>
-            </thead>
-            <tbody>
-                <tr><td><b>🏘️ वार्ड सदस्य</b></td><td>AI Audio + 2 Digital Posters + WhatsApp Text</td><td><strong>₹299</strong></td><td>24 घंटे</td></tr>
-                <tr><td><b>⚖️ सरपंच</b></td><td>Professional AI Voice + 5 Posters + Stories + Kit</td><td><strong>₹499</strong></td><td>48 घंटे</td></tr>
-                <tr><td><b>👑 मुखिया</b></td><td>4K Video Ad + Bajjika Anthem + Social Media + Full Kit</td><td><strong>₹999</strong></td><td>72 घंटे</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="payment">
-        <h2 style="color: var(--primary); font-size: 32px; margin-bottom: 20px;">💳 सुरक्षित भुगतान - अभी शुरू करें Digital Campaign</h2>
-        <p style="color: #666; margin-bottom: 25px; font-size: 18px;">Razorpay के माध्यम से 100% सुरक्षित | UPI, Card, Netbanking</p>
-        <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-        <button id="rzp-button1" class="rzp-btn">🚀 PAY & START CAMPAIGN NOW</button>
-        <p style="margin-top: 20px; font-size: 14px; opacity: 0.8;">✅ 7 दिन Money Back Guarantee | ✅ 24/7 Support</p>
-    </div>
-
-    <footer style="background: var(--primary); padding: 30px; text-align: center; border-top: 3px solid var(--gold); margin-top: 50px;">
-        <p><strong>PATNA AI STUDIO PRO © 2026</strong> | Runnisaidpur Block Hub | Sitamarhi, Bihar</p>
-        <p style="font-size: 14px; opacity: 0.8;">Trusted by 500+ Panchayat Leaders | AI-Powered Election Marketing</p>
-    </footer>
-
-    <div class="fab-group">
-        <a href="https://wa.me/918210073056" class="fab" style="background: linear-gradient(45deg, var(--success), #00ff88);" title="WhatsApp Support"><i class="fab fa-whatsapp"></i></a>
-        <a href="tel:+918210073056" class="fab" style="background: linear-gradient(45deg, var(--accent), #ff6347);" title="Call Now"><i class="fas fa-phone"></i></a>
-    </div>
-
-    <script>
-        // Enhanced Leaders Database 2026
-        const leaders = [
-            {p: "अथरी", n: "आलोक कुमार", ph: "9934279093"},
-            {p: "ओलीपुर सरहचिया", n: "प्रमोद आनन्द", ph: "9576359734"},
-            {p: "कौडिया लालपुर", n: "अबधेश साह", ph: "9801878799"},
-            {p: "गंगवारा बुजुर्ग", n: "सजी अहमद", ph: "9939115126"},
-            {p: "गुरुदह उर्फ गौसनगर", n: "आशा देवी", ph: "9939717998"},
-            {p: "गिधा फुलवरिया", n: "श्रवण साह", ph: "8210339904"},
-            {p: "टिकौली", n: "निलम देवी", ph: "8877455944"},
-            {p: "तिलकताजपुर", n: "मधुलिका देवी", ph: "7050302306"},
-            {p: "थुम्मा", n: "रीना देवी", ph: "9708838142"},
-            {p: "देवना बुजुर्ग", n: "माधुरी देवी", ph: "8789229959"},
-            {p: "धनुषी", n: "दिलीप कुमार पासवान", ph: "9576448601"},
-            {p: "प्रेमनगर", n: "धर्मेन्द्र कमती", ph: "834394724"},
-            {p: "बगाही रामनगर", n: "रेणु देवी", ph: "9973259063"},
-            {p: "बघाड़ी", n: "रानी देवी", ph: "8084852630"},
-            {p: "बरहेत्ता", n: "प्रमिला देवी", ph: "9631540736"},
-            {p: "बलुआ", n: "नवीन कुमार", ph: "8789109853"},
-            {p: "बुलन्दपुर", n: "रविशंकर यादव", ph: "9931669238"},
-            {p: "बेलाही नीलकंठ", n: "संजू देवी", ph: "7482832733"},
-            {p: "मधौल खानी", n: "अनिता देवी", ph: "9572551531"},
-            {p: "महेशा फरकपुर", n: "टीमा देवी", ph: "8969054602"},
-            {p: "महिन्दवारा", n: "पूनम देवी", ph: "8507636404"},
-            {p: "महिसार", n: "राम लखन राय", ph: "9708984611"},
-            {p: "मोरसंड", n: "कामनी सिंह", ph: "9771683366"},
-            {p: "मानिक चौक उत्तरी", n: "अनुराधा कुमारी", ph: "9708053007"},
-            {p: "मानिक चौक दक्षिणी", n: "राम नारायण साह", ph: "9576681301"},
-            {p: "मानिक चौक पश्चिमी", n: "एकनाथ झा", ph: "7903795502"},
-            {p: "रुन्नीसैदपुर उत्तरी", n: "सगेयान देवी", ph: "9525571234"},
-            {p: "रुन्नीसैदपुर मध्य", n: "प्रमिला देवी", ph: "7091942730"},
-            {p: "रुन्नीसैदपुर दक्षिणी", n: "राम प्रीत राय", ph: "9931089201"},
-            {p: "रुन्नीसैदपुर पश्चिमी", n: "विनय कुमार", ph: "9934279589"},
-            {p: "सिरखिरिया", n: "मुकेश बैठा", ph: "9631925281"},
-            {p: "टैन विशुनी", n: "किरण देवी", ph: "9934659459"},
-            {p: "बहेरा", n: "शशि भूषण सिंह", ph: "9934415250"}
-        ];
-
-        // Enhanced Search Function
-        function searchLeader() {
-            const input = document.getElementById('dbSearch').value.trim().toUpperCase();
-            const container = document.getElementById('result-container');
-            const pName = document.getElementById('pName');
-            const mName = document.getElementById('mName');
-            const phoneDisplay = document.getElementById('phoneDisplay');
-            const waLink = document.getElementById('waLink');
-
-            if (input.length > 1) {
-                const found = leaders.find(l => 
-                    l.p.toUpperCase().includes(input) || 
-                    l.n.toUpperCase().includes(input)
-                );
-                
-                if (found) {
-                    container.style.display = 'block';
-                    container.scrollIntoView({ behavior: 'smooth' });
-                    pName.innerText = found.p;
-                    mName.innerText = "👑 मुखिया: " + found.n;
-                    phoneDisplay.innerText = `📞 Phone: +91${found.ph}`;
-                    waLink.href = `https://wa.me/91${found.ph}?text=🚀 नमस्कार मुखिया जी ${found.n} जी,%0A%0A📍 ${found.p} पंचायत के लिए%0A✅ Patna AI Studio Pro का Special AI Promotion Package लाया हूँ!%0A%0A🎯 Bajjika AI Anthem + 4K Video + WhatsApp Kit%0A💰 सिर्फ ₹999 में Full Campaign%0A%0Aक्या शुरू करें? Reply करें YES!`;
-                    document.getElementById('dbSearch').style.borderColor = 'var(--success)';
-                } else { 
-                    container.style.display = 'none';
-                    document.getElementById('dbSearch').style.borderColor = '#ff6b6b';
-                }
-            } else { 
-                container.style.display = 'none';
-                document.getElementById('dbSearch').style.borderColor = 'var(--gold)';
-            }
+        if (matches.length > 0) {
+            // Show results header with count
+            resultsHeader.textContent = `📋 ${matches.length} Leaders Found`;
+            resultsHeader.style.display = 'block';
+            
+            // Generate leader cards
+            leaderList.innerHTML = matches.map(leader => `
+                <div class="leader-card">
+                    <div class="panchayat-name">🏘️ ${leader.p}</div>
+                    <div class="mukhiya-name">👑 मुखिया: ${leader.n}</div>
+                    <a href="https://wa.me/91${leader.ph}?text=Pranaam%20Mukhiya%20Ji%20${leader.n}%2C%20Patna%20AI%20Studio%20Pro%20laya%20hai%20${leader.p}%20ke%20liye%20Special%20AI%20Promotion...%0A%0ABook%20Now%3A%20https%3A%2F%2Fyourdomain.com" 
+                       class="wa-btn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Send AI Kit
+                    </a>
+                </div>
+            `).join('');
+            
+            noResults.style.display = 'none';
+            container.style.display = 'block';
+        } else {
+            container.style.display = 'block';
+            resultsHeader.style.display = 'none';
+            leaderList.innerHTML = '';
+            noResults.style.display = 'block';
         }
+    } else {
+        container.style.display = 'none';
+    }
+}
 
-        // Enter key support
-        document.getElementById('dbSearch').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                searchLeader();
-            }
-        });
-
-        // Enhanced Razorpay with multiple options
-        const paymentOptions = {
-            basic: {"key": "rzp_test_RzNCtwgr2LMD2q","amount": "29900","currency": "INR","name": "Patna AI Studio Pro - Ward","description": "Ward Member Campaign"},
-            pro: {"key": "rzp_test_RzNCtwgr2LMD2q","amount": "49900","currency": "INR","name": "Patna AI Studio Pro - Sarpanch","description": "Sarpanch Campaign"},
-            premium: {"key": "rzp_test_RzNCtwgr2LMD2q","amount": "99900","currency": "INR","name": "Patna AI Studio Pro - Mukhiya","description": "Mukhiya Premium Campaign"}
-        };
-
-        let currentRzp = new Razorpay(paymentOptions.basic);
-        document.getElementById('rzp-button1').onclick = function(e){
-            currentRzp.open();
-            e.preventDefault();
-        };
-
-        // Add loading animation
-        window.addEventListener('load', () => {
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s';
-            setTimeout(() => {
-                document.body.style.opacity = '1';
-            }, 100);
-        });
-    </script>
+function payNow(amt) {
+    var options = {
+        "key": "rzp_test_RzNCtwgr2LMD2q",
+        "amount": amt * 100,
+        "currency": "INR",
+        "name": "Patna AI Studio Pro",
+        "theme": {"color": "#001f3f"},
+        "handler": function(response){
+            alert("Payment Successful! Order ID: " + response.razorpay_order_id);
+        }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+}
+</script>
 
 </body>
 </html>
