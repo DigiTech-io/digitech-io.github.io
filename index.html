@@ -6,763 +6,193 @@
     <title>PATNA AI STUDIO PRO | Bihar Election Hub 2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <style>
         :root { 
-            --gold: #FFD700; 
-            --accent: #FF4500; 
-            --green: #25D366; 
-            --bg: #0a0a0a; 
-            --card: #1a1a1a; 
-            --glass: rgba(255,255,255,0.05);
-            --shadow: 0 25px 50px rgba(0,0,0,0.5);
+            --gold: #FFD700; --accent: #FF4500; --green: #25D366; --bg: #0a0a0a; 
+            --card: #1a1a1a; --glass: rgba(255,255,255,0.05); --shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            background: var(--bg); 
-            color: #fff; 
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: #fff; overflow-x: hidden; line-height: 1.6; }
 
-        /* Enhanced Navigation */
-        nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 1rem 5%; 
-            background: rgba(0,0,0,0.98); 
-            border-bottom: 3px solid var(--gold); 
-            position: fixed; 
-            top: 0; 
-            width: 100%; 
-            z-index: 1000; 
-            backdrop-filter: blur(20px);
-            box-shadow: var(--shadow);
-        }
-        .logo { 
-            font-family: 'Orbitron', monospace; 
-            color: var(--gold); 
-            font-size: clamp(1.5rem, 3vw, 2rem); 
-            font-weight: 900;
-            text-shadow: 0 0 20px var(--gold);
-        }
-        .nav-actions { display: flex; gap: 1rem; align-items: center; }
-        .nav-link { 
-            color: var(--gold); 
-            font-weight: 700; 
-            text-decoration: none; 
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .nav-link:hover { background: rgba(255,215,0,0.1); transform: translateY(-2px); }
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: rgba(0,0,0,0.95); border-bottom: 3px solid var(--gold); position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(20px); }
+        .logo { font-family: 'Orbitron', monospace; color: var(--gold); font-size: 1.5rem; font-weight: 900; }
+        .nav-link { color: var(--gold); font-weight: 700; text-decoration: none; padding: 0.5rem 1rem; transition: 0.3s; }
 
-        /* Hero Section - Parallax Effect */
-        .hero { 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            padding: 120px 20px 80px; 
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="g" cx="50%" cy="50%"><stop offset="0%" stop-color="%23FFD700" stop-opacity="0.1"/><stop offset="100%" stop-color="%23FFD700" stop-opacity="0"/></radialGradient></defs><circle cx="20" cy="20" r="2" fill="url(%23g)"><animate attributeName="r" values="2;3;2" dur="3s" repeatCount="indefinite"/></circle><circle cx="80" cy="80" r="1.5" fill="url(%23g)"><animate attributeName="r" values="1.5;2.5;1.5" dur="4s" repeatCount="indefinite"/></circle></svg>') repeat;
-            animation: float 20s infinite linear;
-            pointer-events: none;
-        }
-        @keyframes float { 0%, 100% { transform: translateY(0px) rotate(0deg); } 50% { transform: translateY(-20px) rotate(180deg); } }
+        /* Hero Section */
+        .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 120px 20px 40px; background: radial-gradient(circle, #1a1a2e 0%, #050505 100%); text-align: center; }
+        .hero h1 { font-family: 'Orbitron', monospace; font-size: clamp(2rem, 6vw, 4rem); color: #fff; margin-bottom: 1rem; text-shadow: 0 0 20px var(--gold); }
         
-        .hero h1 { 
-            font-family: 'Orbitron', monospace; 
-            font-size: clamp(2.5rem, 8vw, 5rem); 
-            color: #fff; 
-            margin-bottom: 1.5rem;
-            text-shadow: 0 0 40px var(--gold);
-            animation: glow 2s ease-in-out infinite alternate;
-        }
-        @keyframes glow { from { text-shadow: 0 0 20px var(--gold); } to { text-shadow: 0 0 40px var(--gold), 0 0 60px var(--gold); } }
-        
-        .hero-subtitle {
-            color: #ccc;
-            font-weight: 500;
-            font-size: 1.3rem;
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeInUp 1s ease 0.5s forwards;
-        }
+        /* Search Engine - 100% Fixed */
+        .search-container { max-width: 800px; width: 100%; position: relative; margin-top: 2rem; }
+        .main-search { width: 100%; padding: 25px 30px; border-radius: 60px; border: 3px solid var(--gold); background: #000; color: #fff; font-size: 1.2rem; outline: none; text-align: center; font-weight: 600; transition: 0.3s; }
+        .main-search:focus { box-shadow: 0 0 40px rgba(255,215,0,0.4); transform: scale(1.02); }
 
-        .search-container { 
-            max-width: 900px; 
-            width: 100%; 
-            position: relative;
-            opacity: 0;
-            animation: fadeInUp 1s ease 1s forwards;
-        }
-        .main-search { 
-            width: 100%; 
-            padding: 25px 60px 25px 30px; 
-            border-radius: 60px; 
-            border: 3px solid transparent;
-            background: rgba(0,0,0,0.8);
-            color: #fff; 
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            outline: none; 
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            font-weight: 600;
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
-        .main-search::placeholder { color: #888; }
-        .main-search:focus { 
-            border-color: var(--gold);
-            box-shadow: 0 0 60px rgba(255,215,0,0.4);
-            transform: scale(1.03);
-            background: rgba(255,255,255,0.05);
-        }
-        .search-icon {
-            position: absolute;
-            right: 25px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--gold);
-            font-size: 1.5rem;
-        }
+        /* Results Display */
+        #result-display { display: none; width: 100%; max-width: 800px; margin-top: 2rem; }
+        .leader-card { background: linear-gradient(145deg, #1e3a5f, #0a192f); border: 2px solid var(--gold); border-radius: 30px; padding: 40px; text-align: center; box-shadow: var(--shadow); animation: slideUp 0.5s ease; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Results Card - Glassmorphism */
-        #result-display { 
-            display: none; 
-            max-width: 900px; 
-            margin: 2rem auto; 
-            padding: 0 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        #result-display.show {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .leader-card { 
-            background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(255,215,0,0.2);
-            border-radius: 40px; 
-            padding: 4rem 3rem; 
-            text-align: center; 
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        .leader-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,215,0,0.1), transparent);
-            transform: rotate(45deg);
-            transition: all 0.6s;
-            opacity: 0;
-        }
-        .leader-card:hover::before { opacity: 1; animation: shine 1.5s infinite; }
-        @keyframes shine { 0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); } 100% { transform: translateX(100%) translateY(100%) rotate(45deg); } }
+        /* Demo Gallery */
+        .studio-gallery { padding: 80px 5%; background: #080808; text-align: center; }
+        .fb-lock { background: #1877F2; padding: 3rem; border-radius: 30px; margin-bottom: 3rem; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .sample-card { background: var(--card); border-radius: 20px; padding: 2rem; border: 1px solid #333; transition: 0.3s; }
+        .sample-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+        audio { width: 100%; filter: invert(1); margin-top: 1rem; }
 
-        #resP { 
-            color: var(--gold); 
-            font-size: clamp(1.8rem, 5vw, 2.5rem); 
-            margin-bottom: 1rem;
-            font-family: 'Orbitron', monospace;
-            font-weight: 700;
-        }
-        #resN { 
-            font-size: clamp(1.4rem, 4vw, 2rem); 
-            margin: 1.5rem 0; 
-            font-weight: 700;
-            color: #fff;
-        }
-        .action-buttons {
-            display: flex; 
-            gap: 1.5rem; 
-            justify-content: center; 
-            flex-wrap: wrap;
-            margin-top: 2rem;
-        }
+        /* Pricing Packages */
+        .pkg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; padding: 80px 5%; }
+        .pkg-card { background: #111; border-radius: 30px; padding: 40px; text-align: center; border: 1px solid #222; }
+        .pkg-card.featured { border: 3px solid var(--gold); transform: scale(1.05); }
+        .price { font-size: 4rem; font-weight: 900; color: var(--gold); font-family: 'Orbitron'; margin: 1rem 0; }
 
-        /* Enhanced Buttons */
-        .btn { 
-            padding: 18px 35px; 
-            border-radius: 50px; 
-            border: none; 
-            font-weight: 700; 
-            cursor: pointer; 
-            font-size: 1.1rem;
-            display: inline-flex; 
-            align-items: center; 
-            gap: 12px; 
-            text-decoration: none; 
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            min-width: 220px;
-        }
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-        .btn:hover::before { left: 100%; }
-        .btn-gold { 
-            background: linear-gradient(145deg, var(--gold), #ffed4a); 
-            color: #000; 
-            box-shadow: 0 10px 30px rgba(255,215,0,0.4);
-        }
-        .btn-wa { 
-            background: linear-gradient(145deg, var(--green), #128C7E); 
-            color: #fff; 
-            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
-        }
-        .btn:hover { 
-            transform: translateY(-8px) scale(1.05); 
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-        }
+        /* Final Buttons */
+        .btn { padding: 18px 30px; border-radius: 50px; border: none; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; margin-top: 10px; width: 100%; justify-content: center; }
+        .btn-gold { background: var(--gold); color: #000; }
+        .btn-wa { background: var(--green); color: #fff; }
+        .btn:hover { transform: translateY(-5px); opacity: 0.9; }
 
-        /* Studio Gallery */
-        .studio-gallery { 
-            padding: 100px 5%; 
-            background: linear-gradient(135deg, #080808 0%, #0f0f0f 100%);
-            border-top: 1px solid rgba(255,215,0,0.1);
-        }
-        .section-title {
-            text-align: center; 
-            color: var(--gold); 
-            margin-bottom: 4rem; 
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(2rem, 5vw, 3rem);
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: var(--gold);
-            border-radius: 2px;
-        }
-
-        .fb-lock { 
-            background: linear-gradient(145deg, #1877F2, #0e5a9d);
-            backdrop-filter: blur(20px);
-            padding: 3rem; 
-            border-radius: 30px; 
-            text-align: center; 
-            margin-bottom: 4rem; 
-            box-shadow: 0 25px 50px rgba(24,119,242,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        .gallery-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 2rem; 
-        }
-        .sample-card { 
-            background: linear-gradient(145deg, var(--card), rgba(255,255,255,0.03));
-            border-radius: 25px; 
-            padding: 2.5rem; 
-            border: 1px solid rgba(255,215,0,0.1);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .sample-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold), var(--accent), var(--gold));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-        .sample-card:hover { 
-            transform: translateY(-15px) scale(1.02); 
-            border-color: var(--gold);
-            box-shadow: var(--shadow);
-        }
-        .sample-card:hover::before { transform: scaleX(1); }
-        
-        .video-box { 
-            width: 100%; 
-            height: 220px; 
-            background: linear-gradient(145deg, #000, #111);
-            border-radius: 20px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            margin-bottom: 1.5rem; 
-            border: 2px solid rgba(255,215,0,0.2);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        .video-box:hover { border-color: var(--gold); transform: scale(1.02); }
-        .video-box i { font-size: 4rem; color: var(--gold); opacity: 0.8; }
-        
-        .sample-title {
-            color: var(--gold); 
-            font-family: 'Orbitron', monospace;
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-        }
-        audio { 
-            width: 100%; 
-            filter: invert(0.9) sepia(0.3) hue-rotate(30deg) brightness(1.2);
-            margin-top: 1rem;
-            outline: none;
-        }
-        audio::-webkit-media-controls-panel { background: rgba(0,0,0,0.8); border-radius: 10px; }
-
-        /* Packages Grid */
-        .pkg-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
-            gap: 2.5rem; 
-            padding: 100px 5%; 
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .pkg-card { 
-            background: linear-gradient(145deg, var(--card), rgba(255,255,255,0.03));
-            border-radius: 30px; 
-            padding: 3.5rem 2.5rem; 
-            text-align: center; 
-            border: 2px solid rgba(255,255,255,0.05);
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            backdrop-filter: blur(15px);
-            overflow: hidden;
-        }
-        .pkg-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--gold), var(--accent));
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-        .pkg-card:hover { 
-            transform: translateY(-20px); 
-            border-color: var(--gold);
-            box-shadow: var(--shadow);
-        }
-        .pkg-card:hover::before { transform: scaleX(1); }
-        .pkg-card.featured { border-top: 6px solid var(--gold); transform: scale(1.05); }
-        
-        .price { 
-            font-size: clamp(3rem, 8vw, 5rem); 
-            font-weight: 900; 
-            color: var(--gold); 
-            font-family: 'Orbitron', monospace; 
-            margin: 1.5rem 0; 
-            text-shadow: 0 0 20px var(--gold);
-        }
-        .pkg-desc { 
-            color: #ccc; 
-            font-size: 1.1rem; 
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        /* Floating Action Buttons */
-        .fab-group { 
-            position: fixed; 
-            bottom: 30px; 
-            right: 30px; 
-            display: flex; 
-            flex-direction: column; 
-            gap: 15px; 
-            z-index: 2000; 
-        }
-        .fab { 
-            width: 70px; 
-            height: 70px; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            font-size: 1.8rem; 
-            color: #fff; 
-            text-decoration: none; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6); 
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-        .fab::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s, height 0.3s;
-        }
-        .fab:hover::before { width: 100%; height: 100%; }
-        .fab-wa { background: linear-gradient(145deg, var(--green), #128C7E); }
-        .fab-call { background: linear-gradient(145deg, var(--accent), #cc3700); }
-        .fab:hover { transform: translateY(-5px) scale(1.1); }
-
-        /* Footer */
-        footer { 
-            text-align: center; 
-            padding: 4rem 5%; 
-            color: #888; 
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 5rem;
-        }
-        .footer-logo {
-            font-family: 'Orbitron', monospace;
-            color: var(--gold);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .action-buttons { flex-direction: column; align-items: center; }
-            .btn { width: 100%; max-width: 300px; }
-            .nav-actions { gap: 0.5rem; }
-            .nav-link { font-size: 0.9rem; padding: 0.4rem 0.8rem; }
-            .pkg-grid { grid-template-columns: 1fr; padding: 60px 5%; }
-            .gallery-grid { grid-template-columns: 1fr; }
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
-        }
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        footer { text-align: center; padding: 40px; border-top: 1px solid #222; color: #666; }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+
     <nav>
         <div class="logo">PATNA AI STUDIO PRO</div>
         <div class="nav-actions">
-            <a href="tel:+918210073056" class="nav-link">
-                <i class="fas fa-phone-alt"></i> CALL NOW
-            </a>
-            <a href="https://wa.me/918210073056" class="nav-link">
-                <i class="fab fa-whatsapp"></i> WHATSAPP
-            </a>
+            <a href="tel:+918210073056" class="nav-link"><i class="fas fa-phone"></i> CALL</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <h1>BIHAR ELECTION AI HUB 🚀</h1>
-        <p class="hero-subtitle">India's First Fully Automated AI Campaign Platform</p>
+        <p style="font-size: 1.2rem; color: #aaa;">World's #1 AI Campaign Studio for 2026</p>
         
         <div class="search-container">
-            <input type="text" id="mainSearch" class="main-search" placeholder="Enter Panchayat या Leader Name (Hindi/English)..." />
-            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="mainSearch" class="main-search" placeholder="Type Leader Name (eg: Alok) or Panchayat..." onkeyup="smartSearch()">
         </div>
 
-        <div id="result-display" class="fade-in">
+        <div id="result-display">
             <div class="leader-card">
-                <h2 id="resP"></h2>
-                <p id="resN"></p>
-                <div class="action-buttons">
-                    <a href="#" id="waLink" class="btn btn-wa">
-                        <i class="fab fa-whatsapp"></i>
-                        <span id="waText">SEND AI DEMO KIT</span>
-                    </a>
-                    <a href="tel:+918210073056" class="btn btn-gold">
-                        <i class="fas fa-bolt"></i> FAST ORDER
-                    </a>
+                <h2 id="resP" style="color: var(--gold); font-size: 2.5rem;">Panchayat</h2>
+                <p id="resN" style="font-size: 2rem; margin: 1rem 0;">Mukhiya Name</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#" id="waLink" class="btn btn-wa"><i class="fab fa-whatsapp"></i> SEND AI DEMO</a>
+                    <a href="tel:+918210073056" class="btn btn-gold"><i class="fas fa-bolt"></i> FAST ORDER</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Studio Gallery -->
     <section class="studio-gallery">
-        <h2 class="section-title fade-in">📺 PRO STUDIO DEMOS</h2>
+        <h2 style="color: var(--gold); font-size: 2.5rem; margin-bottom: 3rem;">📺 STUDIO SAMPLES</h2>
         
-        <div class="fb-lock fade-in" id="fbGate">
-            <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">🎵 UNLOCK HIGH-QUALITY AUDIO DEMOS</h3>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem;">डेमो सुनने के लिए हमारे Facebook Page को फॉलो करें</p>
-            <a href="https://www.facebook.com/share/1CM8hyDGq2/" target="_blank" class="btn btn-gold" style="background: linear-gradient(145deg, #fff, #f0f0f0); color: #333; width: auto; padding: 18px 45px;" onclick="unlockDemos()">
-                <i class="fab fa-facebook"></i> FOLLOW & UNLOCK 🎵
-            </a>
+        <div class="fb-lock" id="fbGate">
+            <h3 style="margin-bottom: 1rem;">🎵 UNLOCK PREMIUM AUDIO DEMOS</h3>
+            <p style="margin-bottom: 2rem;">सुनने के लिए हमारे Facebook Page को Follow करें</p>
+            <a href="https://www.facebook.com/share/1CM8hyDGq2/" target="_blank" class="btn btn-gold" style="width: auto; padding: 15px 40px;" onclick="unlock()">FOLLOW & UNLOCK</a>
         </div>
 
         <div class="gallery-grid" id="demoGrid" style="display: none;">
-            <div class="sample-card fade-in">
-                <div class="video-box">
-                    <i class="fas fa-play-circle"></i>
-                </div>
-                <h4 class="sample-title">4K AI CAMPAIGN VIDEO</h4>
-                <p style="font-size: 0.95rem; opacity: 0.8;">High Energy Background + Professional Edit</p>
+            <div class="sample-card">
+                <h4 style="color: var(--gold);">👑 MUKHIYA SUPREME</h4>
+                <audio controls><source src="demo-mukhiya.mp3"></audio>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">Bajjika Anthem + 4K Video</p>
             </div>
-            <div class="sample-card fade-in">
-                <h4 class="sample-title">👑 MUKHIYA SUPREME AUDIO</h4>
-                <audio controls preload="metadata">
-                    <source src="demo-mukhiya.mp3" type="audio/mpeg">
-                    Your browser doesn't support audio.
-                </audio>
-                <p style="font-size: 0.95rem; margin-top: 1rem; opacity: 0.8;">Bajjika Dialect + Pro AI Voice</p>
-            </div>
-            <div class="sample-card fade-in">
-                <h4 class="sample-title">⚖️ SARPANCH NYAY AUDIO</h4>
-                <audio controls preload="metadata">
-                    <source src="demo-sarpanch.mp3" type="audio/mpeg">
-                    Your browser doesn't support audio.
-                </audio>
-                <p style="font-size: 0.95rem; margin-top: 1rem; opacity: 0.8;">Clear Studio Quality Voiceover</p>
+            <div class="sample-card">
+                <h4 style="color: var(--gold);">⚖️ SARPANCH PRO</h4>
+                <audio controls><source src="demo-sarpanch.mp3"></audio>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">Nyay Geet + AI Voiceover</p>
             </div>
         </div>
     </section>
 
-    <!-- Packages -->
-    <section class="pkg-grid">
-        <div class="pkg-card featured fade-in">
-            <h3 style="color: var(--gold); font-family: 'Orbitron', monospace; font-size: 1.8rem; margin-bottom: 1rem;">👑 MUKHIYA SUPREME KIT</h3>
+    <div class="pkg-grid">
+        <div class="pkg-card featured">
+            <h3>MUKHIYA KIT</h3>
             <div class="price">₹999</div>
-            <p class="pkg-desc">✅ 4K Campaign Video<br>✅ Bajjika Anthem Audio<br>✅ 5 Viral Reels<br>✅ HD Posters Pack</p>
-            <button class="btn btn-gold" onclick="checkout(999, 'Mukhiya Supreme')">
-                <i class="fas fa-credit-card"></i> PAY NOW (UPI)
-            </button>
-            <a href="https://wa.me/918210073056?text=मुखिया सुप्रीम किट चाहिए - ₹999" class="btn btn-wa">
-                <i class="fab fa-whatsapp"></i> WHATSAPP ORDER
-            </a>
+            <p>Video + Anthem + Reels</p>
+            <button class="btn btn-gold" onclick="checkout(999, 'Mukhiya Supreme')">PAY NOW (UPI)</button>
+            <a href="https://wa.me/918210073056" class="btn btn-wa">ORDER ON WA</a>
         </div>
-        <div class="pkg-card fade-in">
-            <h3 style="color: #aaa; font-family: 'Orbitron', monospace; font-size: 1.6rem; margin-bottom: 1rem;">⭐ WARD STARTER KIT</h3>
+        <div class="pkg-card">
+            <h3>WARD KIT</h3>
             <div class="price">₹299</div>
-            <p class="pkg-desc">✅ Local Audio Jingle<br>✅ 2 HD Posters<br>✅ WhatsApp Ready</p>
-            <button class="btn btn-gold" onclick="checkout(299, 'Ward Starter')">
-                <i class="fas fa-credit-card"></i> PAY NOW (UPI)
-            </button>
-            <a href="https://wa.me/918210073056?text=वर्ड स्टार्टर किट चाहिए - ₹299" class="btn btn-wa">
-                <i class="fab fa-whatsapp"></i> WHATSAPP ORDER
-            </a>
+            <p>Audio + 2 Posters</p>
+            <button class="btn btn-gold" onclick="checkout(299, 'Ward Starter')">PAY NOW (UPI)</button>
+            <a href="https://wa.me/918210073056" class="btn btn-wa">ORDER ON WA</a>
         </div>
-    </section>
-
-    <!-- Floating Actions -->
-    <div class="fab-group">
-        <a href="https://wa.me/918210073056" class="fab fab-wa" title="WhatsApp">
-            <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="tel:+918210073056" class="fab fab-call" title="Call Now">
-            <i class="fas fa-phone-alt"></i>
-        </a>
     </div>
 
-    <!-- Footer -->
     <footer>
-        <div class="footer-logo">PATNA AI STUDIO PRO © 2026</div>
-        <p>Runnisaidpur Hub | Bihar | All Rights Reserved</p>
+        <p>PATNA AI STUDIO PRO © 2026 | Sitamarhi | Bihar</p>
     </footer>
 
-    <!-- Razorpay -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    
     <script>
-        // ✅ FIXED & ENHANCED DATABASE with proper structure
-        const electionDB = [
-            { panchayat: "अथरी", name: "आलोक कुमार", phone: "9431404766", tags: "athri alok mukhiya", post: "मुखिया" },
-            { panchayat: "ओलीपुर सरहचिया", name: "प्रमोद आनन्द", phone: "9576359734", tags: "olipur pramod sarpanch", post: "सरपंच" },
-            { panchayat: "कौडिया लालपुर", name: "अबधेश साह", phone: "9801878799", tags: "kauria abadhesh mukhiya", post: "मुखिया" },
-            { panchayat: "गंगवारा बुजुर्ग", name: "सजी अहमद", phone: "9939115126", tags: "gangwara saji ward", post: "वार्ड सदस्य" },
-            { panchayat: "गिधा फुलवरिया", name: "श्रवण साह", phone: "8210339904", tags: "gidha shravan mukhiya", post: "मुखिया" },
-            { panchayat: "थुम्मा", name: "रीना देवी", phone: "9708838142", tags: "thumma reena sarpanch", post: "सरपंच" },
-            { panchayat: "टिकौली", name: "निलम देवी", phone: "8877455944", tags: "tikauli nilam mukhiya", post: "मुखिया" },
-            { panchayat: "तिलकताजपुर", name: "मधुलिका देवी", phone: "7050302306", tags: "tilaktajpur madhulika sarpanch", post: "सरपंच" },
-            { panchayat: "रुन्नीसैदपुर", name: "राम प्रीत राय", phone: "9931089201", tags: "runnisaidpur ramprit mukhiya", post: "मुखिया" }
+        [span_0](start_span)[span_1](start_span)[span_2](start_span)[span_3](start_span)[span_4](start_span)[span_5](start_span)// 100% FIXED DATABASE from provided PDF data[span_0](end_span)[span_1](end_span)[span_2](end_span)[span_3](end_span)[span_4](end_span)[span_5](end_span)
+        const leaders = [
+            {p: "अथरी", n: "आलोक कुमार", ph: "9431404766", t: "athri alok"},
+            {p: "गंगवारा बुजुर्ग", n: "सजी अहमद", ph: "9939115126", t: "gangwara buzurg saji ahmed"},
+            {p: "गुरुदह उर्फ गौसनगर", n: "आशा देवी", ph: "9939717998", t: "gausnagar asha devi"},
+            {p: "गिधा फुलवरिया", n: "राम लाल गम", ph: "020309004", t: "gidha fulwaria shravan ram lal"},
+            {p: "कौडिया लालपुर", n: "अबधेश साह", ph: "9801878799", t: "kauria lalpur abadhesh sah"},
+            {p: "ओलीपुर सरहचिया", n: "प्रमोद आनन्द", ph: "9576359734", t: "olipur sarhachia pramod anand"},
+            {p: "टिकौली", n: "निलम देवी", ph: "8877455944", t: "tikauli nilam devi"},
+            {p: "रुन्नीसैदपुर", n: "राम प्रीत राय", ph: "9931089201", t: "runnisaidpur ramprit"}
         ];
 
-        // 🔥 WORLD-CLASS SEARCH ENGINE (Fuzzy + Multi-field)
-        function viralSearch() {
-            const searchInput = document.getElementById('mainSearch');
-            const value = searchInput.value.trim().toLowerCase();
-            const resultDisplay = document.getElementById('result-display');
+        // FIXED SEARCH ENGINE
+        function smartSearch() {
+            const val = document.getElementById('mainSearch').value.trim().toLowerCase();
+            const display = document.getElementById('result-display');
             
-            if (value.length < 2) {
-                resultDisplay.classList.remove('show');
-                return;
+            if (val.length < 2) { 
+                display.style.display = 'none'; 
+                return; 
             }
 
-            // Advanced fuzzy search across all fields
-            const matches = electionDB.filter(leader => 
-                leader.panchayat.toLowerCase().includes(value) ||
-                leader.name.toLowerCase().includes(value) ||
-                leader.tags.includes(value)
+            // Dual Scan: Checks Name (n), Panchayat (p), and English tags (t)
+            const match = leaders.find(l => 
+                l.n.toLowerCase().includes(val) || 
+                l.p.toLowerCase().includes(val) || 
+                l.t.toLowerCase().includes(val)
             );
 
-            if (matches.length > 0) {
-                const topMatch = matches[0]; // Take first/best match
-                displayResult(topMatch);
-                resultDisplay.classList.add('show');
-                
-                // Dynamic WhatsApp message
-                const waLink = document.getElementById('waLink');
-                const waText = document.getElementById('waText');
-                waLink.href = `https://wa.me/91${topMatch.phone}?text=नमस्ते ${topMatch.name} जी%0A%0A${topMatch.panchayat} के ${topMatch.post}%0APatna AI Studio Pro से आपकी चुनावी तैयारी के लिए...%0A🚀 AI Campaign Kit चाहिए?`;
-                waText.textContent = `SEND DEMO TO ${topMatch.name}`;
+            if (match) {
+                display.style.display = 'block';
+                document.getElementById('resP').innerText = match.p;
+                document.getElementById('resN').innerText = "👑 " + match.n;
+                document.getElementById('waLink').href = `https://wa.me/91${match.ph}?text=नमस्ते ${match.n} जी! पटना AI स्टूडियो की तरफ से आपके चुनाव के लिए विशेष AI ऑफर...`;
             } else {
-                resultDisplay.classList.remove('show');
+                display.style.display = 'none';
             }
         }
 
-        function displayResult(leader) {
-            document.getElementById('resP').textContent = leader.panchayat;
-            document.getElementById('resN').innerHTML = `👑 ${leader.post}: ${leader.name}`;
-        }
-
-        // FB Unlock with smooth animation
-        function unlockDemos() {
-            const fbGate = document.getElementById('fbGate');
-            const demoGrid = document.getElementById('demoGrid');
-            
-            fbGate.style.transition = 'all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            fbGate.style.opacity = '0';
-            fbGate.style.transform = 'translateY(-30px)';
-            
+        function unlock() {
             setTimeout(() => {
-                fbGate.style.display = 'none';
-                demoGrid.style.display = 'grid';
-                
-                // Trigger scroll animations
-                const cards = demoGrid.querySelectorAll('.fade-in');
-                cards.forEach((card, index) => {
-                    setTimeout(() => card.classList.add('visible'), index * 200);
-                });
-            }, 800);
+                document.getElementById('fbGate').style.display = 'none';
+                document.getElementById('demoGrid').style.display = 'grid';
+            }, 1000);
         }
 
-        // Production-ready Razorpay with error handling
-        function checkout(amount, packageName) {
+        function checkout(amt, pkg) {
             const options = {
-                key: "rzp_test_RzNCtwgr2LMD2q", // Replace with your live key
-                amount: amount * 100,
-                currency: "INR",
-                name: "Patna AI Studio Pro",
-                description: `${packageName} Campaign Kit`,
-                image: "https://via.placeholder.com/150/FFD700/000000?text=AI+PRO", // Add your logo
-                theme: { color: "#FFD700" },
-                prefill: {
-                    name: "",
-                    email: "",
-                    contact: ""
-                },
-                handler: function(response) {
-                    // Success - Send to WhatsApp
-                    const message = `✅ Payment Success!
-Payment ID: ${response.razorpay_payment_id}
-Package: ${packageName}
-Amount: ₹${amount}`;
-                    window.open(`https://wa.me/918210073056?text=${encodeURIComponent(message)}`, '_blank');
-                    
-                    // Show success message
-                    alert(`Payment Successful! 🎉
-ID: ${response.razorpay_payment_id}
-
-Check WhatsApp for delivery instructions.`);
-                },
-                modal: {
-                    ondismiss: function() {
-                        console.log('Payment dismissed');
-                    }
+                "key": "rzp_test_RzNCtwgr2LMD2q", // Test Key
+                "amount": amt * 100,
+                "currency": "INR",
+                "name": "Patna AI Studio Pro",
+                "description": pkg + " Campaign Kit",
+                "theme": {"color": "#FFD700"},
+                "handler": function (resp) {
+                    alert("भुगतान सफल! ID: " + resp.razorpay_payment_id);
+                    window.location.href = `https://wa.me/918210073056?text=Payment Successful! ID:${resp.razorpay_payment_id}`;
                 }
             };
-
-            const rzp = new Razorpay(options);
-            rzp.on('payment.failed', function(response) {
-                alert('Payment failed. Please try again or contact support.');
-                console.error('Payment failed:', response.error);
-            });
-            rzp.open();
+            new Razorpay(options).open();
         }
-
-        // Event Listeners
-        document.getElementById('mainSearch').addEventListener('input', viralSearch);
-        document.getElementById('mainSearch').addEventListener('keyup', function(e) {
-            if (e.key === 'Enter') {
-                e.target.blur(); // Prevent mobile keyboard issues
-            }
-        });
-
-        // Smooth scroll animations on load
-        window.addEventListener('load', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        });
-
-        // Prevent zoom on iOS
-        document.addEventListener('touchstart', function() {}, true);
     </script>
 </body>
 </html>
+
