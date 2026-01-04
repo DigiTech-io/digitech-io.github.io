@@ -1,127 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PATNA AI STUDIO PRO | Bihar Election Hub 2026 🚀</title>
+    <title>PATNA AI STUDIO PRO | Ultimate Hub 2026 🚀</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Noto+Sans+Devanagari:wght@400;700&family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bihar-gold: #FCD34D; --bihar-blue: #1E40AF; --bihar-orange: #F97316;
-            --success-green: #10B981; --dark-bg: #0F172A; --glass-bg: rgba(255, 255, 255, 0.95);
-            --shadow-gold: rgba(252, 211, 77, 0.4); --glass-glow: rgba(251,191,36,0.25);
-            --gradient-main: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
-            --gradient-card: linear-gradient(145deg, rgba(30,58,138,0.95), rgba(59,130,246,0.85));
-            --gradient-gold: linear-gradient(135deg, #fbbf24, #f59e0b);
+            --neon-gold: #FFD700; --energy-orange: #FF4500; --bihar-blue: #1E40AF;
+            --success-green: #00FF41; --studio-dark: #050505; --glass: rgba(255, 255, 255, 0.08);
         }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: var(--studio-dark); color: #fff; overflow-x: hidden; }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Poppins', sans-serif; background: var(--dark-bg); color: #e2e8f0; line-height: 1.6; overflow-x: hidden; }
+        /* VVIP Navbar */
+        .navbar { background: rgba(0,0,0,0.9); backdrop-filter: blur(20px); position: fixed; top: 0; width: 100%; z-index: 1000; border-bottom: 2px solid var(--neon-gold); padding: 12px 0; }
+        .nav-container { max-width: 1400px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo-box { font-family: 'Orbitron'; font-weight: 900; color: var(--neon-gold); font-size: clamp(1rem, 3vw, 1.6rem); }
 
-        /* Navbar */
-        .navbar { background: rgba(15,23,42,0.95); backdrop-filter: blur(25px); position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 0; border-bottom: 2px solid var(--bihar-gold); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
-        .logo-nav { font-family: 'Orbitron'; font-weight: 900; color: var(--bihar-gold); font-size: 1.2rem; }
-        .nav-links { display: flex; gap: 1.5rem; }
-        .nav-link { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
-        .nav-link:hover { color: var(--bihar-gold); }
+        /* Hero Section */
+        .hero { padding: 140px 20px 60px; text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://as2.ftcdn.net/v2/jpg/04/40/83/87/1000_F_440838714_R5Xv6p5L8iUaR0fPz0Lz3I0U6Xv6rU3j.jpg'); background-size: cover; background-position: center; }
+        .hero h1 { font-family: 'Orbitron'; font-size: clamp(2rem, 8vw, 4.5rem); color: var(--neon-gold); }
 
-        /* Hero */
-        .hero { background: var(--gradient-main); padding: 140px 20px 80px; text-align: center; position: relative; }
-        .logo-text { font-family: 'Orbitron'; font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; color: var(--bihar-gold); text-shadow: 0 0 20px var(--shadow-gold); }
-
-        /* Packages Grid */
-        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; padding: 50px 20px; max-width: 1300px; margin: auto; }
-        .package-card { background: var(--gradient-card); border: 2px solid rgba(251,191,36,0.3); border-radius: 30px; padding: 2.5rem; text-align: center; transition: 0.4s; }
-        .package-card:hover { transform: translateY(-15px); border-color: var(--bihar-gold); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        /* Packages Grid - Responsive 3 Column */
+        .grid-packages { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; padding: 40px 20px; max-width: 1400px; margin: auto; }
+        .p-card { background: linear-gradient(145deg, #111, #000); border: 2px solid #333; border-radius: 30px; padding: 30px; text-align: center; transition: 0.4s; position: relative; }
+        .p-card:hover { border-color: var(--neon-gold); transform: translateY(-10px); box-shadow: 0 0 40px rgba(255, 215, 0, 0.15); }
         
-        .audio-player-box { background: rgba(16,185,129,0.15); border: 1px solid var(--success-green); border-radius: 20px; padding: 1rem; margin: 1.5rem 0; display: flex; align-items: center; justify-content: center; gap: 10px; }
-        .audio-btn { background: var(--success-green); color: white; border: none; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; }
+        .p-badge { background: var(--energy-orange); color: #fff; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: 900; position: absolute; top: 15px; right: 15px; }
+        .p-title { font-size: 1.8rem; color: var(--neon-gold); margin-bottom: 10px; font-weight: 800; }
+        .p-price { font-size: 3rem; font-weight: 900; font-family: 'Orbitron'; margin-bottom: 15px; color: var(--success-green); }
         
-        /* Search Section */
-        #search-section { padding: 80px 20px; text-align: center; background: #000; }
-        .search-box { width: 90%; max-width: 750px; padding: 22px 40px; border-radius: 50px; border: 4px solid var(--bihar-gold); background: #111; color: #fff; font-size: 1.5rem; text-align: center; outline: none; }
-        
-        /* Results */
-        #result-container { display: none; margin: 40px auto; max-width: 1200px; }
-        .leader-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2rem; }
-        .leader-card { background: var(--gradient-card); border: 3px solid var(--bihar-gold); border-radius: 35px; padding: 2.5rem; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.5); animation: fadeInUp 0.5s ease; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        /* Advertisement Text Styling */
+        .ad-text { font-size: 0.95rem; color: #ccc; margin-bottom: 20px; min-height: 50px; font-weight: 500; }
+        .ad-text b { color: #fff; }
 
-        .rzp-btn { background: var(--gradient-gold); color: #000; padding: 1rem 2rem; border: none; border-radius: 50px; font-weight: 800; cursor: pointer; width: 100%; font-size: 1.2rem; }
+        /* Studio Audio Player */
+        .studio-player { background: rgba(255,255,255,0.05); border: 1px solid var(--success-green); border-radius: 50px; padding: 12px; display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+        .play-btn { background: var(--success-green); width: 45px; height: 45px; border: none; border-radius: 50%; cursor: pointer; color: #000; font-size: 1.1rem; flex-shrink: 0; }
+        .play-label { font-size: 0.9rem; font-weight: 700; color: var(--success-green); letter-spacing: 1px; }
+
+        /* Search & Results */
+        #search-box { padding: 60px 20px; text-align: center; background: #0a0a0a; border-top: 2px solid var(--neon-gold); }
+        .search-engine { width: 95%; max-width: 800px; padding: 25px 40px; border-radius: 100px; border: 3px solid var(--neon-gold); background: #000; color: #fff; font-size: 1.5rem; font-weight: 700; outline: none; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
         
-        .fab-group { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 1001; }
-        .fab { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #fff; text-decoration: none; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
+        #result-container { display: none; margin-top: 40px; }
+        .leader-card { background: linear-gradient(135deg, #001f3f, #000); border: 3px solid var(--neon-gold); border-radius: 35px; padding: 40px; max-width: 800px; margin: auto; animation: fadeInUp 0.5s ease; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } }
+
+        /* Common Buttons */
+        .cta-btn { background: linear-gradient(45deg, var(--neon-gold), var(--energy-orange)); color: #000; padding: 18px 30px; border-radius: 50px; font-weight: 900; cursor: pointer; text-decoration: none; display: inline-block; width: 100%; border: none; font-size: 1.1rem; }
+        .wa-btn { background: #25D366; color: #fff; padding: 15px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex: 1; }
+
+        footer { padding: 40px 20px; text-align: center; border-top: 1px solid #222; font-size: 0.8rem; color: #666; }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo-nav">PATNA AI STUDIO</div>
-            <div class="nav-links">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#packages" class="nav-link">Packages</a>
-                <a href="#search-section" class="nav-link">Search</a>
-                <a href="#payment" class="nav-link">Pay Now</a>
-            </div>
+            <div class="logo-box">PATNA AI STUDIO PRO</div>
+            <a href="https://wa.me/918210073056" style="color:var(--neon-gold); text-decoration:none; font-weight:900;">💬 HELP</a>
         </div>
     </nav>
 
-    <header class="hero" id="home">
-        <h1 class="logo-text">PATNA AI STUDIO PRO</h1>
-        <p style="font-size: 1.5rem; font-weight: 700;">🚀 BIHAR PANCHAYAT ELECTION 2026</p>
+    <header class="hero">
+        <h1>BIHAR ELECTION <span>2026</span></h1>
+        <p class="hero-subtitle">Ab har Panchayat mein gunjega AI Prachar!</p>
     </header>
 
-    <section class="packages-grid" id="packages">
-        <div class="package-card">
-            <div style="font-size:3rem;">👑</div>
-            <h2 style="color: var(--bihar-gold); margin-bottom: 10px;">MUKHIYA SUPREME</h2>
-            <p style="font-size: 2.5rem; font-weight: 900;">₹999</p>
-            <div class="audio-player-box">
-                <button class="audio-btn" onclick="toggleAudio('mukhiyaAudio', this)"><i class="fas fa-play"></i></button>
-                <span>Play Anthem Demo</span>
-                <audio id="mukhiyaAudio" src="demo-mukhiya.mp3"></audio>
+    <section class="grid-packages" id="packages">
+        
+        <div class="p-card">
+            <span class="p-badge">POPULAR</span>
+            <div class="p-title">👑 MUKHIYA</div>
+            <div class="p-price">₹999</div>
+            <div class="ad-text"><b>High-Energy Bajjika Anthem</b> + 4K HD Video + Viral Reels Bundle.</div>
+            <div class="studio-player">
+                <button class="play-btn" onclick="toggleAudio('mAudio', this)"><i class="fas fa-play"></i></button>
+                <span class="play-label">MUKHIYA DEMO</span>
+                <audio id="mAudio" src="demo-mukhiya.mp3"></audio>
             </div>
-            <button class="rzp-btn" onclick="payNow(999, 'MUKHIYA')">BUY NOW</button>
+            <button class="cta-btn" onclick="payNow(999, 'MUKHIYA')">BUY NOW 🚀</button>
         </div>
 
-        <div class="package-card">
-            <div style="font-size:3rem;">⚖️</div>
-            <h2 style="color: var(--bihar-gold); margin-bottom: 10px;">SARPANCH PRO</h2>
-            <p style="font-size: 2.5rem; font-weight: 900;">₹499</p>
-            <div class="audio-player-box">
-                <button class="audio-btn" onclick="toggleAudio('sarpanchAudio', this)"><i class="fas fa-play"></i></button>
-                <span>Play Nyay Demo</span>
-                <audio id="sarpanchAudio" src="demo-sarpanch.mp3"></audio>
+        <div class="p-card">
+            <div class="p-title">⚖️ SARPANCH</div>
+            <div class="p-price">₹499</div>
+            <div class="ad-text"><b>AI Nyay Voice</b> + 5 Digital Posters + WhatsApp Automation Kit.</div>
+            <div class="studio-player" style="border-color: var(--energy-orange);">
+                <button class="play-btn" style="background: var(--energy-orange);" onclick="toggleAudio('sAudio', this)"><i class="fas fa-play"></i></button>
+                <span class="play-label" style="color:var(--energy-orange);">SARPANCH DEMO</span>
+                <audio id="sAudio" src="demo-sarpanch.mp3"></audio>
             </div>
-            <button class="rzp-btn" onclick="payNow(499, 'SARPANCH')">BUY NOW</button>
+            <button class="cta-btn" onclick="payNow(499, 'SARPANCH')">BOOK NOW ⚡</button>
         </div>
+
+        <div class="p-card">
+            <div class="p-title">🏘️ WARD MEMBER</div>
+            <div class="p-price">₹299</div>
+            <div class="ad-text"><b>Local Jingle Audio</b> + 2 Election Posters + Direct WhatsApp Text.</div>
+            <div class="studio-player" style="border-color: #3b82f6;">
+                <button class="play-btn" style="background: #3b82f6;" onclick="toggleAudio('wAudio', this)"><i class="fas fa-play"></i></button>
+                <span class="play-label" style="color:#3b82f6;">WARD DEMO</span>
+                <audio id="wAudio" src="demo-ward.mp3"></audio>
+            </div>
+            <button class="cta-btn" onclick="payNow(299, 'WARD')">START NOW 🏘️</button>
+        </div>
+
     </section>
 
-    <section id="search-section">
-        <h2 style="font-family:'Orbitron'; color: var(--bihar-gold); margin-bottom: 2rem;">🔍 AI SMART SEARCH</h2>
-        <input type="text" id="dbSearch" class="search-box" placeholder="Type Alok/आलोक or Athri/अथरी..." onkeyup="searchLeader()">
+    <section id="search-box">
+        <h2 style="color:var(--neon-gold); font-family:'Orbitron'; margin-bottom:20px;">SEARCH CANDIDATE 🔎</h2>
+        <input type="text" id="dbSearch" class="search-engine" placeholder="Type Alok / आलोक / Athri..." onkeyup="searchLeader()">
         
         <div id="result-container">
-            <div id="leaderList" class="leader-grid"></div>
-            <div id="noResults" style="display:none; color: #f87171; font-size: 2rem; margin-top: 2rem;">❌ No Candidate Found</div>
+            <div id="leaderList"></div>
+            <div id="noResults" style="display:none; color:#f87171; font-size:1.5rem; margin-top:2rem;">उम्मीदवार नहीं मिला! सही नाम लिखें।</div>
         </div>
     </section>
 
-    <div id="payment" style="text-align:center; padding: 100px 20px;">
-        <h2 style="color: var(--bihar-gold); font-size: 3rem; margin-bottom: 2rem;">💳 PAY & START NOW</h2>
-        <button id="rzp-button1" class="rzp-btn" style="max-width: 400px; padding: 1.5rem;">ACTIVATE CAMPAIGN</button>
-    </div>
-
-    <div class="fab-group">
-        <a href="https://wa.me/918210073056" class="fab" style="background: var(--success-green);"><i class="fab fa-whatsapp"></i></a>
-        <a href="tel:+918210073056" class="fab" style="background: var(--bihar-orange);"><i class="fas fa-phone"></i></a>
-    </div>
+    <footer>
+        <p>PATNA AI STUDIO PRO © 2026 | Runnisaidpur Hub | Sitamarhi, Bihar</p>
+    </footer>
 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
+        // Full Database for Dual Search
         const leaders = [
             {p: "अथरी", n: "आलोक कुमार", ph: "9934279093", map: "Athri Alok Kumar"},
             {p: "ओलीपुर सरहचिया", n: "प्रमोद आनन्द", ph: "9576359734", map: "Olipur Pramod Anand"},
@@ -173,34 +179,32 @@
                     container.style.display = 'block'; noRes.style.display = 'none';
                     list.innerHTML = matches.map(l => `
                         <div class="leader-card">
-                            <div style="color:var(--bihar-gold); font-weight:900;">PANCHAYAT</div>
-                            <h3 style="font-size:2rem; color:#fff; font-family:'Noto Sans Devanagari';">${l.p}</h3>
-                            <p style="font-size:1.5rem; margin:10px 0; color:var(--bihar-gold);">👑 मुखिया: ${l.n}</p>
-                            <div style="display:flex; gap:10px; margin-top:20px;">
-                                <a href="https://wa.me/91${l.ph}?text=Namaste ${l.n} Ji, I saw your profile on Patna AI Studio..." style="flex:1; background:var(--success-green); color:#fff; padding:15px; border-radius:50px; text-decoration:none; font-weight:800;"><i class="fab fa-whatsapp"></i> WA</a>
-                                <a href="tel:+91${l.ph}" style="flex:1; background:var(--bihar-orange); color:#fff; padding:15px; border-radius:50px; text-decoration:none; font-weight:800;"><i class="fas fa-phone"></i> CALL</a>
+                            <div style="color:var(--neon-gold); font-weight:900; letter-spacing:2px;">PANCHAYAT</div>
+                            <div style="font-size:2.8rem; font-weight:900; margin-bottom:10px;">${l.p}</div>
+                            <div style="font-size:1.8rem; color:#fff; margin-bottom:30px;">Mukhiya: <b>${l.n}</b></div>
+                            <div style="display:flex; gap:15px;">
+                                <a href="https://wa.me/91${l.ph}?text=Namaste Mukhiya Ji ${l.n}, Patna AI Studio Pro se contact kar raha hoon..." class="wa-btn"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
+                                <a href="tel:+91${l.ph}" class="wa-btn" style="background:var(--energy-orange);"><i class="fas fa-phone"></i> CALL NOW</a>
                             </div>
                         </div>
                     `).join('');
-                } else {
-                    list.innerHTML = ''; noRes.style.display = 'block'; container.style.display = 'block';
-                }
+                } else { list.innerHTML = ''; noRes.style.display = 'block'; container.style.display = 'block'; }
             } else { container.style.display = 'none'; }
         }
 
         function toggleAudio(id, btn) {
             const audio = document.getElementById(id);
             const icon = btn.querySelector('i');
-            if (audio.paused) { audio.play(); icon.className = 'fas fa-pause'; } 
-            else { audio.pause(); icon.className = 'fas fa-play'; }
+            if (audio.paused) { 
+                document.querySelectorAll('audio').forEach(a => {a.pause(); a.currentTime = 0;}); // Stop others
+                audio.play(); icon.className = 'fas fa-pause'; 
+            } else { audio.pause(); icon.className = 'fas fa-play'; }
         }
 
-        function payNow(amount, pkg) {
-            var options = { "key": "rzp_test_RzNCtwgr2LMD2q", "amount": amount * 100, "currency": "INR", "name": "Patna AI Studio Pro", "description": pkg + " Campaign", "handler": function(res){ alert("Payment Success!"); } };
+        function payNow(amt, pkg) {
+            var options = { "key": "rzp_test_RzNCtwgr2LMD2q", "amount": amt * 100, "currency": "INR", "name": "Patna AI Studio Pro", "description": pkg + " Campaign", "handler": function(res){ alert("Payment Done!"); } };
             new Razorpay(options).open();
         }
-
-        document.getElementById('rzp-button1').onclick = function(e){ payNow(999, 'PREMIUM'); e.preventDefault(); }
     </script>
 </body>
 </html>
