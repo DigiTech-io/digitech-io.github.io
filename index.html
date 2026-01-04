@@ -3,351 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PATNA AI STUDIO PRO | Digital Election Hub 2026</title>
-    <link rel="stylesheet" href="https://cdn.tailwindcss.com">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>PATNA AI STUDIO PRO | Bihar Election Hub 2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --gold: #FFD700; --orange: #FF4500; --green: #25D366; --bg: #050505; }
-        body { font-family: 'Poppins', sans-serif; background: var(--bg); }
-        .orbitron { font-family: 'Orbitron', monospace; }
-        .glass { backdrop-filter: blur(20px); background: rgba(255,255,255,0.05); }
+        :root { --gold: #FFD700; --accent: #FF4500; --green: #25D366; --bg: #0a0a0b; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: #fff; line-height: 1.6; }
+        
+        header { background: linear-gradient(135deg, #001f3f, #000); padding: 50px 20px; text-align: center; border-bottom: 4px solid var(--gold); }
+        .logo { font-family: 'Orbitron'; font-size: 32px; font-weight: 900; color: var(--gold); letter-spacing: 2px; }
+        
+        .container { max-width: 1200px; margin: auto; padding: 20px; }
+
+        /* FB Lock Box */
+        .lock-box { background: #1877F2; border-radius: 20px; padding: 30px; text-align: center; margin: 20px 0; box-shadow: 0 10px 30px rgba(24,119,242,0.3); }
+        .btn-follow { background: #fff; color: #1877F2; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-block; margin-top: 10px; }
+
+        /* Audio Section */
+        #audio-demo { display: none; background: rgba(255,215,0,0.05); border: 2px solid var(--gold); border-radius: 20px; padding: 25px; text-align: center; margin: 20px 0; }
+        audio { width: 100%; max-width: 400px; filter: invert(1); margin-top: 10px; }
+
+        /* Search Section */
+        .search-area { background: #111; border: 2px solid var(--gold); border-radius: 25px; padding: 30px; margin: 30px 0; text-align: center; }
+        .search-input { width: 90%; padding: 20px; border-radius: 50px; border: 2px solid var(--gold); background: #000; color: #fff; font-size: 18px; outline: none; text-align: center; font-weight: bold; }
+
+        /* Results Card */
+        .result-card { background: linear-gradient(45deg, #1e3a5f, #0a192f); border: 2px solid var(--gold); border-radius: 20px; padding: 25px; margin-top: 20px; display: none; text-align: center; animation: slideIn 0.5s ease; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Packages */
+        .pkg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0; }
+        .pkg-card { background: rgba(255,255,255,0.05); border: 1px solid #333; border-radius: 25px; padding: 30px; text-align: center; transition: 0.3s; }
+        .pkg-card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .price { font-size: 40px; font-weight: 900; color: var(--gold); margin: 15px 0; font-family: 'Orbitron'; }
+
+        .btn-buy { width: 100%; padding: 15px; border-radius: 50px; border: none; font-weight: 800; cursor: pointer; margin-top: 10px; font-size: 16px; display: block; text-decoration: none; text-align: center; }
+        .btn-rzp { background: var(--gold); color: #000; }
+        .btn-wa { background: var(--green); color: #fff; }
+
+        footer { text-align: center; padding: 40px; color: #666; font-size: 12px; }
     </style>
 </head>
-<body class="text-white min-h-screen bg-gradient-to-br from-black via-gray-900 to-black">
+<body>
 
-<!-- Analytics -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
-
-<!-- HEADER -->
-<header class="text-center py-24 px-6 bg-gradient-to-b from-black/50 to-transparent border-b-2 border-yellow-500/30 backdrop-blur-md">
-    <h1 class="orbitron text-5xl md:text-7xl font-black bg-gradient-to-r from-yellow-400 via-yellow-300 to-orange-400 bg-clip-text text-transparent uppercase tracking-widest mb-6">
-        PATNA AI STUDIO PRO
-    </h1>
-    <p class="text-xl md:text-2xl text-yellow-300/80 font-semibold tracking-wide">
-        🚀 BIHAR PANCHAYAT ELECTION 2026 | AI CAMPAIGN HEADQUARTERS
-    </p>
-    <p class="text-lg text-gray-400 mt-2 max-w-2xl mx-auto">
-        4K AI Videos | Viral Reels | Voice Cloning | सिर्फ 24 घंटे में Ready
-    </p>
+<header>
+    <div class="logo">PATNA AI STUDIO PRO</div>
+    <p style="color: #aaa; font-weight: bold; margin-top: 5px;">BIHAR PANCHAYAT ELECTION 2026 | AI HUB</p>
 </header>
 
-<div class="container mx-auto px-6 py-12 max-w-7xl">
+<div class="container">
+    
+    <div class="lock-box" id="fbGate">
+        <h3>🎵 DEMO AUDIO UNLOCK करें</h3>
+        <p>मुखिया जी का डेमो सुनने के लिए Facebook Page फॉलो करें</p>
+        <a href="https://www.facebook.com/share/1CM8hyDGq2/" target="_blank" class="btn-follow" onclick="unlock()">FOLLOW & UNLOCK</a>
+    </div>
 
-<!-- 🔥 LIVE AI DEMO GENERATOR -->
-<section class="glass border-2 border-yellow-500/30 rounded-3xl p-12 mb-16 shadow-2xl hover:shadow-yellow-500/20 transition-all duration-500">
-    <h2 class="orbitron text-4xl md:text-5xl text-yellow-400 text-center mb-12 uppercase tracking-widest">
-        🤖 LIVE AI CAMPAIGN GENERATOR
-    </h2>
-    <div class="grid lg:grid-cols-2 gap-12 items-end">
-        <!-- Input Form -->
-        <div class="space-y-6">
-            <input id="candidateName" type="text" placeholder="👤 उम्मीदवार का नाम (आलोक कुमार)" 
-                   class="w-full p-8 rounded-3xl border-2 border-gray-700/50 bg-black/50 text-2xl text-white placeholder-gray-400 focus:border-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-500/20 transition-all duration-300 hover:border-yellow-500/50">
-            
-            <input id="panchayatName" type="text" placeholder="🏘️ पंचायत का नाम (अथरी)" 
-                   class="w-full p-8 rounded-3xl border-2 border-gray-700/50 bg-black/50 text-2xl text-white placeholder-gray-400 focus:border-yellow-400 focus:outline-none focus:ring-4 focus:ring-yellow-500/20 transition-all duration-300 hover:border-yellow-500/50">
-            
-            <button onclick="generateDemo()" 
-                    class="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-black font-black text-2xl py-8 px-12 rounded-3xl shadow-2xl hover:shadow-yellow-500/50 hover:scale-105 transition-all duration-300 transform">
-                ✨ FREE 30 SEC DEMO GENERATE करें
-            </button>
-        </div>
+    <div id="audio-demo">
+        <h2 style="color: var(--gold);">👑 MUKHIYA SUPREME DEMO</h2>
+        <audio controls id="myAudio"><source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav"></audio>
+    </div>
+
+    <div class="search-area">
+        <h2 style="color: var(--gold); margin-bottom: 15px;">🔍 उम्मीदवार खोजें (Naam ya Panchayat)</h2>
+        <input type="text" id="searchInput" class="search-input" placeholder="Start typing: Alok, Athri, Thumma..." onkeyup="doSearch()">
         
-        <!-- Preview -->
-        <div id="demoPreview" class="glass border-2 border-gray-600 rounded-3xl p-8 min-h-[400px] flex items-center justify-center text-center">
-            <div class="text-center">
-                <i class="fas fa-robot text-9xl text-yellow-400 mb-8 animate-pulse"></i>
-                <p class="text-2xl text-gray-400 mb-4">AI Engine Ready</p>
-                <p class="text-lg text-gray-500">Demo Generate करने के लिए ऊपर button दबाएं</p>
-            </div>
+        <div id="searchResult" class="result-card">
+            <h3 id="resP" style="color: var(--gold); font-size: 24px;">Panchayat</h3>
+            <p id="resN" style="font-size: 20px; margin: 10px 0;">Candidate Name</p>
+            <a href="#" id="waLink" class="btn-buy btn-wa"><i class="fab fa-whatsapp"></i> SEND DEMO ON WHATSAPP</a>
         </div>
     </div>
-</section>
 
-<!-- 🔍 CANDIDATE SEARCH ENGINE -->
-<section class="glass border-2 border-yellow-500/20 rounded-3xl p-12 mb-16 hover:border-yellow-500/50 transition-all duration-300">
-    <h2 class="orbitron text-4xl text-yellow-400 text-center mb-12 uppercase tracking-widest">
-        🔍 YOUR PANCHAYAT CANDIDATE खोजें
-    </h2>
-    <div class="max-w-4xl mx-auto">
-        <input id="searchInput" type="text" class="w-full p-8 rounded-full border-4 border-yellow-500/30 bg-gradient-to-r from-black to-gray-900 text-2xl text-white placeholder-yellow-300 text-center focus:outline-none focus:border-yellow-400 focus:ring-8 focus:ring-yellow-500/20 shadow-2xl hover:shadow-yellow-500/30 transition-all duration-500" 
-               placeholder="अथरी, आलोक कुमार, athri alok... (Hindi/English)">
-        
-        <div id="resultsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12"></div>
-    </div>
-</section>
-
-<!-- 💰 ELECTION PACKAGES -->
-<section class="py-20">
-    <h2 class="orbitron text-5xl text-yellow-400 text-center mb-20 uppercase tracking-widest">
-        💰 CAMPAIGN PACKAGES
-    </h2>
-    <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        
-        <!-- Ward Starter -->
-        <div class="glass border-2 border-gray-700 rounded-3xl p-10 hover:border-yellow-400 hover:shadow-2xl hover:shadow-yellow-500/20 group transition-all duration-500 transform hover:-translate-y-4">
-            <div class="text-center">
-                <div class="text-6xl mb-6">🏘️</div>
-                <h3 class="text-2xl font-bold text-gray-300 mb-6">WARD STARTER</h3>
-                <div class="text-6xl font-black text-yellow-400 mb-8 orbitron">₹299</div>
-                <p class="text-lg text-gray-400 mb-10">Local Jingle + 2 HD Posters + WhatsApp Automation</p>
-                
-                <div class="space-y-3">
-                    <button onclick="checkout(299, 'Ward Starter')" class="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-black font-bold py-5 px-8 rounded-2xl shadow-xl hover:shadow-yellow-500/50 hover:scale-105 transition-all duration-300">
-                        <i class="fas fa-credit-card mr-3"></i> UPI/CARD से PAYNOW
-                    </button>
-                    <a href="https://wa.me/918210073056?text=WARD%20STARTER%20Package%20book%20karna%20hai%20₹299" 
-                       class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-5 px-8 rounded-2xl text-center shadow-xl hover:shadow-green-500/50 hover:scale-105 transition-all duration-300">
-                        <i class="fab fa-whatsapp mr-3"></i> WHATSAPP ORDER
-                    </a>
-                </div>
-            </div>
+    <div class="pkg-grid">
+        <div class="pkg-card">
+            <h3 style="color: #ccc;">🏘️ WARD MEMBER</h3>
+            <div class="price">₹299</div>
+            <p>Audio + 2 Posters</p>
+            <button class="btn-buy btn-rzp" onclick="pay(299, 'Ward')">PAY NOW (UPI)</button>
+            <a href="https://wa.me/918210073056?text=Ward%20Member%20Kit%20chahiye" class="btn-buy btn-wa">WHATSAPP ORDER</a>
         </div>
-
-        <!-- 🔥 MUKHIYA SUPREME (POPULAR) -->
-        <div class="glass border-4 border-yellow-500 rounded-3xl p-10 relative shadow-2xl hover:shadow-yellow-500/30 group transition-all duration-500 transform hover:-translate-y-6 bg-gradient-to-b from-yellow-500/5 to-transparent">
-            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-500 text-black font-bold px-8 py-3 rounded-xl shadow-lg">🔥 MOST POPULAR</div>
-            <div class="text-center">
-                <div class="text-6xl mb-6">👑</div>
-                <h3 class="text-3xl font-black text-yellow-400 mb-6 orbitron">MUKHIYA SUPREME</h3>
-                <div class="text-7xl font-black text-yellow-400 mb-8 orbitron">₹999</div>
-                <p class="text-xl text-gray-300 mb-10 font-semibold">4K AI Video + 5 Viral Reels + Voice Clone + Social Ads</p>
-                
-                <div class="space-y-3">
-                    <button onclick="checkout(999, 'Mukhiya Supreme')" class="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-black font-bold py-6 px-8 rounded-2xl shadow-2xl hover:shadow-yellow-500/50 hover:scale-105 transition-all duration-300 text-lg">
-                        <i class="fas fa-credit-card mr-3"></i> INSTANT PAYMENT
-                    </button>
-                    <a href="https://wa.me/918210073056?text=MUKHIYA%20SUPREME%20Full%20Kit%20₹999%20book%20karna%20hai" 
-                       class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-6 px-8 rounded-2xl text-center shadow-2xl hover:shadow-green-500/50 hover:scale-105 transition-all duration-300 text-lg">
-                        <i class="fab fa-whatsapp mr-3"></i> WHATSAPP FAST ORDER
-                    </a>
-                </div>
-            </div>
+        <div class="pkg-card" style="border: 2px solid var(--gold);">
+            <h3 style="color: var(--gold);">👑 MUKHIYA SUPREME</h3>
+            <div class="price">₹999</div>
+            <p>4K Video + Bajjika Anthem</p>
+            <button class="btn-buy btn-rzp" onclick="pay(999, 'Mukhiya')">PAY NOW (UPI)</button>
+            <a href="https://wa.me/918210073056?text=Mukhiya%20Supreme%20Kit%20chahiye" class="btn-buy btn-wa">WHATSAPP ORDER</a>
         </div>
-
-        <!-- Sarpanch Pro -->
-        <div class="glass border-2 border-gray-700 rounded-3xl p-10 hover:border-yellow-400 hover:shadow-2xl hover:shadow-yellow-500/20 group transition-all duration-500 transform hover:-translate-y-4">
-            <div class="text-center">
-                <div class="text-6xl mb-6">⚖️</div>
-                <h3 class="text-2xl font-bold text-gray-300 mb-6">SARAPANCH PRO</h3>
-                <div class="text-6xl font-black text-yellow-400 mb-8 orbitron">₹499</div>
-                <p class="text-lg text-gray-400 mb-10">AI Voiceover + 5 HD Posters + Auto WhatsApp + Stories</p>
-                
-                <div class="space-y-3">
-                    <button onclick="checkout(499, 'Sarpanch Pro')" class="w-full bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-black font-bold py-5 px-8 rounded-2xl shadow-xl hover:shadow-yellow-500/50 hover:scale-105 transition-all duration-300">
-                        <i class="fas fa-credit-card mr-3"></i> UPI/CARD से PAYNOW
-                    </button>
-                    <a href="https://wa.me/918210073056?text=SARAPANCH%20PRO%20Package%20₹499%20book%20karna%20hai" 
-                       class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-5 px-8 rounded-2xl text-center shadow-xl hover:shadow-green-500/50 hover:scale-105 transition-all duration-300">
-                        <i class="fab fa-whatsapp mr-3"></i> WHATSAPP ORDER
-                    </a>
-                </div>
-            </div>
+        <div class="pkg-card">
+            <h3 style="color: #ccc;">⚖️ SARPANCH PRO</h3>
+            <div class="price">₹499</div>
+            <p>AI Voice + 5 Posters</p>
+            <button class="btn-buy btn-rzp" onclick="pay(499, 'Sarpanch')">PAY NOW (UPI)</button>
+            <a href="https://wa.me/918210073056?text=Sarpanch%20Kit%20chahiye" class="btn-buy btn-wa">WHATSAPP ORDER</a>
         </div>
-        
     </div>
-</section>
-
-<!-- FB Follow Gate -->
-<div id="fbBox" class="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-50 hidden">
-    <div class="glass border-4 border-blue-500 rounded-3xl p-12 max-w-md mx-6 text-center shadow-2xl animate-pulse">
-        <i class="fab fa-facebook text-6xl text-blue-400 mb-8"></i>
-        <h2 class="text-3xl font-bold text-white mb-6">DEMO AUDIO UNLOCK करें</h2>
-        <p class="text-lg text-gray-300 mb-8">पटना AI स्टूडियो को Facebook Follow करें</p>
-        <a href="https://www.facebook.com/share/1CM8hyDGq2/" target="_blank" 
-           onclick="unlockAudio(); setTimeout(() => document.getElementById('fbBox').classList.add('hidden'), 1500)" 
-           class="inline-block bg-white text-blue-600 font-bold py-6 px-12 rounded-2xl text-xl hover:scale-105 hover:shadow-2xl transition-all duration-300">
-            FOLLOW & UNLOCK 🎵
-        </a>
-    </div>
-</div>
-
-<!-- Audio Demo -->
-<div id="audioSection" class="glass border-2 border-yellow-500/30 rounded-3xl p-12 mb-16 text-center max-w-2xl mx-auto hidden">
-    <h2 class="orbitron text-4xl text-yellow-400 mb-12">🎵 MUKHIYA SUPREME AI DEMO</h2>
-    <div class="flex items-center justify-center bg-black/50 p-8 rounded-2xl gap-6">
-        <i class="fas fa-music text-4xl text-yellow-400"></i>
-        <audio controls class="w-full max-w-md" id="mainAudio">
-            <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
-        </audio>
-    </div>
-</div>
 
 </div>
 
-<!-- Footer -->
-<footer class="border-t-2 border-yellow-500/20 py-16 text-center text-gray-400 space-y-4">
-    <p class="text-2xl orbitron tracking-wider">PATNA AI STUDIO PRO © 2026</p>
-    <p>🚀 Bihar Election AI Lab | 24×7 Campaign Support | ECI Compliant</p>
-    <p class="text-sm">✅ Razorpay Verified | ✅ SSL Secured | ✅ Instant Delivery</p>
+<footer>
+    <p>PATNA AI STUDIO PRO © 2026 | Runnisaidpur Block Hub | Bihar</p>
 </footer>
 
-<!-- WhatsApp FAB -->
-<a href="https://wa.me/918210073056?text=नमस्ते!%20PATNA%20AI%20STUDIO%20के%20Campaign%20Packages%20के%20बारे%20में%20जानना%20है" 
-   class="fixed bottom-8 right-8 w-20 h-20 bg-green-500 hover:bg-green-600 text-white text-3xl rounded-full flex items-center justify-center shadow-2xl hover:shadow-green-500/50 hover:scale-110 transition-all duration-300 z-40" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
-
-<!-- SEO Schema -->
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "PATNA AI STUDIO PRO",
-    "description": "Bihar Panchayat Election 2026 के लिए AI Campaign Videos, Jingles, Reels सिर्फ ₹299 से। 24 घंटे Delivery।",
-    "url": "https://patnaaistudio.pro",
-    "telephone": "+91 82100 73056",
-    "areaServed": "Bihar",
-    "priceRange": "₹299-₹999",
-    "openingHours": "Mo-Su 00:00-24:00",
-    "sameAs": ["https://wa.me/918210073056"]
-}
-</script>
-
-<!-- PRODUCTION JAVASCRIPT -->
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
-    // 🔥 PRODUCTION DATABASE (100+ Candidates)
+    // --- 33 MUKHIYA DATABASE ---
     const db = [
-        {p: "अथरी", n: "आलोक कुमार", ph: "9934279093", tag: "athri alok"},
-        {p: "ओलीपुर", n: "प्रमोद आनन्द", ph: "9576359734", tag: "olipur pramod"},
-        {p: "कौडिया", n: "अबधेश साह", ph: "9801878799", tag: "kauria abadhesh"},
-        {p: "गंगवारा", n: "सजी अहमद", ph: "9939115126", tag: "gangwara saja"},
-        {p: "गिधा", n: "श्रवण साह", ph: "8210339904", tag: "gidha shravan"},
-        {p: "थुम्मा", n: "रीना देवी", ph: "9708838142", tag: "thumma reena"},
-        {p: "टिकौली", n: "निलम देवी", ph: "8877455944", tag: "tikauli nilam"},
-        {p: "तिलकताजपुर", n: "मधुलिका देवी", ph: "7050302306", tag: "tilaktajpur"},
-        {p: "रुन्नीसैदपुर", n: "राम प्रीत राय", ph: "9931089201", tag: "runnisaidpur"},
-        // Add 100+ more candidates here...
+        {p: "अथरी", n: "आलोक कुमार", ph: "9934279093"},
+        {p: "ओलीपुर सरहचिया", n: "प्रमोद आनन्द", ph: "9576359734"},
+        {p: "कौडिया लालपुर", n: "अबधेश साह", ph: "9801878799"},
+        {p: "गंगवारा बुजुर्ग", n: "सजी अहमद", ph: "9939115126"},
+        {p: "गुरुदह उर्फ गौसनगर", n: "आशा देवी", ph: "9939717998"},
+        {p: "गिधा फुलवरिया", n: "श्रवण साह", ph: "8210339904"},
+        {p: "टिकौली", n: "निलम देवी", ph: "8877455944"},
+        {p: "तिलकताजपुर", n: "मधुलिका देवी", ph: "7050302306"},
+        {p: "थुम्मा", n: "रीना देवी", ph: "9708838142"},
+        {p: "देवना बुजुर्ग", n: "माधुरी देवी", ph: "8789229959"},
+        {p: "धनुषी", n: "दिलीप कुमार पासवान", ph: "9576448601"},
+        {p: "प्रेमनगर", n: "धर्मेन्द्र कमती", ph: "834394724"},
+        {p: "बगाही रामनगर", n: "रेणु देवी", ph: "9973259063"},
+        {p: "बघाड़ी", n: "रानी देवी", ph: "8084852630"},
+        {p: "बरहेत्ता", n: "प्रमिला देवी", ph: "9631540736"},
+        {p: "बलुआ", n: "नवीन कुमार", ph: "8789109853"},
+        {p: "बुलन्दपुर", n: "रविशंकर यादव", ph: "9931669238"},
+        {p: "बेलाही नीलकंठ", n: "संजू देवी", ph: "7482832733"},
+        {p: "मधौल खानी", n: "अनिता देवी", ph: "9572551531"},
+        {p: "महेशा फरकपुर", n: "टीमा देवी", ph: "8969054602"},
+        {p: "महिन्दवारा", n: "पूनम देवी", ph: "8507636404"},
+        {p: "महिसार", n: "राम लखन राय", ph: "9708984611"},
+        {p: "मोरसंड", n: "कामनी सिंह", ph: "9771683366"},
+        {p: "मानिक चौक उत्तरी", n: "अनुराधा कुमारी", ph: "9708053007"},
+        {p: "मानिक चौक दक्षिणी", n: "राम नारायण साह", ph: "9576681301"},
+        {p: "मानिक चौक पश्चिमी", n: "एकनाथ झा", ph: "7903795502"},
+        {p: "रुन्नीसैदपुर उत्तरी", n: "सगेयान देवी", ph: "9525571234"},
+        {p: "रुन्नीसैदपुर मध्य", n: "प्रमिला देवी", ph: "7091942730"},
+        {p: "रुन्नीसैदपुर दक्षिणी", n: "राम प्रीत राय", ph: "9931089201"},
+        {p: "रुन्नीसैदपुर पश्चिमी", n: "विनय कुमार", ph: "9934279589"},
+        {p: "सिरखिरिया", n: "मुकेश बैठा", ph: "9631925281"},
+        {p: "टैन विशुनी", n: "किरण देवी", ph: "9934659459"},
+        {p: "बहेरा", n: "शशि भूषण सिंह", ph: "9934415250"}
     ];
 
-    // 🔍 Enterprise Search Engine
-    document.getElementById('searchInput').addEventListener('input', function(e) {
-        const val = e.target.value.toLowerCase().trim();
-        const grid = document.getElementById('resultsGrid');
-        
-        grid.innerHTML = '';
-        
-        if (val.length < 2) return;
+    // --- SEARCH LOGIC ---
+    function doSearch() {
+        const val = document.getElementById('searchInput').value.trim().toUpperCase();
+        const card = document.getElementById('searchResult');
+        if (val.length < 2) { card.style.display = 'none'; return; }
 
-        const filtered = db.filter(item => 
-            item.p.toLowerCase().includes(val) || 
-            item.n.toLowerCase().includes(val) || 
-            item.tag.includes(val)
-        );
-
-        if (filtered.length === 0) {
-            grid.innerHTML = `
-                <div class="col-span-full text-center py-20">
-                    <i class="fas fa-search text-6xl text-gray-600 mb-6"></i>
-                    <p class="text-2xl text-gray-500">कोई candidate नहीं मिला</p>
-                    <p class="text-lg text-gray-600 mt-2">अधिक candidates जल्द add हो रहे हैं...</p>
-                </div>
-            `;
-            return;
-        }
-
-        filtered.slice(0, 9).forEach(res => {
-            grid.innerHTML += `
-                <div class="glass border-2 border-yellow-500/30 p-8 rounded-2xl hover:border-yellow-400 hover:shadow-2xl hover:shadow-yellow-500/30 transition-all duration-300 hover:scale-105 group">
-                    <h3 class="text-2xl font-bold text-yellow-400 mb-4">${res.p}</h3>
-                    <p class="text-3xl font-black text-white mb-6">👑 ${res.n}</p>
-                    <a href="https://wa.me/91${res.ph}?text=नमस्ते ${res.n} जी! पटना AI स्टूडियो से आपके चुनाव के लिए Supreme Campaign Package %F0%9F%A4%A9%0A%0A%F0%9F%92%B0 Mukhiya Supreme: ₹999 (4K Video+Reels)%0A%F0%9F%92%B0 Ward Starter: ₹299%0A%0ADelivery: 24 घंटे%0A%0AOrder करें?" 
-                       class="w-full block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-xl text-center shadow-xl hover:shadow-green-500/50 transition-all duration-300 group-hover:scale-105">
-                        <i class="fab fa-whatsapp mr-3"></i> अभी संपर्क करें
-                    </a>
-                </div>
-            `;
-        });
-    });
-
-    // 🤖 AI Demo Generator (Mock)
-    function generateDemo() {
-        const name = document.getElementById('candidateName').value || 'आलोक कुमार';
-        const panchayat = document.getElementById('panchayatName').value || 'अथरी';
-        
-        const preview = document.getElementById('demoPreview');
-        preview.innerHTML = `
-            <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-purple-900/50 to-blue-900/50 rounded-2xl p-8 animate-pulse">
-                <div class="text-center">
-                    <div class="w-32 h-32 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl">
-                        <i class="fas fa-video text-4xl text-black"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold text-yellow-400 mb-4">${name}</h3>
-                    <p class="text-xl text-white mb-6">${panchayat} मुखिया</p>
-                    <div class="w-full bg-black/50 rounded-xl p-6">
-                        <div class="wave-animation mb-4"></div>
-                        <p class="text-lg text-green-400 font-mono animate-pulse">🎥 4K AI VIDEO GENERATING...</p>
-                        <p class="text-sm text-gray-400 mt-2">30 सेकंड में Ready ✅</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        
-        // Simulate generation
-        setTimeout(() => {
-            preview.innerHTML += `
-                <div class="absolute inset-0 bg-gradient-to-r from-green-500/20 to-blue-500/20 animate-pulse rounded-2xl"></div>
-            `;
-        }, 2000);
+        const found = db.find(l => l.p.toUpperCase().includes(val) || l.n.toUpperCase().includes(val));
+        if (found) {
+            card.style.display = 'block';
+            document.getElementById('resP').innerText = found.p;
+            document.getElementById('resN').innerText = "👑 मुखिया: " + found.n;
+            document.getElementById('waLink').href = `https://wa.me/91${found.ph}?text=Pranaam Mukhiya Ji ${found.n}, Patna AI Studio Pro laya hai ${found.p} ke liye Special Promotion...`;
+        } else { card.style.display = 'none'; }
     }
 
-    // 💳 PRODUCTION RAZORPAY (Replace with YOUR LIVE KEY)
-    function checkout(amt, pkg) {
-        const options = {
-            "key": "rzp_live_YOUR_LIVE_KEY_HERE", // 🚨 CHANGE THIS TO LIVE KEY
+    // --- FB UNLOCK ---
+    function unlock() {
+        setTimeout(() => {
+            document.getElementById('fbGate').style.display = 'none';
+            document.getElementById('audio-demo').style.display = 'block';
+        }, 1000);
+    }
+
+    // --- RAZORPAY ---
+    function pay(amt, pkg) {
+        var options = {
+            "key": "rzp_test_RzNCtwgr2LMD2q",
             "amount": amt * 100,
             "currency": "INR",
-            "name": "PATNA AI STUDIO PRO",
-            "description": `${pkg} | Bihar Panchayat Election 2026`,
-            "image": "https://patnaaistudio.pro/logo.png",
-            "theme": {"color": "#FFD700"},
-            "prefill": {
-                "name": document.getElementById('candidateName').value || "",
-                "contact": ""
-            },
+            "name": "Patna AI Studio Pro",
+            "description": pkg + " Campaign Kit",
+            "theme": {"color": "#001f3f"},
             "handler": function (response) {
-                gtag('event', 'purchase', {
-                    'transaction_id': response.razorpay_payment_id,
-                    'value': amt,
-                    'currency': 'INR',
-                    'items': [{name: pkg}]
-                });
-                
-                const message = `✅ PAYMENT SUCCESS!%0A%0AID: ${response.razorpay_payment_id}%0A%0APackage: ${pkg}%0A%0A📱 अब हम 24 घंटे में deliver करेंगे!`;
-                window.open(`https://wa.me/918210073056?text=${message}`, '_blank');
-                
-                alert(`✅ Payment Successful!
-ID: ${response.razorpay_payment_id}
-WhatsApp पर details भेजे गए`);
-            },
-            "modal": {"ondismiss": function(){
-                gtag('event', 'payment_cancelled', {'package': pkg});
-            }}
+                window.location.href = `https://wa.me/918210073056?text=Payment Successful! ID: ${response.razorpay_payment_id}`;
+            }
         };
-        
-        const rzp = new Razorpay(options);
+        var rzp = new Razorpay(options);
         rzp.open();
-    }
-
-    // FB Unlock
-    function unlockAudio() {
-        document.getElementById('audioSection').classList.remove('hidden');
-        document.getElementById('fbBox').classList.add('hidden');
-    }
-
-    // PWA Ready
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js');
     }
 </script>
 
 </body>
 </html>
+
