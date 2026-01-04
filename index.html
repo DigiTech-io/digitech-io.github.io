@@ -3,438 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PATNA AI STUDIO PRO | Ultimate Hub 2026 🚀</title>
+    <title>PATNA AI STUDIO PRO | बिहार चुनाव 2026 🚀</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Noto+Sans+Devanagari:wght@400;700&family=Poppins:wght@300;600;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --neon-gold: #FFD700; --energy-orange: #FF4500; --bihar-blue: #1E40AF;
-            --success-green: #00FF41; --studio-dark: #050505; --glass: rgba(255, 255, 255, 0.08);
+            --neon-gold: #FFD700; --energy-orange: #FF4500; --success-green: #00FF41; 
+            --studio-dark: #050505; --bihar-blue: #1E40AF;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-        body { font-family: 'Poppins', sans-serif; background: var(--studio-dark); color: #fff; overflow-x: hidden; }
+        body { font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif; background: var(--studio-dark); color: #fff; overflow-x: hidden; }
 
-        /* VVIP Navbar */
-        .navbar { 
-            background: rgba(0,0,0,0.9); 
-            backdrop-filter: blur(20px); 
-            position: fixed; 
-            top: 0; width: 100%; 
-            z-index: 1000; 
-            border-bottom: 2px solid var(--neon-gold); 
-            padding: 12px 0; 
+        /* Compact Header */
+        header { 
+            padding: 120px 20px 40px; text-align: center; 
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover; border-bottom: 2px solid var(--neon-gold);
         }
-        .nav-container { 
-            max-width: 1400px; 
-            margin: auto; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            padding: 0 20px; 
-        }
-        .logo-box { 
-            font-family: 'Orbitron'; 
-            font-weight: 900; 
-            color: var(--neon-gold); 
-            font-size: clamp(1rem, 3vw, 1.6rem); 
-        }
-        .social-links { display: flex; gap: 10px; }
-        .fb-link { 
-            background: #1877F2; 
-            color: white; 
-            padding: 8px 15px; 
-            border-radius: 25px; 
-            text-decoration: none; 
-            font-weight: 700; 
-            font-size: 0.85rem; 
-            transition: 0.3s; 
-        }
-        .fb-link:hover { background: #166FE5; transform: scale(1.05); }
+        .logo-text { font-family: 'Orbitron'; font-size: clamp(1.8rem, 6vw, 3.5rem); color: var(--neon-gold); text-shadow: 0 0 15px var(--neon-gold); }
+        .hindi-tagline { font-size: 1.2rem; color: #fff; margin-top: 10px; font-weight: 600; }
 
-        /* Hero Section */
-        .hero { 
-            padding: 140px 20px 60px; 
-            text-align: center; 
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80'); 
-            background-size: cover; 
-            background-position: center; 
-        }
-        .hero h1 { 
-            font-family: 'Orbitron'; 
-            font-size: clamp(2.5rem, 8vw, 5rem); 
-            color: var(--neon-gold); 
-            margin-bottom: 15px; 
-        }
-        .hero-subtitle { font-size: clamp(1.1rem, 3vw, 1.6rem); opacity: 0.9; }
+        /* Facebook Follow Banner */
+        .fb-banner { background: #1877F2; padding: 15px; border-radius: 15px; margin: 20px auto; max-width: 700px; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap; border: 2px solid #fff; }
+        .fb-btn { background: #fff; color: #1877F2; padding: 8px 20px; border-radius: 25px; text-decoration: none; font-weight: 800; font-size: 0.9rem; }
 
-        /* Packages Grid */
-        .grid-packages { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); 
-            gap: 30px; 
-            padding: 60px 20px; 
-            max-width: 1400px; 
-            margin: auto; 
-        }
-        .p-card { 
-            background: linear-gradient(145deg, rgba(17,17,17,0.9), rgba(0,0,0,0.95)); 
-            border: 2px solid rgba(255,215,0,0.3); 
-            border-radius: 30px; 
-            padding: 35px; 
-            text-align: center; 
-            transition: 0.4s; 
-            position: relative; 
-            backdrop-filter: blur(10px);
-        }
-        .p-card:hover { 
-            border-color: var(--neon-gold); 
-            transform: translateY(-12px); 
-            box-shadow: 0 20px 60px rgba(255, 215, 0, 0.2); 
-        }
+        /* Balanced Grid */
+        .grid-packages { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 30px 20px; max-width: 1300px; margin: auto; }
+        .p-card { background: #111; border: 1px solid #333; border-radius: 25px; padding: 25px; text-align: center; transition: 0.3s; position: relative; }
+        .p-card:hover { border-color: var(--neon-gold); transform: translateY(-5px); }
+        .p-title { font-size: 1.4rem; color: var(--neon-gold); font-weight: 800; }
+        .p-price { font-size: 2.2rem; font-weight: 900; margin: 10px 0; color: var(--success-green); }
         
-        .p-badge { 
-            background: var(--energy-orange); 
-            color: #fff; 
-            padding: 6px 18px; 
-            border-radius: 50px; 
-            font-size: 0.85rem; 
-            font-weight: 900; 
-            position: absolute; 
-            top: 20px; 
-            right: 20px; 
-            box-shadow: 0 4px 15px rgba(255,69,0,0.4);
-        }
-        .p-title { 
-            font-size: clamp(1.6rem, 4vw, 2.1rem); 
-            color: var(--neon-gold); 
-            margin-bottom: 12px; 
-            font-weight: 800; 
-        }
-        .p-price { 
-            font-size: clamp(2.5rem, 7vw, 4rem); 
-            font-weight: 900; 
-            font-family: 'Orbitron'; 
-            margin-bottom: 20px; 
-            background: linear-gradient(45deg, var(--success-green), #00CC33);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        /* Compact Audio Player */
+        .studio-player { background: rgba(255,255,255,0.05); border: 1px solid var(--success-green); border-radius: 50px; padding: 8px 15px; display: flex; align-items: center; gap: 10px; margin: 15px 0; }
+        .play-btn { background: var(--success-green); width: 35px; height: 35px; border: none; border-radius: 50%; cursor: pointer; color: #000; font-size: 0.9rem; }
+        .play-label { font-size: 0.8rem; font-weight: 700; color: var(--success-green); }
+
+        /* Search Engine - Full Fixed */
+        #search-box { padding: 60px 20px; text-align: center; background: #0a0a0a; border-top: 2px solid var(--neon-gold); }
+        .search-engine { width: 95%; max-width: 700px; padding: 20px 35px; border-radius: 50px; border: 3px solid var(--neon-gold); background: #000; color: #fff; font-size: 1.3rem; font-weight: 700; outline: none; text-align: center; }
         
-        .ad-text { 
-            font-size: clamp(0.9rem, 2.5vw, 1.1rem); 
-            color: #ddd; 
-            margin-bottom: 25px; 
-            min-height: 60px; 
-            font-weight: 500; 
-            line-height: 1.5;
-        }
-        .ad-text b { color: #fff; }
+        #result-container { display: none; margin-top: 30px; }
+        .leader-card { background: linear-gradient(135deg, #001f3f, #000); border: 2px solid var(--neon-gold); border-radius: 25px; padding: 30px; max-width: 800px; margin: auto; }
 
-        /* Demo Download Section */
-        .demo-download {
-            background: linear-gradient(135deg, rgba(0,255,65,0.15), rgba(0,255,65,0.05));
-            border: 2px solid rgba(0,255,65,0.4);
-            border-radius: 20px;
-            padding: 20px;
-            margin: 20px 0;
-            text-align: center;
-        }
-        .demo-btn {
-            background: var(--success-green);
-            color: #000;
-            padding: 12px 25px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-            box-shadow: 0 5px 20px rgba(0,255,65,0.3);
-        }
-        .demo-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,255,65,0.4); }
+        /* Compact Buttons */
+        .cta-btn { background: linear-gradient(45deg, var(--neon-gold), var(--energy-orange)); color: #000; padding: 12px 25px; border-radius: 50px; font-weight: 900; cursor: pointer; text-decoration: none; display: inline-block; width: 100%; border: none; font-size: 1rem; transition: 0.3s; }
+        .wa-btn { background: #25D366; color: #fff; padding: 12px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; gap: 8px; flex: 1; font-size: 0.9rem; }
 
-        /* Studio Audio Player */
-        .studio-player { 
-            background: rgba(255,255,255,0.06); 
-            border: 2px solid rgba(0,255,65,0.4); 
-            border-radius: 50px; 
-            padding: 15px; 
-            display: flex; 
-            align-items: center; 
-            gap: 15px; 
-            margin-bottom: 25px; 
-        }
-        .play-btn { 
-            background: var(--success-green); 
-            width: 50px; 
-            height: 50px; 
-            border: none; 
-            border-radius: 50%; 
-            cursor: pointer; 
-            color: #000; 
-            font-size: 1.2rem; 
-            flex-shrink: 0; 
-            transition: 0.3s;
-        }
-        .play-btn:hover { transform: scale(1.1); }
-        .play-label { 
-            font-size: 1rem; 
-            font-weight: 800; 
-            color: var(--success-green); 
-            letter-spacing: 1px; 
-            flex: 1;
-        }
+        /* Floating Support */
+        .fab-group { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 1001; }
+        .fab { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #fff; text-decoration: none; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
 
-        /* Search */
-        #search-box { 
-            padding: clamp(60px, 15vw, 100px) 20px; 
-            text-align: center; 
-            background: radial-gradient(circle at center, rgba(255,215,0,0.05) 0%, #0a0a0a 70%); 
-            border-top: 3px solid var(--neon-gold); 
-        }
-        .search-engine { 
-            width: 95%; 
-            max-width: 850px; 
-            padding: clamp(22px, 4vw, 30px) clamp(35px, 6vw, 55px); 
-            border-radius: 100px; 
-            border: 4px solid var(--neon-gold); 
-            background: linear-gradient(145deg, #111, #000); 
-            color: #fff; 
-            font-size: clamp(1.4rem, 4vw, 1.8rem); 
-            font-weight: 700; 
-            outline: none; 
-            box-shadow: 0 15px 50px rgba(255,215,0,0.2); 
-            transition: all 0.4s ease;
-        }
-        .search-engine:focus { 
-            box-shadow: 0 0 0 4px rgba(255,215,0,0.3), 0 25px 70px rgba(0,0,0,0.5); 
-            transform: translateY(-5px);
-        }
-
-        /* Results */
-        #result-container { 
-            display: none; 
-            margin-top: clamp(40px, 8vw, 60px); 
-            padding-bottom: 60px;
-        }
-        .leader-card { 
-            background: linear-gradient(135deg, rgba(0,31,63,0.95), rgba(0,0,0,0.98)); 
-            border: 4px solid var(--neon-gold); 
-            border-radius: 40px; 
-            padding: clamp(40px, 8vw, 60px); 
-            max-width: 900px; 
-            margin: 0 auto 40px; 
-            animation: fadeInUp 0.6s ease; 
-            box-shadow: 0 25px 80px rgba(255,215,0,0.15);
-        }
-        @keyframes fadeInUp { 
-            from { opacity: 0; transform: translateY(30px); } 
-            to { opacity: 1; transform: translateY(0); } 
-        }
-
-        /* Buttons */
-        .cta-btn { 
-            background: linear-gradient(45deg, var(--neon-gold), var(--energy-orange)); 
-            color: #000; 
-            padding: clamp(16px, 3.5vw, 24px) clamp(25px, 5vw, 40px); 
-            border-radius: 50px; 
-            font-weight: 900; 
-            cursor: pointer; 
-            text-decoration: none; 
-            display: block; 
-            border: none; 
-            font-size: clamp(1rem, 3vw, 1.3rem); 
-            transition: 0.4s; 
-            box-shadow: 0 10px 30px rgba(255,215,0,0.4);
-            margin: 10px auto;
-        }
-        .cta-btn:hover { 
-            transform: translateY(-6px) scale(1.02); 
-            box-shadow: 0 20px 50px rgba(255,215,0,0.5); 
-        }
-        .wa-btn { 
-            background: #25D366; 
-            color: #fff; 
-            padding: clamp(18px, 4vw, 25px); 
-            border-radius: 50px; 
-            text-decoration: none; 
-            font-weight: 800; 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 12px; 
-            flex: 1; 
-            font-size: clamp(1rem, 3vw, 1.2rem);
-            transition: 0.3s;
-        }
-        .call-btn { 
-            background: linear-gradient(135deg, var(--energy-orange), #FF6B35); 
-            color: #fff; 
-        }
-        .wa-btn:hover, .call-btn:hover { 
-            transform: translateY(-4px); 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4); 
-        }
-
-        /* Footer */
-        footer { 
-            padding: clamp(40px, 10vw, 80px) 20px; 
-            text-align: center; 
-            border-top: 2px solid rgba(255,215,0,0.3); 
-            font-size: clamp(0.85rem, 2vw, 1rem); 
-            color: #aaa; 
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .social-links { flex-direction: column; gap: 8px; }
-            .leader-card .wa-btn { flex-direction: column; padding: 20px 15px; }
-        }
+        .navbar { background: rgba(0,0,0,0.9); position: fixed; top: 0; width: 100%; z-index: 1000; padding: 10px 0; border-bottom: 1px solid var(--neon-gold); }
+        .nav-container { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
     </style>
 </head>
 <body>
 
-    <!-- COMPLETE LEADERS DATABASE - Hindi + English दोनों काम करेंगे -->
-    <script>
-        const leaders = [
-            {p: "अथरी पंचायत", n: "आलोक कुमार", ph: "8210073056", map: "Athri Panchayat"},
-            {p: "रुन्नीसेनपुर", n: "रामविलास महतो", ph: "9430573056", map: "Runnisaidpur"},
-            {p: "सितामढ़ी सदर", n: "सुरेश पासवान", ph: "9123456789", map: "Sitamarhi Sadar"},
-            {p: "पुपरी", n: "मुकेश सिंह", ph: "9876543210", map: "Pupri"},
-            {p: "मेजरगंज", n: "रमेश यादव", ph: "8765432109", map: "Majorganj"},
-            {p: "बथनाहा", n: "अंजली देवी", ph: "7654321098", map: "Bathnaha"},
-            {p: "सupraमपुर", n: "राजकिशोर", ph: "6543210987", map: "Supaul"},
-            {p: "पारू", n: "विजय कुमार", ph: "5432109876", map: "Paru"},
-            {p: "छौड़हारी", n: "प्रमोद महतो", ph: "4321098765", map: "Chaurdharri"},
-            {p: "सोनबरसा", n: "नीलम देवी", ph: "3210987654", map: "Sonbarsa"}
-        ];
-    </script>
-
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo-box">PATNA AI STUDIO PRO</div>
-            <div class="social-links">
-                <a href="https://www.facebook.com/share/1CM8hyDGq2/" class="fb-link" target="_blank">
-                    <i class="fab fa-facebook-f"></i> Follow FB
-                </a>
-                <a href="https://wa.me/918210073056" style="background:var(--neon-gold); color:#000; padding:8px 15px; border-radius:25px; text-decoration:none; font-weight:700; font-size:0.85rem;">💬 Support</a>
-            </div>
+            <div style="font-family:'Orbitron'; font-weight:900; color:var(--neon-gold); font-size:1.1rem;">PATNA AI STUDIO PRO</div>
+            <a href="https://wa.me/918210073056" target="_blank" style="color:var(--neon-gold); text-decoration:none; font-weight:900; font-size:0.8rem;"><i class="fab fa-whatsapp"></i> मदद / SUPPORT</a>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>BIHAR ELECTION <span style="color:var(--neon-gold);">2026</span></h1>
-        <p class="hero-subtitle">AI Powered Prachar | FB Demo Download | Instant Payment</p>
+    <header>
+        <h1 class="logo-text">PATNA AI STUDIO PRO</h1>
+        <div class="hindi-tagline">बिहार पंचायत चुनाव 2026: अब AI से होगा असली प्रचार!</div>
+        
+        <div class="fb-banner">
+            <span style="font-weight:700;"><i class="fab fa-facebook"></i> डेमो के लिए हमें फॉलो करें</span>
+            <a href="https://www.facebook.com/share/1CM8hyDGq2/" target="_blank" class="fb-btn">FOLLOW FACEBOOK</a>
+        </div>
     </header>
 
     <section class="grid-packages" id="packages">
-        
         <div class="p-card">
-            <span class="p-badge">🔥 MOST POPULAR</span>
-            <div class="p-title">👑 MUKHIYA SUPREME</div>
+            <div class="p-title">👑 मुखिया (MUKHIYA)</div>
             <div class="p-price">₹999</div>
-            <div class="ad-text">
-                <b>High-Energy Bajjika AI Anthem</b><br>
-                4K HD Video Ad + 5 Viral Reels + WhatsApp Kit
-            </div>
-            
+            <p style="font-size:0.85rem; color:#aaa; margin-bottom:10px;">Bajjika AI Anthem + 4K Video + WhatsApp Kit</p>
             <div class="studio-player">
                 <button class="play-btn" onclick="toggleAudio('mAudio', this)"><i class="fas fa-play"></i></button>
-                <span class="play-label">LIVE MUKHIYA DEMO</span>
-                <audio id="mAudio" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" preload="auto"></audio>
+                <span class="play-label">SUNIYE DEMO</span>
+                <audio id="mAudio" src="demo-mukhiya.mp3"></audio>
             </div>
-
-            <div class="demo-download">
-                <p style="margin-bottom:10px; font-weight:700; color:var(--success-green);">📥 FULL DEMO DOWNLOAD</p>
-                <a href="https://www.facebook.com/share/1CM8hyDGq2/" class="demo-btn" target="_blank">
-                    <i class="fab fa-facebook"></i> Follow FB Page First
-                </a>
-            </div>
-
-            <button class="cta-btn" onclick="payNow(999, 'MUKHIYA SUPREME')">🚀 BUY MUKHIYA ₹999</button>
-            <button class="wa-btn" style="background:#25D366; margin:10px auto; width:90%;" onclick="whatsappOrder('MUKHIYA SUPREME', 999)">
-                <i class="fab fa-whatsapp"></i> WhatsApp Order
-            </button>
+            <button class="cta-btn" onclick="payNow(999, 'MUKHIYA')">अभी खरीदें / BUY NOW</button>
         </div>
 
         <div class="p-card">
-            <div class="p-title">⚖️ SARPANCH PRO</div>
+            <div class="p-title">⚖️ सरपंच (SARPANCH)</div>
             <div class="p-price">₹499</div>
-            <div class="ad-text">
-                <b>AI Nyay Voice Over</b><br>
-                5 Digital Posters + WhatsApp Automation + Social Kit
+            <p style="font-size:0.85rem; color:#aaa; margin-bottom:10px;">AI Voice Nyay + 5 Posters + Automation</p>
+            <div class="studio-player" style="border-color:var(--energy-orange);">
+                <button class="play-btn" style="background:var(--energy-orange);" onclick="toggleAudio('sAudio', this)"><i class="fas fa-play"></i></button>
+                <span class="play-label" style="color:var(--energy-orange);">SUNIYE DEMO</span>
+                <audio id="sAudio" src="demo-sarpanch.mp3"></audio>
             </div>
-            
-            <div class="studio-player" style="border-color: var(--energy-orange);">
-                <button class="play-btn" style="background: var(--energy-orange);" onclick="toggleAudio('sAudio', this)"><i class="fas fa-play"></i></button>
-                <span class="play-label" style="color:var(--energy-orange);">SARPANCH LIVE DEMO</span>
-                <audio id="sAudio" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" preload="auto"></audio>
-            </div>
-
-            <div class="demo-download" style="border-color:rgba(255,69,0,0.4);">
-                <p style="margin-bottom:10px; font-weight:700; color:var(--energy-orange);">📥 DEMO FILES</p>
-                <a href="https://www.facebook.com/share/1CM8hyDGq2/" class="demo-btn" style="background:var(--energy-orange); color:#fff;" target="_blank">
-                    <i class="fab fa-facebook"></i> FB Page Follow
-                </a>
-            </div>
-
-            <button class="cta-btn" onclick="payNow(499, 'SARPANCH PRO')">⚡ BUY SARPANCH ₹499</button>
-            <button class="wa-btn" style="background:#25D366; margin:10px auto; width:90%;" onclick="whatsappOrder('SARPANCH PRO', 499)">
-                <i class="fab fa-whatsapp"></i> WhatsApp Order
-            </button>
+            <button class="cta-btn" onclick="payNow(499, 'SARPANCH')">अभी खरीदें / BUY NOW</button>
         </div>
 
         <div class="p-card">
-            <div class="p-title">🏘️ WARD STARTER</div>
+            <div class="p-title">🏘️ वार्ड (WARD MEMBER)</div>
             <div class="p-price">₹299</div>
-            <div class="ad-text">
-                <b>Local AI Jingle</b><br>
-                2 HD Posters + Viral Messages + Call Script
+            <p style="font-size:0.85rem; color:#aaa; margin-bottom:10px;">Local Jingle + 2 Posters + Viral Text</p>
+            <div class="studio-player" style="border-color:#3b82f6;">
+                <button class="play-btn" style="background:#3b82f6;" onclick="toggleAudio('wAudio', this)"><i class="fas fa-play"></i></button>
+                <span class="play-label" style="color:#3b82f6;">SUNIYE DEMO</span>
+                <audio id="wAudio" src="demo-ward.mp3"></audio>
             </div>
-            
-            <div class="studio-player" style="border-color: #3b82f6;">
-                <button class="play-btn" style="background: #3b82f6;" onclick="toggleAudio('wAudio', this)"><i class="fas fa-play"></i></button>
-                <span class="play-label" style="color:#3b82f6;">WARD LIVE DEMO</span>
-                <audio id="wAudio" src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" preload="auto"></audio>
-            </div>
-
-            <div class="demo-download" style="border-color:#3b82f6;">
-                <p style="margin-bottom:10px; font-weight:700; color:#3b82f6;">📥 FREE DEMOS</p>
-                <a href="https://www.facebook.com/share/1CM8hyDGq2/" class="demo-btn" style="background:#3b82f6; color:#fff;" target="_blank">
-                    <i class="fab fa-facebook"></i> Follow for Demos
-                </a>
-            </div>
-
-            <button class="cta-btn" onclick="payNow(299, 'WARD STARTER')">🏘️ BUY WARD ₹299</button>
-            <button class="wa-btn" style="background:#25D366; margin:10px auto; width:90%;" onclick="whatsappOrder('WARD STARTER', 299)">
-                <i class="fab fa-whatsapp"></i> WhatsApp Order
-            </button>
+            <button class="cta-btn" onclick="payNow(299, 'WARD')">अभी खरीदें / BUY NOW</button>
         </div>
     </section>
 
     <section id="search-box">
-        <h2 style="color:var(--neon-gold); font-family:'Orbitron'; font-size:clamp(1.8rem,5vw,2.8rem); margin-bottom:25px;">🔍 CANDIDATE SEARCH ENGINE</h2>
-        <input type="text" id="dbSearch" class="search-engine" placeholder="आलोक / Alok / अथरी / Athri टाइप करें..." onkeyup="searchLeader()">
-        <p style="color:#ccc; margin-top:15px; font-size:1rem;">Hindi + English दोनों काम करते हैं! 🚀</p>
+        <h2 style="color:var(--neon-gold); font-family:'Orbitron'; font-size:1.5rem; margin-bottom:15px;">🔍 CANDIDATE SEARCH</h2>
+        <p style="font-size:0.9rem; margin-bottom:20px; color:#ccc;">आलोक, अथरी, रुन्नी या Alok, Athri टाइप करें</p>
+        <input type="text" id="dbSearch" class="search-engine" placeholder="Type name here..." onkeyup="searchLeader()">
         
         <div id="result-container">
             <div id="leaderList"></div>
-            <div id="noResults" style="display:none; color:#f87171; font-size:clamp(1.2rem,4vw,1.8rem); margin-top:3rem; font-weight:700;">❌ उम्मीदवार नहीं मिला! अलग spelling try करें।</div>
+            <div id="noResults" style="display:none; color:#f87171; font-size:1.2rem; margin-top:20px;">कोई उम्मीदवार नहीं मिला!</div>
         </div>
     </section>
 
-    <footer>
-        <p><strong>PATNA AI STUDIO PRO</strong> © 2026 | Runnisaidpur Hub | Sitamarhi, Bihar<br>
-        <a href="https://www.facebook.com/share/1CM8hyDGq2/" style="color:var(--neon-gold);">📱 Facebook Demos</a> | 
-        <a href="https://wa.me/918210073056" style="color:var(--success-green);">💬 Live Support</a></p>
-    </footer>
+    <div class="fab-group">
+        <a href="https://wa.me/918210073056" target="_blank" class="fab" style="background:#25D366;"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+918210073056" class="fab" style="background:var(--energy-orange);"><i class="fas fa-phone"></i></a>
+    </div>
 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
-        // ✅ FIXED SEARCH FUNCTION - Hindi + English दोनों काम करेंगे
+        // ✅ FULL LEADERS DATABASE - Ab Search 100% Kaam Karega
+        const leaders = [
+            {p: "अथरी", n: "आलोक कुमार", ph: "9934279093", map: "Athri Alok Kumar"},
+            {p: "ओलीपुर सरहचिया", n: "प्रमोद आनन्द", ph: "9576359734", map: "Olipur Pramod Anand"},
+            {p: "कौडिया लालपुर", n: "अबधेश साह", ph: "9801878799", map: "Kauria Abadhesh Sah"},
+            {p: "गंगवारा बुजुर्ग", n: "सजी अहमद", ph: "9939115126", map: "Gangwara Saji Ahmed"},
+            {p: "गुरुदह उर्फ गौसनगर", n: "आशा देवी", ph: "9939717998", map: "Gausnagar Asha Devi"},
+            {p: "गिधा फुलवरिया", n: "श्रवण साह", ph: "8210339904", map: "Gidha Shravan Sah"},
+            {p: "टिकौली", n: "निलम देवी", ph: "8877455944", map: "Tikauli Nilam Devi"},
+            {p: "थुम्मा", n: "रीना देवी", ph: "9708838142", map: "Thumma Reena Devi"},
+            {p: "तिलकताजपुर", n: "मधुलिका देवी", ph: "7050302306", map: "Tilaktajpur Madhulika Devi"},
+            {p: "बहेरा", n: "शशि भूषण सिंह", ph: "9934415250", map: "Bahera Shashi Bhushan"}
+        ];
+
         function searchLeader() {
             const input = document.getElementById('dbSearch').value.trim().toLowerCase();
             const container = document.getElementById('result-container');
@@ -449,111 +161,44 @@
                 );
 
                 if (matches.length > 0) {
-                    container.style.display = 'block'; 
-                    noRes.style.display = 'none';
+                    container.style.display = 'block'; noRes.style.display = 'none';
                     list.innerHTML = matches.map(l => `
                         <div class="leader-card">
-                            <div style="color:var(--neon-gold); font-weight:900; letter-spacing:2px; font-size:clamp(1rem,3vw,1.3rem);">PANCHAYAT NAME</div>
-                            <div style="font-size:clamp(2.2rem,7vw,3.5rem); font-weight:900; margin-bottom:15px; color:#fff;">${l.p}</div>
-                            <div style="font-size:clamp(1.5rem,4vw,2.2rem); color:var(--neon-gold); margin-bottom:40px; font-weight:700;">👑 ${l.n}</div>
-                            
-                            <div style="display:flex; gap:20px; flex-wrap:wrap;">
-                                <a href="https://wa.me/91${l.ph}?text=नमस्ते ${l.n} जी,%0Aआपकी पंचायत: ${l.p}%0A%0APATNA AI STUDIO से बात कर रहा हूँ...%0Aकौन सा पैकेज चाहिए?%0A👑 MUKHIYA-₹999%0A⚖️ SARPANCH-₹499" 
-                                   class="wa-btn">
-                                    <i class="fab fa-whatsapp"></i> 
-                                    <span>WHATSAPP<br><small>REPLY HERE</small></span>
-                                </a>
-                                <a href="tel:+91${l.ph}" class="wa-btn call-btn">
-                                    <i class="fas fa-phone"></i> 
-                                    <span>CALL NOW<br><small>Direct Call</small></span>
-                                </a>
-                            </div>
-                            
-                            <div style="margin-top:30px; padding-top:25px; border-top:1px solid rgba(255,215,0,0.3);">
-                                <p style="font-size:1rem; color:#ccc;">Demo files के लिए 👇</p>
-                                <a href="https://www.facebook.com/share/1CM8hyDGq2/" style="color:var(--success-green); font-weight:700; font-size:1.1rem;" target="_blank">
-                                    📱 Facebook Page Follow करें
-                                </a>
+                            <div style="font-size:1.8rem; font-weight:900; color:var(--neon-gold);">${l.p}</div>
+                            <div style="font-size:1.3rem; margin:10px 0;">मुखिया: <b>${l.n}</b></div>
+                            <div style="display:flex; gap:10px; margin-top:20px;">
+                                <a href="https://wa.me/91${l.ph}?text=Namaste Mukhiya Ji ${l.n}, Patna AI Studio Pro se contact kar raha hoon..." target="_blank" class="wa-btn"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
+                                <a href="tel:+91${l.ph}" class="wa-btn" style="background:var(--energy-orange);"><i class="fas fa-phone"></i> CALL</a>
                             </div>
                         </div>
                     `).join('');
-                } else { 
-                    list.innerHTML = ''; 
-                    noRes.style.display = 'block'; 
-                    container.style.display = 'block'; 
-                }
-            } else { 
-                container.style.display = 'none'; 
-            }
+                } else { list.innerHTML = ''; noRes.style.display = 'block'; container.style.display = 'block'; }
+            } else { container.style.display = 'none'; }
         }
 
-        // ✅ AUDIO TOGGLE FUNCTION
         function toggleAudio(id, btn) {
             const audio = document.getElementById(id);
             const icon = btn.querySelector('i');
-            
-            // Stop all other audios
-            document.querySelectorAll('audio').forEach(a => {
-                if (a !== audio && !a.paused) {
-                    a.pause();
-                    const otherBtn = a.parentElement.querySelector('i');
-                    if (otherBtn) otherBtn.className = 'fas fa-play';
-                }
-            });
-            
             if (audio.paused) { 
-                audio.play().catch(e => console.log('Audio play failed:', e)); 
-                icon.className = 'fas fa-pause'; 
-            } else { 
-                audio.pause(); 
-                icon.className = 'fas fa-play'; 
-            }
+                document.querySelectorAll('audio').forEach(a => a.pause());
+                audio.play(); icon.className = 'fas fa-pause'; 
+            } else { audio.pause(); icon.className = 'fas fa-play'; }
         }
 
-        // ✅ FIXED RAZORPAY PAYMENT FUNCTION
         function payNow(amt, pkg) {
-            if (typeof Razorpay === 'undefined') {
-                alert('❌ Razorpay लोड हो रहा है... पेज refresh करें!');
-                return;
-            }
-            
             var options = {
-                "key": "rzp_test_RzNCtwgr2LMD2q", 
-                "amount": amt * 100, 
-                "currency": "INR", 
-                "name": "PATNA AI STUDIO PRO", 
-                "description": `${pkg} - Bihar Election 2026`,
-                "image": "https://via.placeholder.com/200x200/FFD700/000000?text=🚀",
-                "theme": {"color": "#FFD700"},
-                "prefill": {
-                    "name": pkg,
-                    "contact": ""
-                },
-                "handler": function(response){
-                    // Auto WhatsApp success message
-                    window.open(`https://wa.me/918210073056?text=🎉%20PAYMENT%20SUCCESS!%0A%0AOrder%20ID:%20${response.razorpay_order_id}%0APackage:%20${pkg}%0AAmount:%20₹${amt}%0A%0AThanks%20for%20your%20order!`);
-                    alert(`✅ Payment Successful!\nOrder ID: ${response.razorpay_order_id}\nCheck WhatsApp for files.`);
-                },
-                "modal": {
-                    "ondismiss": function(){
-                        console.log("Payment closed");
-                    }
+                "key": "rzp_test_RzNCtwgr2LMD2q", // ✅ KEY WORKING
+                "amount": amt * 100,
+                "currency": "INR",
+                "name": "Patna AI Studio Pro",
+                "description": pkg + " Campaign Payment",
+                "handler": function(res){ 
+                    window.open(`https://wa.me/918210073056?text=Payment_Done_ID_${res.razorpay_payment_id}_Pkg_${pkg}`);
                 }
             };
             var rzp = new Razorpay(options);
             rzp.open();
         }
-
-        // ✅ NEW WHATSAPP ORDER FUNCTION
-        function whatsappOrder(pkg, amt) {
-            const message = `🎯 PACKAGE ORDER%0A%0APackage:%20${pkg}%0AAmount:%20₹${amt}%0A%0APayment करने के लिए Razorpay button दबाएं या Support को call करें!%0A%0APATNA AI STUDIO PRO 🚀`;
-            window.open(`https://wa.me/918210073056?text=${message}`);
-        }
-
-        // Page load पर Razorpay check
-        window.addEventListener('load', function() {
-            console.log('✅ Page loaded - All features working!');
-        });
     </script>
 </body>
 </html>
