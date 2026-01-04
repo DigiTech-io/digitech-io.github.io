@@ -3,334 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patna AI Studio - ElectionDB Pro | India's No.1 Digital Advertising Hub</title>
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <title>PATNA AI STUDIO PRO | Bihar Election Hub 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.6;
-            background: linear-gradient(135deg, #0f0f23 0%, #2d1b69 50%, #667eea 100%);
-            color: #333;
-            min-height: 100vh;
+        :root { 
+            --gold: #FFD700; --accent: #FF4500; --green: #25D366; --bg: #0a0a0a; 
+            --card: #1a1a1a; --glass: rgba(255,255,255,0.05); --shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: var(--bg); color: #fff; overflow-x: hidden; line-height: 1.6; }
 
-        /* HEADER - TOP SEARCH */
-        .header-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        .tagline { font-size: 1.2rem; margin-bottom: 1rem; opacity: 0.9; }
-        .search-container {
-            max-width: 800px; margin: 0 auto;
-            background: rgba(255,255,255,0.95);
-            border-radius: 25px;
-            padding: 2rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-            backdrop-filter: blur(10px);
-        }
-        #searchInput {
-            width: 100%; padding: 15px 20px;
-            font-size: 1.1rem;
-            border: 2px solid #e1e5e9;
-            border-radius: 50px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        #searchInput:focus { border-color: #667eea; box-shadow: 0 0 20px rgba(102,126,234,0.3); }
-        #searchResults { margin-top: 2rem; }
+        /* Navigation */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; background: rgba(0,0,0,0.95); border-bottom: 3px solid var(--gold); position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(20px); }
+        .logo { font-family: 'Orbitron', monospace; color: var(--gold); font-size: 1.5rem; font-weight: 900; }
+        .nav-link { color: var(--gold); font-weight: 700; text-decoration: none; padding: 0.5rem 1rem; transition: 0.3s; }
 
-        /* CANDIDATE CARDS */
-        .candidate-card {
-            background: white;
-            border-radius: 20px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border-left: 5px solid #667eea;
-        }
-        .candidate-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
-        .candidate-name { font-size: 1.4rem; font-weight: bold; color: #2d1b69; margin-bottom: 0.5rem; }
+        /* Hero Section */
+        .hero { min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 120px 20px 40px; background: radial-gradient(circle, #1a1a2e 0%, #050505 100%); text-align: center; }
+        .hero h1 { font-family: 'Orbitron', monospace; font-size: clamp(2rem, 6vw, 4rem); color: #fff; margin-bottom: 1rem; text-shadow: 0 0 20px var(--gold); }
+        
+        /* Search Engine - 100% Fixed */
+        .search-container { max-width: 800px; width: 100%; position: relative; margin-top: 2rem; }
+        .main-search { width: 100%; padding: 25px 30px; border-radius: 60px; border: 3px solid var(--gold); background: #000; color: #fff; font-size: 1.2rem; outline: none; text-align: center; font-weight: 600; transition: 0.3s; }
+        .main-search:focus { box-shadow: 0 0 40px rgba(255,215,0,0.4); transform: scale(1.02); }
 
-        /* PREMIUM SECTION */
-        .premium-section {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            margin: 3rem 0;
-        }
-        .premium-btn {
-            background: white; color: #11998e;
-            border: none; padding: 15px 40px;
-            font-size: 1.2rem; font-weight: bold;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin: 0 1rem;
-        }
-        .premium-btn:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
+        /* Results Display */
+        #result-display { display: none; width: 100%; max-width: 800px; margin-top: 2rem; }
+        .leader-card { background: linear-gradient(145deg, #1e3a5f, #0a192f); border: 2px solid var(--gold); border-radius: 30px; padding: 40px; text-align: center; box-shadow: var(--shadow); animation: slideUp 0.5s ease; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* SUPPORT BUTTONS */
-        .support-buttons { margin-top: 1.5rem; }
-        .whatsapp-btn {
-            background: #25D366; color: white;
-            padding: 12px 30px; border-radius: 30px;
-            text-decoration: none; font-weight: bold;
-            margin: 0 1rem; display: inline-block;
-            transition: all 0.3s ease;
-        }
-        .whatsapp-btn:hover { transform: scale(1.05); }
-        .call-btn {
-            background: linear-gradient(135deg, #FF5733 0%, #FF8E53 100%);
-            color: white; padding: 12px 30px;
-            border-radius: 30px; text-decoration: none;
-            font-weight: bold; margin-left: 1rem;
-            transition: all 0.3s ease;
-        }
-        .call-btn:hover { transform: scale(1.05); }
+        /* Demo Gallery */
+        .studio-gallery { padding: 80px 5%; background: #080808; text-align: center; }
+        .fb-lock { background: #1877F2; padding: 3rem; border-radius: 30px; margin-bottom: 3rem; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .sample-card { background: var(--card); border-radius: 20px; padding: 2rem; border: 1px solid #333; transition: 0.3s; }
+        .sample-card:hover { transform: translateY(-10px); border-color: var(--gold); }
+        audio { width: 100%; filter: invert(1); margin-top: 1rem; }
 
-        /* 3 AUDIO SECTIONS */
-        .audio-sections {
-            max-width: 1200px; margin: 3rem auto;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem; padding: 0 2rem;
-        }
-        .audio-card {
-            background: rgba(255,255,255,0.95);
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border-top: 4px solid #667eea;
-        }
-        .audio-card:hover { transform: translateY(-10px); }
-        .audio-title { color: #2d1b69; margin-bottom: 1rem; font-size: 1.3rem; }
-        audio { width: 100%; margin: 1rem 0; }
-        .play-demo-btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white; border: none;
-            padding: 12px 24px; border-radius: 25px;
-            cursor: pointer; font-size: 1rem;
-            transition: all 0.3s ease;
-        }
+        /* Pricing Packages */
+        .pkg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; padding: 80px 5%; }
+        .pkg-card { background: #111; border-radius: 30px; padding: 40px; text-align: center; border: 1px solid #222; }
+        .pkg-card.featured { border: 3px solid var(--gold); transform: scale(1.05); }
+        .price { font-size: 4rem; font-weight: 900; color: var(--gold); font-family: 'Orbitron'; margin: 1rem 0; }
 
-        /* DEMO SECTIONS */
-        .demo-sections {
-            max-width: 1200px; margin: 3rem auto;
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 2rem; padding: 0 2rem;
-        }
-        .demo-card {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        video, audio { width: 100%; max-height: 250px; }
+        /* Final Buttons */
+        .btn { padding: 18px 30px; border-radius: 50px; border: none; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; margin-top: 10px; width: 100%; justify-content: center; }
+        .btn-gold { background: var(--gold); color: #000; }
+        .btn-wa { background: var(--green); color: #fff; }
+        .btn:hover { transform: translateY(-5px); opacity: 0.9; }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .demo-sections { grid-template-columns: 1fr; }
-            .audio-sections { grid-template-columns: 1fr; }
-            .support-buttons a { display: block; margin: 0.5rem 0; }
-        }
+        footer { text-align: center; padding: 40px; border-top: 1px solid #222; color: #666; }
     </style>
 </head>
 <body>
-    <!-- PATNA AI STUDIO HEADER -->
-    <div class="header-section">
-        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">🚀 Patna AI Studio</h1>
-        <p class="tagline">🇮🇳 India's No.1 Digital Advertising Hub with Affordable Price</p>
-        <p style="font-size: 1.1rem; opacity: 0.9;">1st Time in Bihar | AI-Powered Election Campaign Tools</p>
-    </div>
 
-    <!-- SEARCH ENGINE - TOP POSITION -->
-    <div class="search-container">
-        <h2 style="color: #2d1b69; margin-bottom: 1.5rem;">🔍 Smart Candidate Search</h2>
-        <input type="text" id="searchInput" placeholder="👥 Mukhiya/Sarpanch/Ward Member name type karein...">
-        <div id="searchResults"></div>
-    </div>
+    <nav>
+        <div class="logo">PATNA AI STUDIO PRO</div>
+        <div class="nav-actions">
+            <a href="tel:+918210073056" class="nav-link"><i class="fas fa-phone"></i> CALL</a>
+        </div>
+    </nav>
 
-    <!-- PREMIUM + SUPPORT -->
-    <div class="premium-section">
-        <h2>✨ ElectionDB Premium - Just ₹999/month</h2>
-        <p>✅ Unlimited Audio/Video Generation | ✅ Priority Support | ✅ Custom Campaigns</p>
-        <button class="premium-btn" onclick="initiatePayment()">💳 Buy Premium Now</button>
-        <div class="support-buttons">
-            <a href="https://wa.me/919431234567?text=ElectionDB%20Premium%20demo%20chahiye" class="whatsapp-btn">📱 WhatsApp Support</a>
-            <a href="tel:+919431234567" class="call-btn">📞 Call Now - 9431234567</a>
+    <section class="hero">
+        <h1>BIHAR ELECTION AI HUB 🚀</h1>
+        <p style="font-size: 1.2rem; color: #aaa;">World's #1 AI Campaign Studio for 2026</p>
+        
+        <div class="search-container">
+            <input type="text" id="mainSearch" class="main-search" placeholder="Type Leader Name (eg: Alok) or Panchayat..." onkeyup="smartSearch()">
+        </div>
+
+        <div id="result-display">
+            <div class="leader-card">
+                <h2 id="resP" style="color: var(--gold); font-size: 2.5rem;">Panchayat</h2>
+                <p id="resN" style="font-size: 2rem; margin: 1rem 0;">Mukhiya Name</p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <a href="#" id="waLink" class="btn btn-wa"><i class="fab fa-whatsapp"></i> SEND AI DEMO</a>
+                    <a href="tel:+918210073056" class="btn btn-gold"><i class="fas fa-bolt"></i> FAST ORDER</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="studio-gallery">
+        <h2 style="color: var(--gold); font-size: 2.5rem; margin-bottom: 3rem;">📺 STUDIO SAMPLES</h2>
+        
+        <div class="fb-lock" id="fbGate">
+            <h3 style="margin-bottom: 1rem;">🎵 UNLOCK PREMIUM AUDIO DEMOS</h3>
+            <p style="margin-bottom: 2rem;">सुनने के लिए हमारे Facebook Page को Follow करें</p>
+            <a href="https://www.facebook.com/share/1CM8hyDGq2/" target="_blank" class="btn btn-gold" style="width: auto; padding: 15px 40px;" onclick="unlock()">FOLLOW & UNLOCK</a>
+        </div>
+
+        <div class="gallery-grid" id="demoGrid" style="display: none;">
+            <div class="sample-card">
+                <h4 style="color: var(--gold);">👑 MUKHIYA SUPREME</h4>
+                <audio controls><source src="demo-mukhiya.mp3"></audio>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">Bajjika Anthem + 4K Video</p>
+            </div>
+            <div class="sample-card">
+                <h4 style="color: var(--gold);">⚖️ SARPANCH PRO</h4>
+                <audio controls><source src="demo-sarpanch.mp3"></audio>
+                <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">Nyay Geet + AI Voiceover</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="pkg-grid">
+        <div class="pkg-card featured">
+            <h3>MUKHIYA KIT</h3>
+            <div class="price">₹999</div>
+            <p>Video + Anthem + Reels</p>
+            <button class="btn btn-gold" onclick="checkout(999, 'Mukhiya Supreme')">PAY NOW (UPI)</button>
+            <a href="https://wa.me/918210073056" class="btn btn-wa">ORDER ON WA</a>
+        </div>
+        <div class="pkg-card">
+            <h3>WARD KIT</h3>
+            <div class="price">₹299</div>
+            <p>Audio + 2 Posters</p>
+            <button class="btn btn-gold" onclick="checkout(299, 'Ward Starter')">PAY NOW (UPI)</button>
+            <a href="https://wa.me/918210073056" class="btn btn-wa">ORDER ON WA</a>
         </div>
     </div>
 
-    <!-- 3 AUDIO SECTIONS -->
-    <div class="audio-sections">
-        <div class="audio-card" data-role="mukhiya">
-            <h3 class="audio-title">👑 Mukhiya Campaign Audio</h3>
-            <audio id="mukhiyaAudio" controls preload="metadata"></audio>
-            <br>
-            <button class="play-demo-btn" onclick="playAudio('mukhiya')">▶️ Play Demo Audio</button>
-        </div>
+    <footer>
+        <p>PATNA AI STUDIO PRO © 2026 | Sitamarhi | Bihar</p>
+    </footer>
 
-        <div class="audio-card" data-role="sarpanch">
-            <h3 class="audio-title">🏘️ Sarpanch Campaign Audio</h3>
-            <audio id="sarpanchAudio" controls preload="metadata"></audio>
-            <br>
-            <button class="play-demo-btn" onclick="playAudio('sarpanch')">▶️ Play Demo Audio</button>
-        </div>
-
-        <div class="audio-card" data-role="ward">
-            <h3 class="audio-title">🏠 Ward Member Campaign Audio</h3>
-            <audio id="wardAudio" controls preload="metadata"></audio>
-            <br>
-            <button class="play-demo-btn" onclick="playAudio('ward')">▶️ Play Demo Audio</button>
-        </div>
-    </div>
-
-    <!-- 2 DEMO SECTIONS -->
-    <div class="demo-sections">
-        <div class="demo-card">
-            <h3>🎵 AI Audio Demo</h3>
-            <audio controls>
-                <source src="data:audio/mpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-            <p>Real-time AI voice generation demo</p>
-        </div>
-        <div class="demo-card">
-            <h3>🎥 AI Video Demo</h3>
-            <video controls preload="metadata">
-                <source src="data:video/mp4;base64,/9j/4AAQSkZJRgABAQAAAQABAAD..." type="video/mp4">
-                Your browser does not support the video element.
-            </video>
-            <p>AI-powered campaign video sample</p>
-        </div>
-    </div>
-
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
-        // SAMPLE CANDIDATE DATA (Replace with your API)
-        const candidates = [
-            {id: 1, name: "रामलाल यादव", role: "mukhiya", party: "BJP", constituency: "पटना सदर"},
-            {id: 2, name: "सीता देवी", role: "sarpanch", party: "RJD", constituency: "दनियावां"},
-            {id: 3, name: "राहुल कुमार", role: "ward", party: "INC", constituency: "वard 12"},
-            {id: 4, name: "मोहनलाल पासवान", role: "mukhiya", party: "LJP", constituency: "मसौढ़ी"},
-            {id: 5, name "कमला देवी", role: "sarpanch", party: "BJP", constituency: "पालिगंज"}
+        [span_0](start_span)[span_1](start_span)[span_2](start_span)[span_3](start_span)[span_4](start_span)[span_5](start_span)// 100% FIXED DATABASE from provided PDF data[span_0](end_span)[span_1](end_span)[span_2](end_span)[span_3](end_span)[span_4](end_span)[span_5](end_span)
+        const leaders = [
+            {p: "अथरी", n: "आलोक कुमार", ph: "9431404766", t: "athri alok"},
+            {p: "गंगवारा बुजुर्ग", n: "सजी अहमद", ph: "9939115126", t: "gangwara buzurg saji ahmed"},
+            {p: "गुरुदह उर्फ गौसनगर", n: "आशा देवी", ph: "9939717998", t: "gausnagar asha devi"},
+            {p: "गिधा फुलवरिया", n: "राम लाल गम", ph: "020309004", t: "gidha fulwaria shravan ram lal"},
+            {p: "कौडिया लालपुर", n: "अबधेश साह", ph: "9801878799", t: "kauria lalpur abadhesh sah"},
+            {p: "ओलीपुर सरहचिया", n: "प्रमोद आनन्द", ph: "9576359734", t: "olipur sarhachia pramod anand"},
+            {p: "टिकौली", n: "निलम देवी", ph: "8877455944", t: "tikauli nilam devi"},
+            {p: "रुन्नीसैदपुर", n: "राम प्रीत राय", ph: "9931089201", t: "runnisaidpur ramprit"}
         ];
 
-        // SMOOTH SEARCH WITH DEBOUNCE (FIXED)
-        let searchTimeout;
-        const searchInput = document.getElementById('searchInput');
-        const searchResults = document.getElementById('searchResults');
-
-        searchInput.addEventListener('input', (e) => {
-            clearTimeout(searchTimeout);
-            searchTimeout = setTimeout(() => filterCandidates(e.target.value), 300);
-        });
-
-        function filterCandidates(query) {
-            searchResults.innerHTML = ''; // Clear old events
+        // FIXED SEARCH ENGINE
+        function smartSearch() {
+            const val = document.getElementById('mainSearch').value.trim().toLowerCase();
+            const display = document.getElementById('result-display');
             
-            if (!query.trim()) {
-                renderAllCandidates();
-                return;
+            if (val.length < 2) { 
+                display.style.display = 'none'; 
+                return; 
             }
-            
-            const filtered = candidates.filter(c => 
-                c.name.toLowerCase().includes(query.toLowerCase()) ||
-                c.constituency.toLowerCase().includes(query.toLowerCase())
+
+            // Dual Scan: Checks Name (n), Panchayat (p), and English tags (t)
+            const match = leaders.find(l => 
+                l.n.toLowerCase().includes(val) || 
+                l.p.toLowerCase().includes(val) || 
+                l.t.toLowerCase().includes(val)
             );
-            
-            if (filtered.length === 0) {
-                searchResults.innerHTML = '<p style="text-align:center;color:#666;">कोई परिणाम नहीं मिला</p>';
-                return;
+
+            if (match) {
+                display.style.display = 'block';
+                document.getElementById('resP').innerText = match.p;
+                document.getElementById('resN').innerText = "👑 " + match.n;
+                document.getElementById('waLink').href = `https://wa.me/91${match.ph}?text=नमस्ते ${match.n} जी! पटना AI स्टूडियो की तरफ से आपके चुनाव के लिए विशेष AI ऑफर...`;
+            } else {
+                display.style.display = 'none';
             }
-            
-            filtered.forEach(candidate => {
-                const card = document.createElement('div');
-                card.className = 'candidate-card';
-                card.innerHTML = `
-                    <div class="candidate-name">${candidate.name}</div>
-                    <p><strong>पद:</strong> ${candidate.role.toUpperCase()}</p>
-                    <p><strong>पार्टी:</strong> ${candidate.party}</p>
-                    <p><strong>क्षेत्र:</strong> ${candidate.constituency}</p>
-                    <button class="play-demo-btn" onclick="playCandidateAudio('${candidate.id}')">
-                        ▶️ Campaign Audio Play
-                    </button>
-                `;
-                searchResults.appendChild(card);
-            });
         }
 
-        function renderAllCandidates() {
-            candidates.forEach(candidate => {
-                const card = document.createElement('div');
-                card.className = 'candidate-card';
-                card.innerHTML = `
-                    <div class="candidate-name">${candidate.name}</div>
-                    <p><strong>पद:</strong> ${candidate.role.toUpperCase()}</p>
-                    <p><strong>पार्टी:</strong> ${candidate.party}</p>
-                    <p><strong>क्षेत्र:</strong> ${candidate.constituency}</p>
-                    <button class="play-demo-btn" onclick="playCandidateAudio('${candidate.id}')">
-                        ▶️ Campaign Audio Play
-                    </button>
-                `;
-                searchResults.appendChild(card);
-            });
+        function unlock() {
+            setTimeout(() => {
+                document.getElementById('fbGate').style.display = 'none';
+                document.getElementById('demoGrid').style.display = 'grid';
+            }, 1000);
         }
 
-        // RAZORPAY PAYMENT (Replace with your key)
-        function initiatePayment() {
+        function checkout(amt, pkg) {
             const options = {
-                key: 'rzp_test_your_key_here',
-                amount: 99900, // ₹999
-                currency: 'INR',
-                name: 'Patna AI Studio',
-                description: 'ElectionDB Premium - 1 Month',
-                image: 'https://your-logo-url.com/logo.png',
-                handler: function(response) {
-                    alert('✅ Payment Successful! Premium activated.
-Payment ID: ' + response.razorpay_payment_id);
-                    // Call your backend API to activate premium
-                },
-                prefill: {
-                    name: 'Candidate Name',
-                    email: 'candidate@example.com',
-                    contact: '9431234567'
-                },
-                theme: {
-                    color: '#667eea'
+                "key": "rzp_test_RzNCtwgr2LMD2q", // Test Key
+                "amount": amt * 100,
+                "currency": "INR",
+                "name": "Patna AI Studio Pro",
+                "description": pkg + " Campaign Kit",
+                "theme": {"color": "#FFD700"},
+                "handler": function (resp) {
+                    alert("भुगतान सफल! ID: " + resp.razorpay_payment_id);
+                    window.location.href = `https://wa.me/918210073056?text=Payment Successful! ID:${resp.razorpay_payment_id}`;
                 }
             };
-            const rzp = new Razorpay(options);
-            rzp.open();
+            new Razorpay(options).open();
         }
-
-        // 3 AUDIO SECTIONS FUNCTIONALITY
-        const demoAudios = {
-            mukhiya: 'data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAo',
-            sarpanch: 'data:audio/wav;base64,UklGRmQCAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAo',
-            ward: 'data:audio/wav;base64,UklGRl4CAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAo'
-        };
-
-        function playAudio(role) {
-            const audio = document.getElementById(`${role}Audio`);
-            audio.src = demoAudios[role];
-            audio.play().catch(e => console.log('Audio play failed:', e));
-        }
-
-        function playCandidateAudio(id) {
-            // Simulate candidate specific audio
-            const audio = new Audio(demoAudios.mukhiya);
-            audio.play();
-        }
-
-        // Initialize
-        renderAllCandidates();
     </script>
 </body>
 </html>
+
