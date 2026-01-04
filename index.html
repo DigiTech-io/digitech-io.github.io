@@ -3,496 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PATNA AI STUDIO PRO | Bihar Election 2026</title>
+    <title>PATNA AI STUDIO PRO | Bihar Election Hub 2026 🚀</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700;900&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Bihar Election Colors */
-            --bihar-gold: #FCD34D;
-            --bihar-blue: #1E40AF;
-            --bihar-orange: #F97316;
-            --success-green: #10B981;
-            --dark-bg: #0F172A;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --glass-bg: rgba(255, 255, 255, 0.9);
-            --shadow-gold: rgba(252, 211, 77, 0.4);
-            --text-dark: #1E293B;
+            --bihar-gold: #FCD34D; --bihar-blue: #1E40AF; --bihar-orange: #F97316;
+            --success-green: #10B981; --dark-bg: #0F172A; --glass-bg: rgba(255, 255, 255, 0.95);
+            --shadow-gold: rgba(252, 211, 77, 0.4); --glass-glow: rgba(251,191,36,0.25);
+            --gradient-main: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
+            --gradient-card: linear-gradient(145deg, rgba(30,58,138,0.95), rgba(59,130,246,0.85));
+            --gradient-gold: linear-gradient(135deg, #fbbf24, #f59e0b);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
-            color: var(--text-dark);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
+        body { font-family: 'Poppins', sans-serif; background: var(--dark-bg); color: #e2e8f0; line-height: 1.6; overflow-x: hidden; }
 
-        /* PERFECT RESPONSIVE CONTAINER */
-        .container {
-            max-width: 1600px;
-            margin: 0 auto;
-            padding: 0 clamp(20px, 4vw, 40px);
-        }
-
-        /* Navbar - Mobile Hamburger */
-        .navbar {
-            background: rgba(30, 64, 175, 0.98);
-            backdrop-filter: blur(25px);
-            position: fixed;
-            top: 0; width: 100%; z-index: 1000;
-            box-shadow: 0 4px 25px rgba(30, 64, 175, 0.4);
-            padding: 1rem 0;
-        }
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        .logo-nav {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.5rem;
-            font-weight: 900;
-            background: linear-gradient(45deg, var(--bihar-gold), white);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            font-size: 15px;
-            white-space: nowrap;
-        }
-        .nav-link:hover, .nav-link.active {
-            background: var(--bihar-gold);
-            color: var(--bihar-blue);
-            transform: translateY(-2px);
-        }
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 4px;
-        }
-        .hamburger span {
-            width: 30px;
-            height: 3px;
-            background: white;
-            border-radius: 3px;
-            transition: 0.3s;
-        }
+        /* Navbar */
+        .navbar { background: rgba(15,23,42,0.95); backdrop-filter: blur(25px); position: fixed; top: 0; width: 100%; z-index: 1000; padding: 1rem 0; border-bottom: 2px solid var(--bihar-gold); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px; }
+        .logo-nav { font-family: 'Orbitron'; font-weight: 900; color: var(--bihar-gold); font-size: 1.2rem; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-link { color: white; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        .nav-link:hover { color: var(--bihar-gold); }
 
         /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--bihar-blue), #3B82F6);
-            padding: clamp(120px, 20vh, 200px) 0 clamp(80px, 15vh, 140px);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .logo {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(2.8rem, 10vw, 7rem);
-            font-weight: 900;
-            background: linear-gradient(45deg, var(--bihar-gold), white);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: clamp(15px, 4vw, 25px);
-            text-shadow: 0 0 40px var(--bihar-gold);
-        }
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 4vw, 2.5rem);
-            font-weight: 700;
-            color: white;
-            max-width: 900px;
-            margin: 0 auto 30px;
-            opacity: 0.95;
-            line-height: 1.4;
-        }
+        .hero { background: var(--gradient-main); padding: 140px 20px 80px; text-align: center; position: relative; }
+        .logo-text { font-family: 'Orbitron'; font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; color: var(--bihar-gold); text-shadow: 0 0 20px var(--shadow-gold); }
 
-        /* Sections */
-        .section {
-            padding: clamp(80px, 15vw, 140px) 0;
-        }
-        .section-title {
-            font-family: 'Orbitron', monospace;
-            font-size: clamp(2.2rem, 6vw, 4.5rem);
-            text-align: center;
-            background: linear-gradient(45deg, var(--bihar-gold), #FBBF24);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: clamp(40px, 8vw, 80px);
-            font-weight: 800;
-        }
+        /* Packages Grid */
+        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; padding: 50px 20px; max-width: 1300px; margin: auto; }
+        .package-card { background: var(--gradient-card); border: 2px solid rgba(251,191,36,0.3); border-radius: 30px; padding: 2.5rem; text-align: center; transition: 0.4s; }
+        .package-card:hover { transform: translateY(-15px); border-color: var(--bihar-gold); box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        
+        .audio-player-box { background: rgba(16,185,129,0.15); border: 1px solid var(--success-green); border-radius: 20px; padding: 1rem; margin: 1.5rem 0; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .audio-btn { background: var(--success-green); color: white; border: none; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; }
+        
+        /* Search Section */
+        #search-section { padding: 80px 20px; text-align: center; background: #000; }
+        .search-box { width: 90%; max-width: 750px; padding: 22px 40px; border-radius: 50px; border: 4px solid var(--bihar-gold); background: #111; color: #fff; font-size: 1.5rem; text-align: center; outline: none; }
+        
+        /* Results */
+        #result-container { display: none; margin: 40px auto; max-width: 1200px; }
+        .leader-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 2rem; }
+        .leader-card { background: var(--gradient-card); border: 3px solid var(--bihar-gold); border-radius: 35px; padding: 2.5rem; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.5); animation: fadeInUp 0.5s ease; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* PERFECT RESPONSIVE GRID */
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(clamp(350px, 28vw, 450px), 1fr));
-            gap: clamp(25px, 4vw, 45px);
-            margin-top: 50px;
-        }
-
-        /* Package Cards */
-        .package-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            border-radius: 30px;
-            padding: clamp(35px, 6vw, 55px);
-            text-align: center;
-            border: 3px solid rgba(252, 211, 77, 0.25);
-            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-        .package-card:hover {
-            transform: translateY(-15px);
-            border-color: var(--bihar-gold);
-            box-shadow: 0 40px 100px var(--shadow-gold);
-        }
-        .package-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, var(--bihar-gold), var(--bihar-orange));
-            border-radius: 30px 30px 0 0;
-        }
-        .package-icon { 
-            font-size: clamp(3rem, 8vw, 5rem); 
-            margin-bottom: clamp(15px, 3vw, 25px); 
-        }
-        .package-title {
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            font-weight: 800;
-            color: var(--bihar-blue);
-            margin-bottom: 15px;
-        }
-        .price-tag {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 900;
-            background: linear-gradient(45deg, var(--bihar-gold), var(--bihar-orange));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: clamp(20px, 4vw, 30px) 0;
-        }
-        .package-features {
-            text-align: left;
-            margin: clamp(25px, 5vw, 40px) 0;
-        }
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 16px;
-            font-size: clamp(1rem, 2.5vw, 1.15rem);
-            color: var(--text-dark);
-        }
-        .feature i { 
-            color: var(--success-green); 
-            font-size: clamp(1.1rem, 3vw, 1.4rem); 
-            min-width: 25px;
-        }
-
-        /* Audio Player - Responsive */
-        .audio-demo {
-            background: linear-gradient(135deg, rgba(16,185,129,0.18), rgba(16,185,129,0.08));
-            border: 2px solid rgba(16,185,129,0.35);
-            border-radius: 20px;
-            padding: clamp(20px, 4vw, 30px);
-            margin: clamp(25px, 5vw, 40px) 0;
-        }
-        .audio-title {
-            font-weight: 700;
-            color: var(--success-green);
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            margin-bottom: clamp(12px, 2.5vw, 20px);
-            text-align: center;
-        }
-        .audio-player {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: clamp(10px, 2vw, 18px);
-        }
-        .audio-btn {
-            background: var(--success-green);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: clamp(50px, 10vw, 65px);
-            height: clamp(50px, 10vw, 65px);
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(16,185,129,0.4);
-        }
-        .audio-btn:hover { transform: scale(1.08); }
-        .audio-btn.playing { background: var(--bihar-orange); }
-        .audio-status { 
-            font-weight: 600; 
-            font-size: clamp(1rem, 2.5vw, 1.2rem); 
-            color: var(--text-dark); 
-        }
-
-        .rzp-btn {
-            background: linear-gradient(45deg, var(--bihar-gold), var(--bihar-orange));
-            color: var(--bihar-blue);
-            padding: clamp(14px, 3vw, 22px) clamp(30px, 6vw, 50px);
-            border: none;
-            border-radius: 35px;
-            font-weight: 800;
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 15px 35px var(--shadow-gold);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            width: 100%;
-            margin-top: 10px;
-        }
-        .rzp-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 25px 50px var(--shadow-gold);
-        }
-
-        /* Search */
-        .search-wrapper {
-            max-width: clamp(500px, 60vw, 950px);
-            margin: 0 auto 50px;
-        }
-        .search-box {
-            width: 100%;
-            padding: clamp(20px, 4vw, 30px) clamp(30px, 6vw, 50px);
-            border-radius: 50px;
-            border: 4px solid rgba(252, 211, 77, 0.4);
-            background: var(--glass-bg);
-            color: var(--text-dark);
-            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
-            font-weight: 600;
-            outline: none;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-            transition: all 0.4s ease;
-        }
-        .search-box:focus {
-            border-color: var(--bihar-gold);
-            box-shadow: 0 0 0 5px var(--shadow-gold), 0 30px 70px rgba(0,0,0,0.3);
-            transform: translateY(-5px);
-        }
-        .search-hint {
-            text-align: center;
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            color: rgba(255,255,255,0.9);
-            margin-top: clamp(15px, 3vw, 25px);
-            font-weight: 500;
-        }
-
-        /* Leader Cards */
-        .leader-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(clamp(380px, 32vw, 480px), 1fr));
-            gap: clamp(25px, 4vw, 45px);
-        }
-        .leader-card {
-            background: var(--glass-bg);
-            border-radius: 25px;
-            padding: clamp(35px, 6vw, 50px);
-            text-align: center;
-            border: 3px solid rgba(252, 211, 77, 0.3);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-            transition: all 0.4s ease;
-        }
-        .leader-card:hover {
-            transform: translateY(-12px);
-            border-color: var(--bihar-gold);
-            box-shadow: 0 35px 80px var(--shadow-gold);
-        }
-        .panchayat-label {
-            color: var(--bihar-gold);
-            font-size: clamp(0.95rem, 2.5vw, 1.2rem);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: clamp(10px, 2vw, 18px);
-        }
-        .panchayat-name {
-            font-size: clamp(1.8rem, 5vw, 2.6rem);
-            color: var(--bihar-blue);
-            font-weight: 800;
-            margin-bottom: clamp(12px, 2.5vw, 20px);
-            font-family: 'Noto Sans Devanagari', serif;
-        }
-        .mukhiya-name {
-            font-size: clamp(1.4rem, 4vw, 1.9rem);
-            color: var(--bihar-gold);
-            margin-bottom: clamp(25px, 5vw, 40px);
-            font-weight: 700;
-        }
-        .action-buttons {
-            display: flex;
-            gap: clamp(15px, 3vw, 25px);
-            flex-wrap: wrap;
-        }
-        .btn {
-            flex: 1;
-            min-width: clamp(140px, 25vw, 200px);
-            padding: clamp(15px, 3vw, 22px) 0;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: clamp(1rem, 2.8vw, 1.2rem);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            transition: all 0.3s ease;
-        }
-        .wa-btn { background: linear-gradient(135deg, var(--success-green), #059669); color: white; }
-        .call-btn { background: linear-gradient(135deg, var(--bihar-orange), #EA580C); color: white; }
-        .btn:hover { transform: translateY(-5px) scale(1.02); }
-
-        /* Payment Section */
-        #payment {
-            padding: clamp(80px, 15vw, 140px);
-            text-align: center;
-            background: linear-gradient(135deg, rgba(252,211,77,0.18), rgba(30,64,175,0.12));
-            border-radius: 30px;
-            margin: clamp(60px, 10vw, 100px) 0;
-            border: 4px dashed rgba(252,211,77,0.6);
-        }
-        .payment-title {
-            font-size: clamp(2.5rem, 7vw, 4rem);
-            color: var(--bihar-gold);
-            margin-bottom: clamp(20px, 4vw, 35px);
-            font-family: 'Orbitron', monospace;
-        }
-        #rzp-button1 { max-width: 400px; margin: 0 auto; }
-
-        /* FAB - Mobile Hide on Desktop */
-        .fab-group {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            z-index: 1001;
-        }
-        .fab {
-            width: clamp(55px, 12vw, 75px);
-            height: clamp(55px, 12vw, 75px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: clamp(1.3rem, 4vw, 2rem);
-            text-decoration: none;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
-            transition: all 0.3s ease;
-        }
-        .fab-wa { background: var(--success-green); color: white; }
-        .fab-call { background: var(--bihar-orange); color: white; }
-        .fab:hover { transform: translateY(-8px) scale(1.1); }
-
-        /* No Results */
-        #noResults {
-            color: #EF4444;
-            font-size: clamp(2rem, 6vw, 3rem);
-            font-weight: 800;
-            text-align: center;
-            padding: clamp(40px, 10vw, 80px);
-            background: rgba(239,68,68,0.12);
-            border-radius: 25px;
-            border: 3px dashed #EF4444;
-            margin-top: 50px;
-        }
-
-        /* MOBILE MENU */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hamburger { display: flex; }
-            .nav-links.mobile {
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: rgba(30, 64, 175, 0.98);
-                flex-direction: column;
-                padding: 2rem 0;
-                text-align: center;
-                backdrop-filter: blur(20px);
-            }
-            .action-buttons { flex-direction: column; }
-            .fab-group { bottom: 20px; right: 20px; }
-        }
-
-        /* TABLET */
-        @media (max-width: 1024px) {
-            .grid-3 { grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); }
-        }
-
-        /* Hide audio on very small screens */
-        @media (max-width: 480px) {
-            .audio-demo { display: none; }
-        }
+        .rzp-btn { background: var(--gradient-gold); color: #000; padding: 1rem 2rem; border: none; border-radius: 50px; font-weight: 800; cursor: pointer; width: 100%; font-size: 1.2rem; }
+        
+        .fab-group { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 1001; }
+        .fab { width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #fff; text-decoration: none; box-shadow: 0 10px 25px rgba(0,0,0,0.4); }
     </style>
 </head>
 <body>
-    <!-- COMPLETE RESPONSIVE HTML -->
+
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo-nav">PATNA AI STUDIO</div>
-            <div class="nav-links" id="navLinks">
-                <a href="#home" class="nav-link active">Home</a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link">Home</a>
                 <a href="#packages" class="nav-link">Packages</a>
                 <a href="#search-section" class="nav-link">Search</a>
                 <a href="#payment" class="nav-link">Pay Now</a>
             </div>
-            <div class="hamburger" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
-    <!-- HERO, PACKAGES, SEARCH, PAYMENT SECTIONS WITH RESPONSIVE CLASSES -->
-    <!-- [Complete HTML structure with grid-3 for packages, leader-grid for results] -->
+    <header class="hero" id="home">
+        <h1 class="logo-text">PATNA AI STUDIO PRO</h1>
+        <p style="font-size: 1.5rem; font-weight: 700;">🚀 BIHAR PANCHAYAT ELECTION 2026</p>
+    </header>
 
+    <section class="packages-grid" id="packages">
+        <div class="package-card">
+            <div style="font-size:3rem;">👑</div>
+            <h2 style="color: var(--bihar-gold); margin-bottom: 10px;">MUKHIYA SUPREME</h2>
+            <p style="font-size: 2.5rem; font-weight: 900;">₹999</p>
+            <div class="audio-player-box">
+                <button class="audio-btn" onclick="toggleAudio('mukhiyaAudio', this)"><i class="fas fa-play"></i></button>
+                <span>Play Anthem Demo</span>
+                <audio id="mukhiyaAudio" src="demo-mukhiya.mp3"></audio>
+            </div>
+            <button class="rzp-btn" onclick="payNow(999, 'MUKHIYA')">BUY NOW</button>
+        </div>
+
+        <div class="package-card">
+            <div style="font-size:3rem;">⚖️</div>
+            <h2 style="color: var(--bihar-gold); margin-bottom: 10px;">SARPANCH PRO</h2>
+            <p style="font-size: 2.5rem; font-weight: 900;">₹499</p>
+            <div class="audio-player-box">
+                <button class="audio-btn" onclick="toggleAudio('sarpanchAudio', this)"><i class="fas fa-play"></i></button>
+                <span>Play Nyay Demo</span>
+                <audio id="sarpanchAudio" src="demo-sarpanch.mp3"></audio>
+            </div>
+            <button class="rzp-btn" onclick="payNow(499, 'SARPANCH')">BUY NOW</button>
+        </div>
+    </section>
+
+    <section id="search-section">
+        <h2 style="font-family:'Orbitron'; color: var(--bihar-gold); margin-bottom: 2rem;">🔍 AI SMART SEARCH</h2>
+        <input type="text" id="dbSearch" class="search-box" placeholder="Type Alok/आलोक or Athri/अथरी..." onkeyup="searchLeader()">
+        
+        <div id="result-container">
+            <div id="leaderList" class="leader-grid"></div>
+            <div id="noResults" style="display:none; color: #f87171; font-size: 2rem; margin-top: 2rem;">❌ No Candidate Found</div>
+        </div>
+    </section>
+
+    <div id="payment" style="text-align:center; padding: 100px 20px;">
+        <h2 style="color: var(--bihar-gold); font-size: 3rem; margin-bottom: 2rem;">💳 PAY & START NOW</h2>
+        <button id="rzp-button1" class="rzp-btn" style="max-width: 400px; padding: 1.5rem;">ACTIVATE CAMPAIGN</button>
+    </div>
+
+    <div class="fab-group">
+        <a href="https://wa.me/918210073056" class="fab" style="background: var(--success-green);"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+918210073056" class="fab" style="background: var(--bihar-orange);"><i class="fas fa-phone"></i></a>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
-        // MOBILE MENU TOGGLE
-        function toggleMobileMenu() {
-            const links = document.getElementById('navLinks');
-            links.classList.toggle('mobile');
+        const leaders = [
+            {p: "अथरी", n: "आलोक कुमार", ph: "9934279093", map: "Athri Alok Kumar"},
+            {p: "ओलीपुर सरहचिया", n: "प्रमोद आनन्द", ph: "9576359734", map: "Olipur Pramod Anand"},
+            {p: "कौडिया लालपुर", n: "अबधेश साह", ph: "9801878799", map: "Kauria Abadhesh Sah"},
+            {p: "गंगवारा बुजुर्ग", n: "सजी अहमद", ph: "9939115126", map: "Gangwara Saji Ahmed"},
+            {p: "गुरुदह उर्फ गौसनगर", n: "आशा देवी", ph: "9939717998", map: "Gausnagar Asha Devi"},
+            {p: "गिधा फुलवरिया", n: "श्रवण साह", ph: "8210339904", map: "Gidha Shravan Sah"},
+            {p: "टिकौली", n: "निलम देवी", ph: "8877455944", map: "Tikauli Nilam Devi"},
+            {p: "तिलकताजपुर", n: "मधुलिका देवी", ph: "7050302306", map: "Tilaktajpur Madhulika Devi"},
+            {p: "थुम्मा", n: "रीना देवी", ph: "9708838142", map: "Thumma Reena Devi"},
+            {p: "देवना बुजुर्ग", n: "माधुरी देवी", ph: "8789229959", map: "Devna Madhuri Devi"},
+            {p: "धनुषी", n: "दिलीप कुमार पासवान", ph: "9576448601", map: "Dhanushi Dilip Paswan"},
+            {p: "प्रेमनगर", n: "धर्मेन्द्र कमती", ph: "834394724", map: "Premnagar Dharmendra Kamti"},
+            {p: "बगाही रामनगर", n: "रेणु देवी", ph: "9973259063", map: "Bagahi Renu Devi"},
+            {p: "बघाड़ी", n: "रानी देवी", ph: "8084852630", map: "Baghari Rani Devi"},
+            {p: "बरहेत्ता", n: "प्रमिला देवी", ph: "9631540736", map: "Barhetta Pramila Devi"},
+            {p: "बलुआ", n: "नवीन कुमार", ph: "8789109853", map: "Balua Naveen Kumar"},
+            {p: "बुलन्दपुर", n: "रविशंकर यादव", ph: "9931669238", map: "Bulandpur Ravi Shankar"},
+            {p: "बेलाही नीलकंठ", n: "संजू देवी", ph: "7482832733", map: "Belahi Sanju Devi"},
+            {p: "मधौल खानी", n: "अनिता देवी", ph: "9572551531", map: "Madhaul Anita Devi"},
+            {p: "महेशा फरकपुर", n: "टीमा देवी", ph: "8969054602", map: "Mahesha Teema Devi"},
+            {p: "महिन्दवारा", n: "पूनम देवी", ph: "8507636404", map: "Mahindwara Poonam Devi"},
+            {p: "महिसार", n: "राम लखन राय", ph: "9708984611", map: "Mahisar Ram Lakhan"},
+            {p: "मोरसंड", n: "कामनी सिंह", ph: "9771683366", map: "Morsand Kamini Singh"},
+            {p: "मानिक चौक उत्तरी", n: "अनुराधा कुमारी", ph: "9708053007", map: "Manik North Anuradha"},
+            {p: "मानिक चौक दक्षिणी", n: "राम नारायण साह", ph: "9576681301", map: "Manik South Ram Narayan"},
+            {p: "मानिक चौक पश्चिमी", n: "एकनाथ झा", ph: "7903795502", map: "Manik West Eknath Jha"},
+            {p: "रुन्नीसैदपुर उत्तरी", n: "सगेयान देवी", ph: "9525571234", map: "Runnisaidpur North"},
+            {p: "रुन्नीसैदपुर मध्य", n: "प्रमिला देवी", ph: "7091942730", map: "Runnisaidpur Central"},
+            {p: "रुन्नीसैदपुर दक्षिणी", n: "राम प्रीत राय", ph: "9931089201", map: "Runnisaidpur South"},
+            {p: "रुन्नीसैदपुर पश्चिमी", n: "विनय कुमार", ph: "9934279589", map: "Runnisaidpur West"},
+            {p: "सिरखिरिया", n: "मुकेश बैठा", ph: "9631925281", map: "Sirkhiria Mukesh Baitha"},
+            {p: "टैन विशुनी", n: "किरण देवी", ph: "9934659459", map: "Tain Kiran Devi"},
+            {p: "बहेरा", n: "शशि भूषण सिंह", ph: "9934415250", map: "Bahera Shashi Bhushan"}
+        ];
+
+        function searchLeader() {
+            const input = document.getElementById('dbSearch').value.trim().toLowerCase();
+            const container = document.getElementById('result-container');
+            const list = document.getElementById('leaderList');
+            const noRes = document.getElementById('noResults');
+
+            if (input.length >= 2) {
+                const matches = leaders.filter(l => 
+                    l.p.toLowerCase().includes(input) || l.n.toLowerCase().includes(input) || l.map.toLowerCase().includes(input)
+                );
+
+                if (matches.length > 0) {
+                    container.style.display = 'block'; noRes.style.display = 'none';
+                    list.innerHTML = matches.map(l => `
+                        <div class="leader-card">
+                            <div style="color:var(--bihar-gold); font-weight:900;">PANCHAYAT</div>
+                            <h3 style="font-size:2rem; color:#fff; font-family:'Noto Sans Devanagari';">${l.p}</h3>
+                            <p style="font-size:1.5rem; margin:10px 0; color:var(--bihar-gold);">👑 मुखिया: ${l.n}</p>
+                            <div style="display:flex; gap:10px; margin-top:20px;">
+                                <a href="https://wa.me/91${l.ph}?text=Namaste ${l.n} Ji, I saw your profile on Patna AI Studio..." style="flex:1; background:var(--success-green); color:#fff; padding:15px; border-radius:50px; text-decoration:none; font-weight:800;"><i class="fab fa-whatsapp"></i> WA</a>
+                                <a href="tel:+91${l.ph}" style="flex:1; background:var(--bihar-orange); color:#fff; padding:15px; border-radius:50px; text-decoration:none; font-weight:800;"><i class="fas fa-phone"></i> CALL</a>
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    list.innerHTML = ''; noRes.style.display = 'block'; container.style.display = 'block';
+                }
+            } else { container.style.display = 'none'; }
         }
 
-        // SMOOTH SCROLL
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-                // Close mobile menu
-                document.getElementById('navLinks').classList.remove('mobile');
-            });
-        });
+        function toggleAudio(id, btn) {
+            const audio = document.getElementById(id);
+            const icon = btn.querySelector('i');
+            if (audio.paused) { audio.play(); icon.className = 'fas fa-pause'; } 
+            else { audio.pause(); icon.className = 'fas fa-play'; }
+        }
 
-        // [Previous audio + Razorpay + search functions remain exactly same]
+        function payNow(amount, pkg) {
+            var options = { "key": "rzp_test_RzNCtwgr2LMD2q", "amount": amount * 100, "currency": "INR", "name": "Patna AI Studio Pro", "description": pkg + " Campaign", "handler": function(res){ alert("Payment Success!"); } };
+            new Razorpay(options).open();
+        }
+
+        document.getElementById('rzp-button1').onclick = function(e){ payNow(999, 'PREMIUM'); e.preventDefault(); }
     </script>
 </body>
 </html>
